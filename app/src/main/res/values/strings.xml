@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Mi Club PTY</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="base_service_url">http://192.168.1.118/LogicStudio.MiClubPyme.Service.Mobile</string>
+    <string name="base_website_url">http://192.168.1.118/miclubweb</string>
+    <!--<string name="base_service_url">http://www.logicstudiolabs.com/miclubptyapi</string>
+     <string name="base_website_url">http://www.miclubpty.com/</string>-->
+    <string name="progress_bar_title">Por favor espere</string>
+    <string name="progress_bar_message">Procesando petición...</string>
+
+     <string name="connection_message">Ústed no esta conectado a Internet, Por favor verifique el dispositivo.</string>
+
+    <string name="date_format">yyyy-MM-dd</string>
+    <string name="tipo_promocion_prompt">Escoja Tipo</string>
+    <string-array name="tipo_promocion">
+        <item>Promoción</item>
+        <item>Descuento</item>
+    </string-array>
+ </resources>

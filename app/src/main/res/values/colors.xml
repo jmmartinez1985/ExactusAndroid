@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="white">#fff</color>
+
+    <!--El color de fondo del texto de la promo destacada en la pantalla principal-->
+    <color name="main_promo_background">#717171</color>
+    <color name="main_promo_textColor">#fff</color>
+
+    <!--El color de los encabezados de las listas.-->
+    <color name="list_header">#e2e2e2</color>
+    <color name="list_header_border">#a0a0a0</color>
+
+    <color name="action_bar_background">#90D7EB</color>
+    <color name="action_bar_text_color">#fff</color>
+
+    <color name="primaryColor">#90D7EB</color>
+    <color name="secondaryColor">#FBB158</color>
+
+    <color name="backgroundColor">#FFF</color>
+    <color name="labelTextColor">#3E3F3A</color>
+
+</resources>
