@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.wifi.WifiInfo;
+import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -18,7 +20,9 @@ import android.text.SpannableStringBuilder;
 import android.text.style.RelativeSizeSpan;
 import android.view.Gravity;
 
+import exactus.jp.exactusjpapp.model.Devices;
 import exactus.jp.exactusjpapp.services.Connectivity;
+import exactus.jp.exactusjpapp.services.Device;
 import exactus.jp.exactusjpapp.services.ServiceCallBack;
 
 /**
@@ -82,6 +86,42 @@ public class LoginActivity extends Activity {
                         toast.show();
                         return;
                     }
+
+                    WifiManager manager = (WifiManager) getSystemService(Context.WIFI_SERVICE);
+                    WifiInfo info = manager.getConnectionInfo();
+                    String address = info.getMacAddress();
+
+                    Device.ObtenerDispositivo(
+                            LoginActivity.this,
+                            address,
+                            new ServiceCallBack<Devices>() {
+                                @Override
+                                public void onPostExecute(Devices device) {
+                                    // Almacena el device en una variable global.
+                                    if (device == null) {
+                                        Toast.makeText(getBaseContext(), "El usuario o la contrase\u00F1a es incorrecta.", Toast.LENGTH_LONG).show();
+                                    } else {
+                                        DeviceAppApplication app = (DeviceAppApplication) getApplication();
+                                        app.setDevice(device);
+
+
+                                        // Guarda el nombre del usuario para usarlo como usuario por defecto cuando el usuario vuelva a abrir el app.
+                                        SharedPreferences.Editor editor = prefs.edit();
+                                        editor.putString("userName", usuario);
+                                        editor.commit();
+
+                                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                                        startActivity(intent);
+                                        finish();
+                                    }
+                                }
+
+                                @Override
+                                public void onException(Exception ex) {
+                                    Log.d("Error", ex.getLocalizedMessage());
+                                    Toast.makeText(getBaseContext(), ex.getLocalizedMessage(), Toast.LENGTH_LONG).show();
+                                }
+                            });
 
 
                 } catch (Exception ex) {
