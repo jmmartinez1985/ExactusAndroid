@@ -7,6 +7,12 @@ import java.util.ArrayList;
  */
 public class Devices {
 
+    public Devices(){
+
+        opcionesList = new ArrayList<Opciones>();
+    }
+
+
     public int IDDispositivo;
     public int IDEmpresa;
     public String NombreDispositivo;
