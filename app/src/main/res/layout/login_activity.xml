@@ -9,7 +9,7 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:scaleType = "centerCrop"
-        android:src="@drawable/cover"></ImageView>
+        android:src="@drawable/exactus_background_1"></ImageView>
 
     <RelativeLayout
         android:layout_width="fill_parent"
@@ -32,7 +32,7 @@
             android:layout_height="70dp"
             android:layout_gravity="left"
             android:layout_marginTop="0dp"
-            android:src="@drawable/miclubpty"/>
+            android:src="@drawable/exactus_1"/>
 
         <!--<TextView
             android:id="@+id/Point"
@@ -47,7 +47,7 @@
             android:id="@+id/txt1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Atrae más clientes."
+            android:text="Crea transacciones rápidamente."
             android:layout_below="@+id/imgMiClub"
             android:textSize="20sp"
             android:textColor="@color/white" />
@@ -56,7 +56,7 @@
             android:id="@+id/txt2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Promociona tu negocio."
+            android:text="Mantente conectado."
             android:layout_below="@+id/txt1"
             android:textSize="20sp"
             android:textColor="@color/white" />
@@ -65,7 +65,7 @@
             android:id="@+id/txt3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Vende más."
+            android:text="Exactus Mobile."
             android:layout_below="@+id/txt2"
             android:textSize="20sp"
             android:textColor="@color/white" />

@@ -18,7 +18,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:gravity="center"
-        android:text="Mi Club PTY - Vende más"
+        android:text="Exactus Mobile"
         android:textColor="@color/action_bar_text_color"
         android:layout_centerInParent="true"
         android:textAppearance="?android:attr/textAppearanceLarge"/>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="50dp"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp">
+
+    <ImageView
+        android:id="@+id/img"
+        android:layout_height="70dp"
+        android:layout_width="70dp"
+        style="@style/ListViewItemImage" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="5sp">
+
+        <TextView
+            android:id="@+id/txt"
+            style="@style/ListViewItemTitle"
+            android:capitalize="characters"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:focusable="false"
+            android:clickable="false"
+            android:textColor="@color/labelTextColor" />
+
+        <TextView
+            android:id="@+id/txtSubText"
+            android:layout_below="@id/txt"
+            style="@style/ListViewItemSubTitle"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:focusable="false"
+            android:clickable="false"
+            android:textColor="@color/labelTextColor"/>
+
+        <RatingBar
+            android:id="@+id/ratingBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txtSubText"
+            android:layout_centerVertical="true"
+            android:numStars="5"
+            style="@style/foodRatingBar"
+            android:isIndicator="true"
+            android:focusable="false"
+            android:focusableInTouchMode="false" />
+
+    </RelativeLayout>
+</LinearLayout>
