@@ -103,7 +103,11 @@ public class LoginActivity extends Activity {
                                     } else {
                                         DeviceAppApplication app = (DeviceAppApplication) getApplication();
                                         app.setDevice(device);
+                                        app.setUsuario(usuario);
+                                        app.setPassword(password);
 
+                                        //Inicializa la cadena de conexión de los servicios.
+                                        Common.RootServiceUrl = device.empresaObject.UrlApi;
 
                                         // Guarda el nombre del usuario para usarlo como usuario por defecto cuando el usuario vuelva a abrir el app.
                                         SharedPreferences.Editor editor = prefs.edit();

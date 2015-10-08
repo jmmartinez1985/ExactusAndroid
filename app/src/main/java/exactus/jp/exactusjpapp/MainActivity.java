@@ -80,8 +80,7 @@ public class MainActivity extends ActionBarActivity {
             overridePendingTransition(R.anim.pull_in_from_left, R.anim.hold);
             setContentView(R.layout.activity_main);
 
-            //Inicializa la cadena de conexión de los servicios.
-            Common.RootServiceUrl = getString(R.string.base_service_url);
+
 
             // Inicializa el image loader (debe hacerse antes de usarlo).
             // Esta clase sirve para descargar imagenes por http y cachearlas en disco.
