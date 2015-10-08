@@ -1,6 +1,7 @@
 package exactus.jp.exactusjpapp;
 
 import exactus.jp.exactusjpapp.model.PedidoDetalle;
+import exactus.jp.exactusjpapp.model.PedidoLineaParametros;
 
 /**
  * Representa un item a agregar a un ListView.
@@ -18,7 +19,7 @@ public class ListViewItem {
     public ListViewItem() {
     }
 
-    public ListViewItem(PedidoDetalle detalle) {
+    public ListViewItem(PedidoLineaParametros detalle) {
 
     }
 
