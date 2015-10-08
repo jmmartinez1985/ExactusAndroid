@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
@@ -20,9 +21,12 @@ import android.text.SpannableStringBuilder;
 import android.text.style.RelativeSizeSpan;
 import android.view.Gravity;
 
+import org.json.JSONObject;
+
 import exactus.jp.exactusjpapp.model.Devices;
 import exactus.jp.exactusjpapp.services.Connectivity;
 import exactus.jp.exactusjpapp.services.Device;
+import exactus.jp.exactusjpapp.services.Exactus;
 import exactus.jp.exactusjpapp.services.ServiceCallBack;
 
 /**
@@ -36,7 +40,7 @@ public class LoginActivity extends Activity {
         setContentView(R.layout.login_activity);
 
         //Inicializa la cadena de conexion de los servicios.
-        Common.RootServiceUrl = getString(R.string.base_service_url);
+        Common.RootServiceUrl = getString(R.string.base_service_url_licence);
         Common.RootWebSiteUrl = getString(R.string.base_website_url);
 
         // Busca el nombre de usuario que se ha logueado con anterioridad a la aplicacion.
@@ -107,16 +111,19 @@ public class LoginActivity extends Activity {
                                         app.setPassword(password);
 
                                         //Inicializa la cadena de conexión de los servicios.
-                                        Common.RootServiceUrl = device.empresaObject.UrlApi;
+                                        //Common.RootServiceUrl = device.empresaObject.UrlApi;
+                                        Common.RootServiceUrl = getString(R.string.base_service_url_core);
 
                                         // Guarda el nombre del usuario para usarlo como usuario por defecto cuando el usuario vuelva a abrir el app.
                                         SharedPreferences.Editor editor = prefs.edit();
                                         editor.putString("userName", usuario);
                                         editor.commit();
 
-                                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                                       /* Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                                         startActivity(intent);
-                                        finish();
+                                        finish();*/
+                                        ValidaUsuario(usuario,password);
+
                                     }
                                 }
 
@@ -133,5 +140,55 @@ public class LoginActivity extends Activity {
                 }
             }
         });
+    }
+
+    private void ValidaUsuario(String usuario, String password){
+
+        Exactus.ValidaUsuario(
+                LoginActivity.this,
+                usuario, password,
+                new ServiceCallBack<JSONObject>() {
+                    @Override
+                    public void onPostExecute(JSONObject obj) {
+                        try {
+                            if (obj.getString("existe").equals("true")) {
+                                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                                startActivity(intent);
+                                finish();
+                            } else {
+                                Toast.makeText(getBaseContext(), "El usuario o la contrase\u00F1a es incorrecta.", Toast.LENGTH_LONG).show();
+                            }
+                        } catch (Exception ex) {
+                            ShowToastError(ex);
+                        }
+                    }
+
+                    @Override
+                    public void onException(Exception ex) {
+                        Log.d("Error", ex.getLocalizedMessage());
+                        Toast.makeText(getBaseContext(), ex.getLocalizedMessage(), Toast.LENGTH_LONG).show();
+                    }
+                });
+
+    }
+    //Muestra errores centrados en el toast
+    private void ShowToastError(Exception ex) {
+        String message = ex.getLocalizedMessage();
+        SpannableStringBuilder biggerText = new SpannableStringBuilder(message);
+        biggerText.setSpan(new RelativeSizeSpan(1.35f), 0, message.length(), 0);
+        final Toast toast = Toast.makeText(getBaseContext(), biggerText, Toast.LENGTH_LONG);
+        toast.setGravity(Gravity.CENTER, 0, 0);
+        toast.show();
+        CountDownTimer timer =new CountDownTimer(3000, 100)
+        {
+            public void onTick(long millisUntilFinished)
+            {
+                toast.show();
+            }
+            public void onFinish()
+            {
+                toast.cancel();
+            }
+        }.start();
     }
 }
