@@ -18,7 +18,7 @@ public class PedidoParametros {
     public String OBSERVACIONES;
     public String USUARIO_LOGIN;
     public String TARJETA_CREDITO;
-    public String NOMBRE_CUENTA; 
+    public String NOMBRE_CUENTA;
     public String PEDIDO;
     public int CONDICION_PAGO;
     public String CODIGO_CONSECUTIVO;

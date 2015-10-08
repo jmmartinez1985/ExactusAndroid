@@ -87,7 +87,7 @@
         android:text="Email del Comercio"
         android:textAlignment="center"
         android:textIsSelectable="false"
-        android:textSize="10sp"
+        android:textSize="20sp"
         android:textColor="@color/white"/>
 
     <LinearLayout

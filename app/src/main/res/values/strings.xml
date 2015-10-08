@@ -10,4 +10,8 @@
      <string name="connection_message">Ústed no esta conectado a Internet, Por favor verifique el dispositivo.</string>
 
     <string name="date_format">yyyy-MM-dd</string>
+    <string name="title_activity_pedido">PedidoActivity</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
  </resources>

@@ -54,6 +54,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import android.app.FragmentManager;
@@ -117,28 +118,40 @@ public class MainActivity extends ActionBarActivity {
 
             //Setea la fuente de todos los controles del menu.
             Common.setFontOnAllControls(getAssets(), (ViewGroup) _menu.findViewById(R.id.rootView), "fonts/Lato/Lato-Regular.ttf");
+            // Almacena el comercio en una variable global.
+            final DeviceAppApplication app = (DeviceAppApplication) getApplication();
+            Devices device = app.getDevice();
 
-            ImageListViewAdapter adapter = new ImageListViewAdapter(MainActivity.this, getSideMenuListItems());
+            final ArrayList<ListViewItem> elementos = getSideMenuListItems();
+
+            ImageListViewAdapter adapter = new ImageListViewAdapter(MainActivity.this, elementos);
             ListView list = (ListView) _menu.findViewById(R.id.lstMenu);
             list.setAdapter(adapter);
             list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                     try {
+
+
                         Intent intent;
 
-                        switch (position) {
 
-                            case 0: //Mis promociones
+                        final ListViewItem item = elementos.get(position);
+                        switch (item.text) {
+
+                            case "Pedidos": //Mis pedidos
                                 _menu.toggle();
-                                intent = new Intent(MainActivity.this, LoginActivity.class);
+                                intent = new Intent(MainActivity.this, PedidoActivity.class);
                                 startActivity(intent);
                                 break;
 
-                            case 1: //Notificaciones
+                            case "Cotizaciones": //Mis Cotizaciones
+                                _menu.toggle();
+                                intent = new Intent(MainActivity.this, PedidoActivity.class);
+                                startActivity(intent);
                                 break;
 
-                            case 2: //Estadisticas de uso
+                            default: //Estadisticas de uso
                                 break;
                         }
                     } catch (Exception ex) {
@@ -148,14 +161,17 @@ public class MainActivity extends ActionBarActivity {
                 }
             });
 
-            // Almacena el comercio en una variable global.
-            final DeviceAppApplication app = (DeviceAppApplication) getApplication();
-            Devices device = app.getDevice();
+
 
             ImageView imgBanner = (ImageView) findViewById(R.id.imgBanner);
             ImageView imgLogo = (ImageView) findViewById(R.id.imgLogo);
             ImageView imgLogoMenu = (ImageView) _menu.findViewById(R.id.imgLogo);
 
+            TextView txtComercio =(TextView) findViewById(R.id.txtNombreComercio);
+            TextView txtEmailComercio =(TextView) findViewById(R.id.txtEmailComercio);
+
+            txtComercio.setText(device.empresaObject.NombreEmpresa);
+            txtEmailComercio.setText(app.getUsuario());
 
             // Le cambia la fuente a todos los TextView de la pantalla.
             AssetManager assets = getAssets();
@@ -174,8 +190,16 @@ public class MainActivity extends ActionBarActivity {
     private ArrayList<ListViewItem> getSideMenuListItems() {
         ArrayList<ListViewItem> lst = new ArrayList<ListViewItem>();
 
+        final DeviceAppApplication app = (DeviceAppApplication) getApplication();
+        List<Opciones> opciones = app.getDevice().opcionesList;
+        if(opciones.size() > 0){
+            for(Opciones opci : opciones){
+                lst.add(new ListViewItem(R.drawable.ic_folder_shared_blue_48dp, opci.Opcion, "",0, opci.Id));
+            }
+        }
+
         //lst.add(new ListViewItem(R.drawable.ic_stars_blue_48, "Notificaciones", ""));
-        lst.add(new ListViewItem(R.drawable.ic_folder_shared_blue_48dp, "Mis Pedidos", ""));
+
         //lst.add(new ListViewItem(R.drawable.ic_trending_up_black_48dp, "Estadisticas de Uso", ""));
 
         return lst;
