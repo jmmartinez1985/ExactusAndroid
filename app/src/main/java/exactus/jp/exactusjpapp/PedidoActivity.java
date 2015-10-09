@@ -46,9 +46,7 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
-import exactus.jp.exactusjpapp.model.Bodega;
-import exactus.jp.exactusjpapp.model.Devices;
-import exactus.jp.exactusjpapp.model.Opciones;
+import exactus.jp.exactusjpapp.model.*;
 import exactus.jp.exactusjpapp.services.Exactus;
 import exactus.jp.exactusjpapp.services.ServiceCallBack;
 
@@ -174,7 +172,7 @@ public class PedidoActivity extends ActionBarActivity {
                 }
             });
             Button btnCrearPedido = (Button) findViewById(R.id.btnCrearPedido);
-            imgBuscarBodega.setOnClickListener(new View.OnClickListener() {
+            btnCrearPedido.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
@@ -185,6 +183,59 @@ public class PedidoActivity extends ActionBarActivity {
                             switch (which) {
 
                                 case DialogInterface.BUTTON_POSITIVE:
+
+
+                                    List<PedidoLineaParametros> lineas = new ArrayList<PedidoLineaParametros>();
+                                    PedidoLineaParametros linea = new PedidoLineaParametros();
+                                    linea.ARTICULO = "0101";
+                                    linea.CANTIDAD = 10;
+                                    linea.CREADOR_POR = "jm";
+                                    linea.DESCUENTO = 0;
+                                    linea.Linea = 1;
+                                    linea.PRECIO_UNITARIO = 10.50;
+
+
+                                    lineas.add(linea);
+                                    linea.ARTICULO = "0102";
+                                    linea.PRECIO_UNITARIO = 20.50;
+                                    lineas.add(linea);
+
+                                    PedidoParametros pedido = new PedidoParametros();
+                                    pedido.BODEGA = "10";
+                                    pedido.CLIENTE = "01";
+                                    pedido.CONDICION_PAGO = 1;
+                                    pedido.CODIGO_CONSECUTIVO = "01";
+                                    pedido.NOMBRE_CUENTA = "PRUEBA";
+                                    pedido.TARJETA_CREDITO = "";
+                                    pedido.ORDEN_COMPRA = "";
+                                    pedido.USUARIO_LOGIN = "JM";
+                                    pedido.PEDIDODETALLE = lineas;
+                                    String data = "";
+                                    Gson gson = new Gson();
+                                    data = gson.toJson(pedido);
+                                    Exactus.GuardarPedido(
+                                            PedidoActivity.this,
+                                            app.getUsuario(),
+                                            app.getPassword(),
+                                            data,
+                                            new ServiceCallBack<JSONObject>() {
+                                                @Override
+                                                public void onPostExecute(JSONObject data) {
+                                                    String message = "Pedido creado satisfactoriamente";
+                                                    SpannableStringBuilder biggerText = new SpannableStringBuilder(message);
+                                                    biggerText.setSpan(new RelativeSizeSpan(1.35f), 0, message.length(), 0);
+                                                    Toast toast = Toast.makeText(PedidoActivity.this, biggerText, Toast.LENGTH_LONG);
+                                                    toast.setGravity(Gravity.CENTER, 0, 0);
+                                                    toast.show();
+                                                }
+
+                                                @Override
+                                                public void onException(Exception ex) {
+                                                    Log.d("Error", ex.getLocalizedMessage());
+                                                    ShowToastError(ex);
+                                                }
+                                            });
+
 
                                     break;
                                 case DialogInterface.BUTTON_NEGATIVE:
@@ -213,7 +264,7 @@ public class PedidoActivity extends ActionBarActivity {
 
         } catch (Exception ex) {
             Log.d("Error", ex.getLocalizedMessage());
-            Toast.makeText(getBaseContext(), ex.getLocalizedMessage(), Toast.LENGTH_LONG).show();
+            ShowToastError(ex);
         }
     }
 

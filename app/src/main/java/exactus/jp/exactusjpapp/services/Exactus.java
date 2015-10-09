@@ -15,6 +15,7 @@ import exactus.jp.exactusjpapp.Common;
 import exactus.jp.exactusjpapp.model.Devices;
 import exactus.jp.exactusjpapp.model.Empresa;
 import exactus.jp.exactusjpapp.model.Opciones;
+import exactus.jp.exactusjpapp.model.PedidoParametros;
 
 /**
  * Created by Logic on 10/07/2015.
@@ -83,5 +84,39 @@ public class Exactus {
         parameters.put("password", password);
         String url = Common.RootServiceUrl + "/api/Exactus/ObtenerBodega";
         task.execute(new HttpAsyncTaskParameters(url, "GET", parameters));
+    }
+
+    public static void GuardarPedido(
+            Context context,
+            String usuario,
+            String password,
+            String pedido,
+            final ServiceCallBack<JSONObject> callback) {
+
+        HttpAsyncTask task = new HttpAsyncTask(context, new CallBack() {
+
+            @Override
+            public void onPostExecute(String json) {
+                try {
+
+                    callback.onPostExecute(new JSONObject(json));
+                }
+                catch (Exception ex) {
+                    callback.onException(ex);
+                }
+            }
+
+            @Override
+            public void onException(Exception ex) {
+                callback.onException(ex);
+            }
+        });
+
+        HashMap<String, String> parameters = new HashMap<String, String>();
+        parameters.put("usuario", usuario);
+        parameters.put("password", password);
+        parameters.put("pedido", pedido);
+        String url = Common.RootServiceUrl + "/api/Exactus/GuardarPedido";
+        task.execute(new HttpAsyncTaskParameters(url, "POST", parameters));
     }
 }

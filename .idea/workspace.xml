@@ -52,7 +52,7 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/java/exactus/jp/exactusjpapp/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="132" column="0" selection-start-line="132" selection-start-column="0" selection-end-line="132" selection-end-column="0" />
+              <caret line="181" column="9" selection-start-line="181" selection-start-column="9" selection-end-line="181" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -63,41 +63,27 @@
       <file leaf-file-name="PedidoActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/exactus/jp/exactusjpapp/PedidoActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5477327">
-              <caret line="77" column="12" selection-start-line="77" selection-start-column="12" selection-end-line="77" selection-end-column="12" />
-              <folding />
+            <state vertical-scroll-proportion="1.5305164">
+              <caret line="215" column="0" selection-start-line="215" selection-start-column="0" selection-end-line="215" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#4622#5991#0" expanded="true" />
+                <element signature="e#5990#5991#0" expanded="true" />
+                <element signature="e#7403#12337#0" expanded="true" />
+                <element signature="e#7581#11988#0" expanded="true" />
+                <element signature="e#7947#7970#0" expanded="true" />
+                <element signature="e#11987#11988#0" expanded="true" />
+                <element signature="e#12336#12337#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="activity_pedido.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_pedido.xml">
-          <provider editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="199" column="0" selection-start-line="199" selection-start-column="0" selection-end-line="199" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-          <provider selected="true" editor-type-id="android-designer">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PedidoLineaParametros.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/exactus/jp/exactusjpapp/model/PedidoLineaParametros.java">
+      <file leaf-file-name="strings.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="12" column="27" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="27" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="loginbuttonshape.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/loginbuttonshape.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="6" column="10" selection-start-line="6" selection-start-column="10" selection-end-line="6" selection-end-column="10" />
+            <state vertical-scroll-proportion="-3.7777777">
+              <caret line="6" column="63" selection-start-line="6" selection-start-column="63" selection-end-line="6" selection-end-column="63" />
               <folding />
             </state>
           </provider>
@@ -107,51 +93,12 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/java/exactus/jp/exactusjpapp/services/Exactus.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="87" column="0" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
+              <caret line="117" column="39" selection-start-line="117" selection-start-column="39" selection-end-line="117" selection-end-column="39" />
               <folding>
-                <element signature="e#2160#2161#0" expanded="true" />
-                <element signature="e#2216#2217#0" expanded="true" />
-                <element signature="e#2287#2303#0" expanded="true" />
+                <element signature="e#1319#1335#0" expanded="true" />
+                <element signature="e#3392#3408#0" expanded="true" />
               </folding>
             </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PedidoParametros.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/exactus/jp/exactusjpapp/model/PedidoParametros.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="16" column="30" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="30" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="activity_main.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="60" column="28" selection-start-line="60" selection-start-column="7" selection-end-line="60" selection-end-column="28" />
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="android-designer">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="login_activity.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/login_activity.xml">
-          <provider editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="14" column="42" selection-start-line="0" selection-start-column="0" selection-end-line="130" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-          <provider selected="true" editor-type-id="android-designer">
-            <state />
           </provider>
         </entry>
       </file>
@@ -170,7 +117,7 @@
         <entry>
           <key>
             <ExternalProjectPojo>
-              <option name="name" value="ExactusAndroid" />
+              <option name="name" value="Exactus.jp.App" />
               <option name="path" value="$PROJECT_DIR$" />
             </ExternalProjectPojo>
           </key>
@@ -185,12 +132,12 @@
                 <option name="path" value="$PROJECT_DIR$/libs/SlideMenuLibrary" />
               </ExternalProjectPojo>
               <ExternalProjectPojo>
-                <option name="name" value="ExactusAndroid" />
-                <option name="path" value="$PROJECT_DIR$" />
-              </ExternalProjectPojo>
-              <ExternalProjectPojo>
                 <option name="name" value=":libs" />
                 <option name="path" value="$PROJECT_DIR$/libs" />
+              </ExternalProjectPojo>
+              <ExternalProjectPojo>
+                <option name="name" value="Exactus.jp.App" />
+                <option name="path" value="$PROJECT_DIR$" />
               </ExternalProjectPojo>
             </list>
           </value>
@@ -203,17 +150,17 @@
           <value>
             <list>
               <ExternalTaskPojo>
-                <option name="description" value="Displays the components produced by root project 'ExactusAndroid'. [incubating]" />
+                <option name="description" value="Displays the components produced by root project 'Exactus.jp.App'. [incubating]" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="components" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Displays all dependencies declared in root project 'ExactusAndroid'." />
+                <option name="description" value="Displays all dependencies declared in root project 'Exactus.jp.App'." />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="dependencies" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Displays the insight into a specific dependency in root project 'ExactusAndroid'." />
+                <option name="description" value="Displays the insight into a specific dependency in root project 'Exactus.jp.App'." />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="dependencyInsight" />
               </ExternalTaskPojo>
@@ -228,22 +175,22 @@
                 <option name="name" value="init" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Displays the configuration model of root project 'ExactusAndroid'. [incubating]" />
+                <option name="description" value="Displays the configuration model of root project 'Exactus.jp.App'. [incubating]" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="model" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Displays the sub-projects of root project 'ExactusAndroid'." />
+                <option name="description" value="Displays the sub-projects of root project 'Exactus.jp.App'." />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="projects" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Displays the properties of root project 'ExactusAndroid'." />
+                <option name="description" value="Displays the properties of root project 'Exactus.jp.App'." />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="properties" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Displays the tasks runnable from root project 'ExactusAndroid' (some of the displayed tasks may belong to subprojects)." />
+                <option name="description" value="Displays the tasks runnable from root project 'Exactus.jp.App' (some of the displayed tasks may belong to subprojects)." />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="tasks" />
               </ExternalTaskPojo>
@@ -758,9 +705,9 @@
                 <option name="name" value="prepareDebugUnitTestDependencies" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Prepare ExactusAndroid.libs:SlideMenuLibrary:unspecified" />
+                <option name="description" value="Prepare Exactus.jp.App.libs:SlideMenuLibrary:unspecified" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="prepareExactusAndroidLibsSlideMenuLibraryUnspecifiedLibrary" />
+                <option name="name" value="prepareExactusJpAppLibsSlideMenuLibraryUnspecifiedLibrary" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
@@ -1479,9 +1426,9 @@
                 <option name="name" value="prepareDebugUnitTestDependencies" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Prepare ExactusAndroid.libs:SlideMenuLibrary:unspecified" />
+                <option name="description" value="Prepare Exactus.jp.App.libs:SlideMenuLibrary:unspecified" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
-                <option name="name" value="prepareExactusAndroidLibsSlideMenuLibraryUnspecifiedLibrary" />
+                <option name="name" value="prepareExactusJpAppLibsSlideMenuLibraryUnspecifiedLibrary" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
@@ -2892,31 +2839,31 @@
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/commons-codec/commons-codec/1.4/commons-codec-1.4-sources.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/commons-codec/commons-codec/1.4/commons-codec-1.4.jar" />
-                            <option value="$USER_HOME$/AppData/Local/Android/sdk/extras/android/m2repository/com/android/support/support-v4/22.2.0/support-v4-22.2.0.aar" />
-                            <option value="$USER_HOME$/AppData/Local/Android/sdk/extras/android/m2repository/com/android/support/appcompat-v7/22.2.0/appcompat-v7-22.2.0.aar" />
-                            <option value="$USER_HOME$/AppData/Local/Android/sdk/extras/google/m2repository/com/google/android/gms/play-services/7.5.0/play-services-7.5.0.aar" />
-                            <option value="$USER_HOME$/AppData/Local/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/22.2.0/support-annotations-22.2.0.jar" />
-                            <option value="$USER_HOME$/AppData/Local/Android/sdk/extras/google/m2repository/com/google/android/gms/play-services-ads/7.5.0/play-services-ads-7.5.0.aar" />
-                            <option value="$USER_HOME$/AppData/Local/Android/sdk/extras/google/m2repository/com/google/android/gms/play-services-analytics/7.5.0/play-services-analytics-7.5.0.aar" />
-                            <option value="$USER_HOME$/AppData/Local/Android/sdk/extras/google/m2repository/com/google/android/gms/play-services-appindexing/7.5.0/play-services-appindexing-7.5.0.aar" />
-                            <option value="$USER_HOME$/AppData/Local/Android/sdk/extras/google/m2repository/com/google/android/gms/play-services-appinvite/7.5.0/play-services-appinvite-7.5.0.aar" />
-                            <option value="$USER_HOME$/AppData/Local/Android/sdk/extras/google/m2repository/com/google/android/gms/play-services-appstate/7.5.0/play-services-appstate-7.5.0.aar" />
-                            <option value="$USER_HOME$/AppData/Local/Android/sdk/extras/google/m2repository/com/google/android/gms/play-services-base/7.5.0/play-services-base-7.5.0.aar" />
-                            <option value="$USER_HOME$/AppData/Local/Android/sdk/extras/google/m2repository/com/google/android/gms/play-services-cast/7.5.0/play-services-cast-7.5.0.aar" />
-                            <option value="$USER_HOME$/AppData/Local/Android/sdk/extras/google/m2repository/com/google/android/gms/play-services-drive/7.5.0/play-services-drive-7.5.0.aar" />
-                            <option value="$USER_HOME$/AppData/Local/Android/sdk/extras/google/m2repository/com/google/android/gms/play-services-fitness/7.5.0/play-services-fitness-7.5.0.aar" />
-                            <option value="$USER_HOME$/AppData/Local/Android/sdk/extras/google/m2repository/com/google/android/gms/play-services-games/7.5.0/play-services-games-7.5.0.aar" />
-                            <option value="$USER_HOME$/AppData/Local/Android/sdk/extras/google/m2repository/com/google/android/gms/play-services-gcm/7.5.0/play-services-gcm-7.5.0.aar" />
-                            <option value="$USER_HOME$/AppData/Local/Android/sdk/extras/google/m2repository/com/google/android/gms/play-services-identity/7.5.0/play-services-identity-7.5.0.aar" />
-                            <option value="$USER_HOME$/AppData/Local/Android/sdk/extras/google/m2repository/com/google/android/gms/play-services-location/7.5.0/play-services-location-7.5.0.aar" />
-                            <option value="$USER_HOME$/AppData/Local/Android/sdk/extras/google/m2repository/com/google/android/gms/play-services-maps/7.5.0/play-services-maps-7.5.0.aar" />
-                            <option value="$USER_HOME$/AppData/Local/Android/sdk/extras/google/m2repository/com/google/android/gms/play-services-nearby/7.5.0/play-services-nearby-7.5.0.aar" />
-                            <option value="$USER_HOME$/AppData/Local/Android/sdk/extras/google/m2repository/com/google/android/gms/play-services-panorama/7.5.0/play-services-panorama-7.5.0.aar" />
-                            <option value="$USER_HOME$/AppData/Local/Android/sdk/extras/google/m2repository/com/google/android/gms/play-services-plus/7.5.0/play-services-plus-7.5.0.aar" />
-                            <option value="$USER_HOME$/AppData/Local/Android/sdk/extras/google/m2repository/com/google/android/gms/play-services-safetynet/7.5.0/play-services-safetynet-7.5.0.aar" />
-                            <option value="$USER_HOME$/AppData/Local/Android/sdk/extras/google/m2repository/com/google/android/gms/play-services-wallet/7.5.0/play-services-wallet-7.5.0.aar" />
-                            <option value="$USER_HOME$/AppData/Local/Android/sdk/extras/google/m2repository/com/google/android/gms/play-services-wearable/7.5.0/play-services-wearable-7.5.0.aar" />
-                            <option value="$USER_HOME$/AppData/Local/Android/sdk/extras/android/m2repository/com/android/support/mediarouter-v7/22.0.0/mediarouter-v7-22.0.0.aar" />
+                            <option value="$USER_HOME$/AppData/Local/Android/sdk1/extras/android/m2repository/com/android/support/support-v4/22.2.0/support-v4-22.2.0.aar" />
+                            <option value="$USER_HOME$/AppData/Local/Android/sdk1/extras/android/m2repository/com/android/support/appcompat-v7/22.2.0/appcompat-v7-22.2.0.aar" />
+                            <option value="$USER_HOME$/AppData/Local/Android/sdk1/extras/google/m2repository/com/google/android/gms/play-services/7.5.0/play-services-7.5.0.aar" />
+                            <option value="$USER_HOME$/AppData/Local/Android/sdk1/extras/android/m2repository/com/android/support/support-annotations/22.2.0/support-annotations-22.2.0.jar" />
+                            <option value="$USER_HOME$/AppData/Local/Android/sdk1/extras/google/m2repository/com/google/android/gms/play-services-ads/7.5.0/play-services-ads-7.5.0.aar" />
+                            <option value="$USER_HOME$/AppData/Local/Android/sdk1/extras/google/m2repository/com/google/android/gms/play-services-analytics/7.5.0/play-services-analytics-7.5.0.aar" />
+                            <option value="$USER_HOME$/AppData/Local/Android/sdk1/extras/google/m2repository/com/google/android/gms/play-services-appindexing/7.5.0/play-services-appindexing-7.5.0.aar" />
+                            <option value="$USER_HOME$/AppData/Local/Android/sdk1/extras/google/m2repository/com/google/android/gms/play-services-appinvite/7.5.0/play-services-appinvite-7.5.0.aar" />
+                            <option value="$USER_HOME$/AppData/Local/Android/sdk1/extras/google/m2repository/com/google/android/gms/play-services-appstate/7.5.0/play-services-appstate-7.5.0.aar" />
+                            <option value="$USER_HOME$/AppData/Local/Android/sdk1/extras/google/m2repository/com/google/android/gms/play-services-base/7.5.0/play-services-base-7.5.0.aar" />
+                            <option value="$USER_HOME$/AppData/Local/Android/sdk1/extras/google/m2repository/com/google/android/gms/play-services-cast/7.5.0/play-services-cast-7.5.0.aar" />
+                            <option value="$USER_HOME$/AppData/Local/Android/sdk1/extras/google/m2repository/com/google/android/gms/play-services-drive/7.5.0/play-services-drive-7.5.0.aar" />
+                            <option value="$USER_HOME$/AppData/Local/Android/sdk1/extras/google/m2repository/com/google/android/gms/play-services-fitness/7.5.0/play-services-fitness-7.5.0.aar" />
+                            <option value="$USER_HOME$/AppData/Local/Android/sdk1/extras/google/m2repository/com/google/android/gms/play-services-games/7.5.0/play-services-games-7.5.0.aar" />
+                            <option value="$USER_HOME$/AppData/Local/Android/sdk1/extras/google/m2repository/com/google/android/gms/play-services-gcm/7.5.0/play-services-gcm-7.5.0.aar" />
+                            <option value="$USER_HOME$/AppData/Local/Android/sdk1/extras/google/m2repository/com/google/android/gms/play-services-identity/7.5.0/play-services-identity-7.5.0.aar" />
+                            <option value="$USER_HOME$/AppData/Local/Android/sdk1/extras/google/m2repository/com/google/android/gms/play-services-location/7.5.0/play-services-location-7.5.0.aar" />
+                            <option value="$USER_HOME$/AppData/Local/Android/sdk1/extras/google/m2repository/com/google/android/gms/play-services-maps/7.5.0/play-services-maps-7.5.0.aar" />
+                            <option value="$USER_HOME$/AppData/Local/Android/sdk1/extras/google/m2repository/com/google/android/gms/play-services-nearby/7.5.0/play-services-nearby-7.5.0.aar" />
+                            <option value="$USER_HOME$/AppData/Local/Android/sdk1/extras/google/m2repository/com/google/android/gms/play-services-panorama/7.5.0/play-services-panorama-7.5.0.aar" />
+                            <option value="$USER_HOME$/AppData/Local/Android/sdk1/extras/google/m2repository/com/google/android/gms/play-services-plus/7.5.0/play-services-plus-7.5.0.aar" />
+                            <option value="$USER_HOME$/AppData/Local/Android/sdk1/extras/google/m2repository/com/google/android/gms/play-services-safetynet/7.5.0/play-services-safetynet-7.5.0.aar" />
+                            <option value="$USER_HOME$/AppData/Local/Android/sdk1/extras/google/m2repository/com/google/android/gms/play-services-wallet/7.5.0/play-services-wallet-7.5.0.aar" />
+                            <option value="$USER_HOME$/AppData/Local/Android/sdk1/extras/google/m2repository/com/google/android/gms/play-services-wearable/7.5.0/play-services-wearable-7.5.0.aar" />
+                            <option value="$USER_HOME$/AppData/Local/Android/sdk1/extras/android/m2repository/com/android/support/mediarouter-v7/22.0.0/mediarouter-v7-22.0.0.aar" />
                             <option value="$MODULE_DIR$/libs/android-core-3.2.0.jar" />
                             <option value="$MODULE_DIR$/libs/android-integration-3.2.0.jar" />
                             <option value="$MODULE_DIR$/libs/gson-2.3.1.jar" />
@@ -3084,8 +3031,8 @@
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/commons-codec/commons-codec/1.4/commons-codec-1.4-sources.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/commons-codec/commons-codec/1.4/commons-codec-1.4.jar" />
-                            <option value="$USER_HOME$/AppData/Local/Android/sdk/extras/android/m2repository/com/android/support/support-v4/22.2.0/support-v4-22.2.0.aar" />
-                            <option value="$USER_HOME$/AppData/Local/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/22.2.0/support-annotations-22.2.0.jar" />
+                            <option value="$USER_HOME$/AppData/Local/Android/sdk1/extras/android/m2repository/com/android/support/support-v4/22.2.0/support-v4-22.2.0.aar" />
+                            <option value="$USER_HOME$/AppData/Local/Android/sdk1/extras/android/m2repository/com/android/support/support-annotations/22.2.0/support-annotations-22.2.0.jar" />
                           </list>
                         </option>
                         <option name="path" value="$PROJECT_DIR$/libs/SlideMenuLibrary" />
@@ -3245,7 +3192,6 @@
         <option value="$PROJECT_DIR$/app/src/main/java/exactus/jp/exactusjpapp/model/PedidoLineaParametros.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/exactus/jp/exactusjpapp/DeviceAppApplication.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/exactus/jp/exactusjpapp/LoginActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/exactus/jp/exactusjpapp/ListViewItem.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/exactus/jp/exactusjpapp/services/Device.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/exactus/jp/exactusjpapp/model/PedidoParametros.java" />
@@ -3253,10 +3199,11 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout-large/activity_main.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/popup_bodegas.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/exactus/jp/exactusjpapp/model/Bodega.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/exactus/jp/exactusjpapp/services/Exactus.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/exactus/jp/exactusjpapp/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/loginbuttonshape.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_pedido.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/exactus/jp/exactusjpapp/services/Exactus.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/exactus/jp/exactusjpapp/PedidoActivity.java" />
       </list>
     </option>
@@ -3265,10 +3212,10 @@
     <order />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-9" />
-    <option name="y" value="-9" />
-    <option name="width" value="1938" />
-    <option name="height" value="1048" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1382" />
+    <option name="height" value="744" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -3295,6 +3242,8 @@
     <panes>
       <pane id="PackagesPane" />
       <pane id="Scratches" />
+      <pane id="Scope" />
+      <pane id="ProjectPane" />
       <pane id="AndroidView">
         <subPane>
           <PATH>
@@ -3336,6 +3285,10 @@
               <option name="myItemId" value="res" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="values" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderTypeNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -3349,10 +3302,6 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="res" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="layout" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderTypeNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -3387,10 +3336,52 @@
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Exactus.jp.App" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="exactusjpapp" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="services" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Exactus.jp.App" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="exactusjpapp" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="model" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="ProjectPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -3622,36 +3613,36 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="1" />
     <editor active="true" />
     <layout>
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32993197" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32993197" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24962178" sideWeight="0.5101523" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27380952" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32993197" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22789116" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24962178" sideWeight="0.52030456" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24705882" sideWeight="0.47969544" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24962178" sideWeight="0.5101523" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32993197" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32993197" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32993197" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24962178" sideWeight="0.48984772" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24962178" sideWeight="0.52030456" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.100340135" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23146747" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24659607" sideWeight="0.47969544" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32993197" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23146747" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32993197" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -3669,13 +3660,13 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/exactus/jp/exactusjpapp/MainActivity.java</url>
-          <line>175</line>
+          <url>file://$PROJECT_DIR$/app/src/main/java/exactus/jp/exactusjpapp/PedidoActivity.java</url>
+          <line>223</line>
           <properties />
-          <option name="timeStamp" value="14" />
+          <option name="timeStamp" value="37" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="37" />
+      <option name="time" value="41" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="app">
@@ -3688,7 +3679,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#4622#5991#0" expanded="true" />
+            <element signature="e#5990#5991#0" expanded="true" />
+            <element signature="e#7403#12337#0" expanded="true" />
+            <element signature="e#7581#11988#0" expanded="true" />
+            <element signature="e#7947#7970#0" expanded="true" />
+            <element signature="e#11987#11988#0" expanded="true" />
+            <element signature="e#12336#12337#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -3724,9 +3724,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="55" column="0" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
           <folding>
-            <element signature="e#2160#2161#0" expanded="true" />
-            <element signature="e#2216#2217#0" expanded="true" />
-            <element signature="e#2287#2303#0" expanded="true" />
+            <element signature="e#1319#1335#0" expanded="true" />
+            <element signature="e#3392#3408#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -3973,14 +3972,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.5185184">
-          <caret line="4" column="94" selection-start-line="3" selection-start-column="3" selection-end-line="4" selection-end-column="94" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/exactus/jp/exactusjpapp/model/Devices.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5492064">
@@ -4055,16 +4046,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/exactus/jp/exactusjpapp/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="132" column="0" selection-start-line="132" selection-start-column="0" selection-end-line="132" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -4095,36 +4076,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/exactus/jp/exactusjpapp/services/Exactus.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="87" column="0" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
-          <folding>
-            <element signature="e#2160#2161#0" expanded="true" />
-            <element signature="e#2216#2217#0" expanded="true" />
-            <element signature="e#2287#2303#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/exactus/jp/exactusjpapp/model/PedidoLineaParametros.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="12" column="27" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/exactus/jp/exactusjpapp/model/PedidoParametros.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="16" column="30" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="30" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_pedido.xml">
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -4136,11 +4087,67 @@
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/exactus/jp/exactusjpapp/model/PedidoParametros.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="8" column="29" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/exactus/jp/exactusjpapp/model/PedidoLineaParametros.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="5" column="34" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.7777777">
+          <caret line="6" column="63" selection-start-line="6" selection-start-column="63" selection-end-line="6" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/exactus/jp/exactusjpapp/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="181" column="9" selection-start-line="181" selection-start-column="9" selection-end-line="181" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/exactus/jp/exactusjpapp/services/Exactus.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="117" column="39" selection-start-line="117" selection-start-column="39" selection-end-line="117" selection-end-column="39" />
+          <folding>
+            <element signature="e#1319#1335#0" expanded="true" />
+            <element signature="e#3392#3408#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/exactus/jp/exactusjpapp/PedidoActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5477327">
-          <caret line="77" column="12" selection-start-line="77" selection-start-column="12" selection-end-line="77" selection-end-column="12" />
-          <folding />
+        <state vertical-scroll-proportion="1.5305164">
+          <caret line="215" column="0" selection-start-line="215" selection-start-column="0" selection-end-line="215" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#4622#5991#0" expanded="true" />
+            <element signature="e#5990#5991#0" expanded="true" />
+            <element signature="e#7403#12337#0" expanded="true" />
+            <element signature="e#7581#11988#0" expanded="true" />
+            <element signature="e#7947#7970#0" expanded="true" />
+            <element signature="e#11987#11988#0" expanded="true" />
+            <element signature="e#12336#12337#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

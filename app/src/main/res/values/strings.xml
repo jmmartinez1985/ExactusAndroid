@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">Exactus Mobile</string>
     <string name="title_activity_maps">Map</string>
-    <string name="base_service_url_licence">http://192.168.1.103/JP.Exactus.Licence.Service</string>
-    <string name="base_service_url_core">http://192.168.1.103/JP.Exactus.Core.Service</string>
+    <string name="base_service_url_licence">http://192.168.1.109/JP.Exactus.Licence.Service</string>
+    <string name="base_service_url_core">http://192.168.1.109/JP.Exactus.Core.Service</string>
     <string name="base_website_url">webURL</string>
     <string name="progress_bar_title">Por favor espere</string>
     <string name="progress_bar_message">Procesando petición...</string>
