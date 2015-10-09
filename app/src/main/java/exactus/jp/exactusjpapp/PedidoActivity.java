@@ -74,7 +74,8 @@ public class PedidoActivity extends ActionBarActivity {
             initImageLoader();
             ImageLoader imageLoader = ImageLoader.getInstance();
             imageLoader.init(ImageLoaderConfiguration.createDefault(this));
-
+ //prueba
+            
             // Configuracion del Action bar
             LayoutInflater mInflater = LayoutInflater.from(this);
             View mCustomView = mInflater.inflate(R.layout.custom_action_toolbar, null);
