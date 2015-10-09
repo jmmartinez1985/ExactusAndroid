@@ -49,6 +49,67 @@
                 android:layout_height="wrap_content">
 
                 <EditText
+                    android:id="@+id/txtCliente"
+                    android:textAlignment="center"
+                    android:textColorHint="@color/labelTextColor"
+                    android:hint="Cliente"
+                    android:textSize="20sp"
+                    android:inputType="text"
+                    android:maxLength="20"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:textColor="@color/labelTextColor"
+                    android:layout_gravity="center_horizontal"
+                    android:singleLine="true"
+                    android:focusable="true"
+                    android:gravity="center_horizontal"
+                    android:editable="false"
+                    android:ellipsize="start"
+                    android:textStyle="bold"/>
+
+
+
+                <Button
+                    android:id="@+id/btnCliente"
+                    android:layout_height="50dp"
+                    android:layout_width="wrap_content"
+                    android:layout_margin="4dp"
+                    android:padding="8dp"
+                    android:background="#989899"
+                    android:text="BUSCAR"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="#fff"
+                    android:textStyle="bold"
+                    android:textSize="15sp"/>
+
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/txtNombreCuenta"
+                android:textAlignment="center"
+                android:textColorHint="@color/labelTextColor"
+                android:hint="Nombre de Cuenta"
+                android:textSize="20sp"
+                android:inputType="text"
+                android:maxLength="20"
+                android:layout_weight="1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:textColor="@color/labelTextColor"
+                android:layout_gravity="center_horizontal"
+                android:singleLine="true"
+                android:focusable="true"
+                android:editable="false"
+                android:ellipsize="start"
+                android:textStyle="bold" />
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
                     android:id="@+id/txtBodega"
                     android:textAlignment="center"
                     android:textColorHint="@color/labelTextColor"
@@ -85,6 +146,28 @@
                     android:textSize="15sp"/>
 
             </LinearLayout>
+
+            <EditText
+                android:id="@+id/txtObservacion"
+                android:textAlignment="center"
+                android:textColorHint="@color/labelTextColor"
+                android:hint="Observaciones"
+                android:textSize="20sp"
+                android:inputType="text"
+                android:maxLength="20"
+                android:layout_weight="1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:textColor="@color/labelTextColor"
+                android:layout_gravity="center_horizontal"
+                android:singleLine="true"
+                android:focusable="true"
+                android:editable="false"
+                android:ellipsize="start"
+                android:textStyle="bold" />
+
+
         </LinearLayout>
 
 
