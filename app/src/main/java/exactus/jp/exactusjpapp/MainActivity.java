@@ -72,8 +72,6 @@ public class MainActivity extends ActionBarActivity {
     /// The pager adapter, which provides the pages to the view pager widget.
     private PagerAdapter mPagerAdapter;
 
-    static boolean canjearInternal;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         try {
@@ -184,8 +182,6 @@ public class MainActivity extends ActionBarActivity {
         }
     }
 
-
-
     /// Obtiene la lista de items del menu contextual de la aplicación.
     private ArrayList<ListViewItem> getSideMenuListItems() {
         ArrayList<ListViewItem> lst = new ArrayList<ListViewItem>();
@@ -265,5 +261,7 @@ public class MainActivity extends ActionBarActivity {
             }
         }.start();
     }
+
+
 
 }
