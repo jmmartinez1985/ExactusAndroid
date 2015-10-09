@@ -1,6 +1,5 @@
 package exactus.jp.exactusjpapp;
 
-import exactus.jp.exactusjpapp.model.PedidoDetalle;
 import exactus.jp.exactusjpapp.model.PedidoLineaParametros;
 
 /**

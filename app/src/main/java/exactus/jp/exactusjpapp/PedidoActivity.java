@@ -173,6 +173,38 @@ public class PedidoActivity extends ActionBarActivity {
                             });
                 }
             });
+            Button btnCrearPedido = (Button) findViewById(R.id.btnCrearPedido);
+            imgBuscarBodega.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+
+                        @Override
+                        public void onClick(DialogInterface dialogInner, int which) {
+
+                            switch (which) {
+
+                                case DialogInterface.BUTTON_POSITIVE:
+
+                                    break;
+                                case DialogInterface.BUTTON_NEGATIVE:
+                                    dialogInner.dismiss();
+                                    String message = "El usuario canceló operación";
+                                    SpannableStringBuilder biggerText = new SpannableStringBuilder(message);
+                                    biggerText.setSpan(new RelativeSizeSpan(1.35f), 0, message.length(), 0);
+                                    Toast toast = Toast.makeText(PedidoActivity.this, biggerText, Toast.LENGTH_LONG);
+                                    toast.setGravity(Gravity.CENTER, 0, 0);
+                                    toast.show();
+                                    break;
+                            }
+                        }
+                    };
+                    AlertDialog.Builder builder = new AlertDialog.Builder(PedidoActivity.this);
+                    builder.setMessage("Esta seguro de que quiere crear este pedido?").setPositiveButton("S\u00ED", dialogClickListener).
+                            setNegativeButton("No", dialogClickListener).show();
+
+                }
+            });
 
             // Le cambia la fuente a todos los TextView de la pantalla.
             AssetManager assets = getAssets();
