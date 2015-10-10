@@ -69,7 +69,7 @@ public class PedidoActivity extends ActionBarActivity {
             super.onCreate(savedInstanceState);
             overridePendingTransition(R.anim.pull_in_from_left, R.anim.hold);
             setContentView(R.layout.activity_pedido);
-
+            Thread.setDefaultUncaughtExceptionHandler(new UnCaughtException(PedidoActivity.this));
 
             // Inicializa el image loader (debe hacerse antes de usarlo).
             // Esta clase sirve para descargar imagenes por http y cachearlas en disco.
@@ -178,61 +178,13 @@ public class PedidoActivity extends ActionBarActivity {
             });
 
 
-             Button imgBuscarcliente = (Button) findViewById(R.id.btnCliente);
+            Button imgBuscarcliente = (Button) findViewById(R.id.btnCliente);
             imgBuscarcliente.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    EditText NombreClienteBusqueda = (EditText) findViewById(R.id.txtCliente);
-                    Exactus.ObtenerCliente(
-                            PedidoActivity.this,
-                            app.getUsuario(), app.getPassword(), NombreClienteBusqueda.getText().toString()  ,
-                            new ServiceCallBack<JSONObject>() {
-                                @Override
-                                public void onPostExecute(JSONObject obj) {
-                                    try {
-                                        showClientesDialog(obj);
-                                    } catch (Exception ex) {
-                                        ShowToastError(ex);
-                                    }
-                                }
-
-                                @Override
-                                public void onException(Exception ex) {
-                                    Log.d("Error", ex.getLocalizedMessage());
-                                    Toast.makeText(getBaseContext(), ex.getLocalizedMessage(), Toast.LENGTH_LONG).show();
-                                }
-                            });
+                    showClientesDialog();
                 }
             });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
             Button btnCrearPedido = (Button) findViewById(R.id.btnCrearPedido);
             btnCrearPedido.setOnClickListener(new View.OnClickListener() {
@@ -246,7 +198,6 @@ public class PedidoActivity extends ActionBarActivity {
                             switch (which) {
 
                                 case DialogInterface.BUTTON_POSITIVE:
-
 
                                     List<PedidoLineaParametros> lineas = new ArrayList<PedidoLineaParametros>();
                                     PedidoLineaParametros linea = new PedidoLineaParametros();
@@ -458,10 +409,9 @@ public class PedidoActivity extends ActionBarActivity {
 
                             case DialogInterface.BUTTON_POSITIVE:
                                 //Find control
-                                //final EditText txtCardNumber = (EditText) findViewById(R.id."CONTROL");
-                                //final EditText txtCedula = (EditText) findViewById(R.id.txtCedula);
                                 ListViewItem item = bodegasData.get(position);
-                                //Set Item to Control
+                                final EditText txtBodega = (EditText) findViewById(R.id.txtBodega);
+                                txtBodega.setText(item.subText);
                                 dialog.dismiss();
                                 break;
                             case DialogInterface.BUTTON_NEGATIVE:
@@ -490,103 +440,122 @@ public class PedidoActivity extends ActionBarActivity {
 
 
 
-    private void showClientesDialog(JSONObject obj) throws JSONException {
+    private void showClientesDialog() {
 
         final Dialog dialog = new Dialog(PedidoActivity.this);
         dialog.setContentView(R.layout.popup_clientes);
         dialog.setCancelable(true);
-
-
-
-        dialog.setTitle("CLIENTE:: Escoga la cliente para el pedido");
-
-        Type clientesType = new TypeToken<ArrayList<Cliente>>() {
-        }.getType();
-        ArrayList<Cliente> clientes = new Gson().fromJson(obj.getString("clientes"), clientesType);
-
-
-
-        ListView lv = (ListView) dialog.findViewById(R.id.lvCliente);
-
-
-
-        final ArrayList<ListViewItem> clientesData = getClientes(clientes);
-        if (clientes.size() > 0) {
-            lv.setVisibility(View.VISIBLE);
-        } else
-            lv.setVisibility(View.GONE);
-
-        ImageListViewAdapter adapter = new ImageListViewAdapter(PedidoActivity.this, clientesData, false);
-        lv.setAdapter(adapter);
-        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        final DeviceAppApplication app =(DeviceAppApplication) getApplication();
+        Button btnBusquedaCliente = (Button) dialog.findViewById(R.id.btnBuscarCliente);
+        btnBusquedaCliente.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
+            public void onClick(View view) {
+
+                EditText NombreClienteBusqueda = (EditText) dialog.findViewById(R.id.txtBusquedaCliente);
+                Exactus.ObtenerCliente(
+                        PedidoActivity.this,
+                        app.getUsuario(), app.getPassword(), NombreClienteBusqueda.getText().toString(),
+                        new ServiceCallBack<JSONObject>() {
+                            @Override
+                            public void onPostExecute(JSONObject obj) {
+                                try {
+                                    Type clientesType = new TypeToken<ArrayList<Cliente>>() {
+                                    }.getType();
+                                    ArrayList<Cliente> clientes = new Gson().fromJson(obj.getString("clientes"), clientesType);
+                                    ListView lv = (ListView) dialog.findViewById(R.id.lvCliente);
+                                    final ArrayList<ListViewItem> clientesData = getClientes(clientes);
+                                    if (clientes.size() > 0) {
+                                        lv.setVisibility(View.VISIBLE);
+                                    } else
+                                        lv.setVisibility(View.GONE);
+
+                                    ImageListViewAdapter adapter = new ImageListViewAdapter(PedidoActivity.this, clientesData, false);
+                                    lv.setAdapter(adapter);
+                                    lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                                        @Override
+                                        public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
 
 
-                DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+                                            DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
 
-                    @Override
-                    public void onClick(DialogInterface dialogInner, int which) {
+                                                @Override
+                                                public void onClick(DialogInterface dialogInner, int which) {
 
-                        switch (which) {
+                                                    switch (which) {
 
-                            case DialogInterface.BUTTON_POSITIVE:
-                                //Find control
-                                //final EditText txtCardNumber = (EditText) findViewById(R.id."CONTROL");
-                                //final EditText txtCedula = (EditText) findViewById(R.id.txtCedula);
-                                ListViewItem item = clientesData.get(position);
-                                //Set Item to Control
-                                dialog.dismiss();
-                                break;
-                            case DialogInterface.BUTTON_NEGATIVE:
-                                dialogInner.dismiss();
-                                String message = "El usuario canceló operación";
-                                SpannableStringBuilder biggerText = new SpannableStringBuilder(message);
-                                biggerText.setSpan(new RelativeSizeSpan(1.35f), 0, message.length(), 0);
-                                Toast toast = Toast.makeText(PedidoActivity.this, biggerText, Toast.LENGTH_LONG);
-                                toast.setGravity(Gravity.CENTER, 0, 0);
-                                toast.show();
-                                break;
-                        }
-                    }
-                };
-                AlertDialog.Builder builder = new AlertDialog.Builder(PedidoActivity.this);
-                builder.setMessage("Desea utilizar este Cliente?").setPositiveButton("S\u00ED", dialogClickListener).
-                        setNegativeButton("No", dialogClickListener).show();
+                                                        case DialogInterface.BUTTON_POSITIVE:
+                                                            //Find control
+                                                            final EditText txtCliente = (EditText) findViewById(R.id.txtCliente);
+                                                            ListViewItem item = clientesData.get(position);
+                                                            txtCliente.setText(item.subText);
+                                                            //Set Item to Control
+                                                            dialog.dismiss();
+                                                            break;
+                                                        case DialogInterface.BUTTON_NEGATIVE:
+                                                            dialogInner.dismiss();
+                                                            String message = "El usuario canceló operación";
+                                                            SpannableStringBuilder biggerText = new SpannableStringBuilder(message);
+                                                            biggerText.setSpan(new RelativeSizeSpan(1.35f), 0, message.length(), 0);
+                                                            Toast toast = Toast.makeText(PedidoActivity.this, biggerText, Toast.LENGTH_LONG);
+                                                            toast.setGravity(Gravity.CENTER, 0, 0);
+                                                            toast.show();
+                                                            break;
+                                                    }
+                                                }
+                                            };
+                                            AlertDialog.Builder builder = new AlertDialog.Builder(PedidoActivity.this);
+                                            builder.setMessage("Desea utilizar este Cliente?").setPositiveButton("S\u00ED", dialogClickListener).
+                                                    setNegativeButton("No", dialogClickListener).show();
 
+
+                                        }
+                                    });
+
+
+                                } catch (Exception ex) {
+                                    ShowToastError(ex);
+                                }
+                            }
+
+                            @Override
+                            public void onException(Exception ex) {
+                                Log.d("Error", ex.getLocalizedMessage());
+                                Toast.makeText(getBaseContext(), ex.getLocalizedMessage(), Toast.LENGTH_LONG).show();
+                            }
+                        });
 
             }
         });
-        dialog.show();
-    }
 
 
+                    dialog.setTitle("CLIENTE:: Escoga la cliente para el pedido");
 
 
+                    dialog.show();
+                }
 
 
+                private ArrayList<ListViewItem> getBodegas(ArrayList<Bodega> bodegas) {
+                    ArrayList<ListViewItem> lst = new ArrayList<ListViewItem>();
+                    for (Bodega bodega : bodegas) {
+                        ListViewItem item = new ListViewItem();
+                        item.text = bodega.Bodega;
+                        item.subText = bodega.Nombre;
+                        lst.add(item);
+                    }
+                    return lst;
+                }
 
-    private ArrayList<ListViewItem> getBodegas(ArrayList<Bodega> bodegas) {
-        ArrayList<ListViewItem> lst = new ArrayList<ListViewItem>();
-        for (Bodega bodega : bodegas) {
-            ListViewItem item = new ListViewItem();
-            item.text = bodega.Bodega;
-            item.subText = bodega.Nombre;
-            lst.add(item);
-        }
-        return lst;
-    }
 
+                private ArrayList<ListViewItem> getClientes(ArrayList<Cliente> clientes) {
+                    ArrayList<ListViewItem> lst = new ArrayList<ListViewItem>();
+                    for (Cliente cliente : clientes) {
+                        ListViewItem item = new ListViewItem();
+                        item.text = cliente.NOMBRE;
+                        item.subText = cliente.CLIENTE;
+                        lst.add(item);
+                    }
+                    return lst;
+                }
 
-    private ArrayList<ListViewItem> getClientes(ArrayList<Cliente> clientes ) {
-        ArrayList<ListViewItem> lst = new ArrayList<ListViewItem>();
-        for (Cliente cliente : clientes) {
-            ListViewItem item = new ListViewItem();
-            item.text = cliente.NOMBRE;
-            item.subText = cliente.CLIENTE;
-            lst.add(item);
-        }
-        return lst;
-    }
-
-}
+            }
