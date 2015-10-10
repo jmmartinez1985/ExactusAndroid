@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="5sp" >
+
+        <TextView android:id="@+id/lblArticulo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:text="Artículo: "
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginRight="5dp"/>
+
+        <TextView  android:id="@+id/txtArticulo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:layout_toRightOf="@id/lblArticulo"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_alignParentRight="true"/>
+
+    </LinearLayout>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="5sp">
+
+        <TextView android:id="@+id/lblPrecio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:text="Precio Unitario: "
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_above="@id/lblArticulo"
+            android:layout_marginRight="5dp"/>
+
+        <TextView  android:id="@+id/txtPrecio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:layout_toRightOf="@id/lblPrecio"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_alignParentRight="true"/>
+
+    </LinearLayout>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="5sp">
+
+        <TextView android:id="@+id/lblCantidad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:text="Cantidad: "
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginRight="5dp"/>
+
+        <TextView  android:id="@+id/txtCantidad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:layout_toRightOf="@id/lblCantidad"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_alignParentRight="true"/>
+
+    </LinearLayout>
+
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="5sp">
+
+        <TextView android:id="@+id/lblDescuento"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:text="Descuento: "
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginRight="5dp"/>
+
+        <TextView  android:id="@+id/txtDescuento"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:layout_toRightOf="@id/lblDescuento"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_alignParentRight="true"/>
+
+    </LinearLayout>
+
+
+
+
+</LinearLayout>

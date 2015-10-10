@@ -8,7 +8,7 @@
         android:layout_height="wrap_content">
 
         <EditText
-            android:id="@+id/txtArticulo"
+            android:id="@+id/txtArticuloLinea"
             android:textAlignment="center"
             android:textColorHint="#a9a9a9"
             android:hint="Ingrese Artículo"
@@ -50,7 +50,7 @@
         android:layout_height="wrap_content">
 
         <EditText
-            android:id="@+id/txtPrecio"
+            android:id="@+id/txtPrecioLinea"
             android:textAlignment="center"
             android:textColorHint="#a9a9a9"
             android:hint="Precio"
@@ -97,7 +97,7 @@
         android:layout_height="wrap_content">
 
         <EditText
-            android:id="@+id/txtcantidad"
+            android:id="@+id/txtCantidadLinea"
             android:textAlignment="center"
             android:textColorHint="#a9a9a9"
             android:hint="Cantidad"
@@ -126,7 +126,7 @@
         android:layout_height="wrap_content">
 
         <EditText
-            android:id="@+id/txtdescuento"
+            android:id="@+id/txtDescuentoLinea"
             android:textAlignment="center"
             android:textColorHint="#a9a9a9"
             android:hint="Descuento"
