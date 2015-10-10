@@ -10,7 +10,7 @@
     <color name="list_header">#e2e2e2</color>
     <color name="list_header_border">#a0a0a0</color>
 
-    <color name="action_bar_background">#90D7EB</color>
+    <color name="action_bar_background">#FFDD4B39</color>
     <color name="action_bar_text_color">#fff</color>
 
     <color name="primaryColor">#90D7EB</color>

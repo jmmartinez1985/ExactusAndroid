@@ -120,6 +120,9 @@ public class MainActivity extends ActionBarActivity {
             final DeviceAppApplication app = (DeviceAppApplication) getApplication();
             Devices device = app.getDevice();
 
+            ((TextView) _menu.findViewById(R.id.txtUserName)).setText(device.empresaObject.NombreEmpresa);
+            ((TextView) _menu.findViewById(R.id.txtEmail)).setText(app.getUsuario());
+
             final ArrayList<ListViewItem> elementos = getSideMenuListItems();
 
             ImageListViewAdapter adapter = new ImageListViewAdapter(MainActivity.this, elementos);

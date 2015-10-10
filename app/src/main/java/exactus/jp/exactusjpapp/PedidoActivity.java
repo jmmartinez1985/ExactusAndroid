@@ -112,6 +112,9 @@ public class PedidoActivity extends ActionBarActivity {
 
             final ArrayList<ListViewItem> elementos = getSideMenuListItems();
 
+            ((TextView) _menu.findViewById(R.id.txtUserName)).setText(device.empresaObject.NombreEmpresa);
+            ((TextView) _menu.findViewById(R.id.txtEmail)).setText(app.getUsuario());
+
             ImageListViewAdapter adapter = new ImageListViewAdapter(PedidoActivity.this, elementos);
             ListView list = (ListView) _menu.findViewById(R.id.lstMenu);
             list.setAdapter(adapter);
@@ -201,28 +204,28 @@ public class PedidoActivity extends ActionBarActivity {
 
                                     List<PedidoLineaParametros> lineas = new ArrayList<PedidoLineaParametros>();
                                     PedidoLineaParametros linea = new PedidoLineaParametros();
-                                    linea.ARTICULO = "0101";
+                                    linea.ARTICULO = "RIN 15 610D";
                                     linea.CANTIDAD = 10;
-                                    linea.CREADOR_POR = "jm";
+                                    linea.CREADOR_POR = "JPEREZ";
                                     linea.DESCUENTO = 0;
                                     linea.Linea = 1;
                                     linea.PRECIO_UNITARIO = 10.50;
 
 
                                     lineas.add(linea);
-                                    linea.ARTICULO = "0102";
-                                    linea.PRECIO_UNITARIO = 20.50;
+                                    linea.ARTICULO = "RIN 15 610D";
+                                    linea.PRECIO_UNITARIO = 20.70;
                                     lineas.add(linea);
 
                                     PedidoParametros pedido = new PedidoParametros();
-                                    pedido.BODEGA = "10";
-                                    pedido.CLIENTE = "01";
+                                    pedido.BODEGA = "B-03";
+                                    pedido.CLIENTE = "0000603";
                                     pedido.CONDICION_PAGO = 1;
-                                    pedido.CODIGO_CONSECUTIVO = "01";
-                                    pedido.NOMBRE_CUENTA = "PRUEBA";
-                                    pedido.TARJETA_CREDITO = "";
-                                    pedido.ORDEN_COMPRA = "";
-                                    pedido.USUARIO_LOGIN = "JM";
+                                    pedido.CODIGO_CONSECUTIVO = "P03";
+                                    pedido.NOMBRE_CUENTA = "GOLD MILLS";
+                                    pedido.TARJETA_CREDITO = "10-10-10";
+                                    pedido.ORDEN_COMPRA = "10-10-10";
+                                    pedido.USUARIO_LOGIN = "JPEREZ";
                                     pedido.PEDIDODETALLE = lineas;
                                     String data = "";
                                     Gson gson = new Gson();
@@ -271,6 +274,18 @@ public class PedidoActivity extends ActionBarActivity {
                 }
             });
 
+            Button btnAgregarLinea = (Button) findViewById(R.id.btnAgregarLinea);
+            btnAgregarLinea.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    final Dialog dialog = new Dialog(PedidoActivity.this);
+                    dialog.setContentView(R.layout.popup_linea);
+                    dialog.setCancelable(true);
+                    dialog.setTitle("LINEAS:: Detalle su pedido");
+                    dialog.show();
+                }
+            });
+
             // Le cambia la fuente a todos los TextView de la pantalla.
             AssetManager assets = getAssets();
             Common.setFontOnAllControls(assets, (ViewGroup) findViewById(R.id.rootView), "fonts/Lato/Lato-Regular.ttf");
@@ -281,7 +296,6 @@ public class PedidoActivity extends ActionBarActivity {
             ShowToastError(ex);
         }
     }
-
 
 
     /// Obtiene la lista de items del menu contextual de la aplicación.
@@ -295,11 +309,6 @@ public class PedidoActivity extends ActionBarActivity {
                 lst.add(new ListViewItem(R.drawable.ic_folder_shared_blue_48dp, opci.Opcion, "", 0, opci.Id));
             }
         }
-
-        //lst.add(new ListViewItem(R.drawable.ic_stars_blue_48, "Notificaciones", ""));
-
-        //lst.add(new ListViewItem(R.drawable.ic_trending_up_black_48dp, "Estadisticas de Uso", ""));
-
         return lst;
     }
 
@@ -361,11 +370,6 @@ public class PedidoActivity extends ActionBarActivity {
             }
         }.start();
     }
-
-
-
-
-
 
     private void showBodegasDialog(JSONObject obj) throws JSONException {
 
@@ -435,10 +439,6 @@ public class PedidoActivity extends ActionBarActivity {
         });
         dialog.show();
     }
-
-
-
-
 
     private void showClientesDialog() {
 
@@ -528,14 +528,11 @@ public class PedidoActivity extends ActionBarActivity {
         });
 
 
-                    dialog.setTitle("CLIENTE:: Escoga la cliente para el pedido");
-
-
+                    dialog.setTitle("CLIENTE:: Seleccione Cliente");
                     dialog.show();
                 }
 
-
-                private ArrayList<ListViewItem> getBodegas(ArrayList<Bodega> bodegas) {
+    private ArrayList<ListViewItem> getBodegas(ArrayList<Bodega> bodegas) {
                     ArrayList<ListViewItem> lst = new ArrayList<ListViewItem>();
                     for (Bodega bodega : bodegas) {
                         ListViewItem item = new ListViewItem();

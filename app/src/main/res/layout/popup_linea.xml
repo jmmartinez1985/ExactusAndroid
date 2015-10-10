@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/txtArticulo"
+            android:textAlignment="center"
+            android:textColorHint="#a9a9a9"
+            android:hint="Ingrese Artículo"
+            android:textSize="20sp"
+            android:inputType="text"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:textColor="@color/abc_primary_text_disable_only_material_light"
+            android:layout_gravity="center_horizontal"
+            android:singleLine="true"
+            android:focusable="true"
+            android:gravity="left"
+            android:editable="false"
+            android:ellipsize="start"
+            android:textStyle="bold"/>
+
+        <Button
+            android:id="@+id/btnBuscarArticulo"
+            android:layout_height="40dp"
+            android:layout_width="wrap_content"
+            android:layout_margin="4dp"
+            android:padding="8dp"
+            android:background="@drawable/loginbuttonshape"
+            android:text="BUSCAR"
+            android:layout_gravity="center_horizontal"
+            android:textColor="#fff"
+            android:textStyle="bold"
+            android:textSize="15sp"/>
+
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/txtPrecio"
+            android:textAlignment="center"
+            android:textColorHint="#a9a9a9"
+            android:hint="Precio"
+            android:textSize="20sp"
+            android:inputType="numberDecimal"
+            android:maxLength="20"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:textColor="@color/labelTextColor"
+            android:layout_gravity="left"
+            android:singleLine="true"
+            android:focusable="true"
+            android:gravity="left"
+            android:editable="false"
+            android:ellipsize="start"
+            android:textStyle="bold"/>
+
+
+
+        <Button
+            android:id="@+id/btnPrecio"
+            android:layout_height="40dp"
+            android:layout_width="wrap_content"
+            android:layout_margin="4dp"
+            android:padding="8dp"
+            android:text="BUSCAR"
+            android:layout_gravity="center_horizontal"
+            android:textColor="#fff"
+            android:textSize="15sp"
+            android:background="@drawable/loginbuttonshape"
+            android:elegantTextHeight="false"
+            android:textStyle="bold"
+
+            />
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/txtcantidad"
+            android:textAlignment="center"
+            android:textColorHint="#a9a9a9"
+            android:hint="Cantidad"
+            android:textSize="20sp"
+            android:inputType="numberDecimal"
+            android:maxLength="20"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:textColor="@color/labelTextColor"
+            android:layout_gravity="left"
+            android:singleLine="true"
+            android:focusable="true"
+            android:gravity="left"
+            android:editable="false"
+            android:ellipsize="start"
+            android:textStyle="bold"/>
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/txtdescuento"
+            android:textAlignment="center"
+            android:textColorHint="#a9a9a9"
+            android:hint="Descuento"
+            android:textSize="20sp"
+            android:inputType="numberDecimal"
+            android:maxLength="20"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:textColor="@color/labelTextColor"
+            android:layout_gravity="left"
+            android:singleLine="true"
+            android:focusable="true"
+            android:gravity="left"
+            android:editable="false"
+            android:ellipsize="start"
+            android:textStyle="bold"/>
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/btnCrearLinea"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/loginbuttonshape"
+            android:elegantTextHeight="false"
+            android:shadowColor="#A8A8A8"
+            android:textColor="#FFFFFF"
+            android:textSize="25sp"
+            android:layout_gravity="center_horizontal"
+            android:textStyle="bold"
+            android:text="Agregar Linea" />
+    </LinearLayout>
+
+
+</LinearLayout>
