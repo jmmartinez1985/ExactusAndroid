@@ -14,4 +14,8 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+
+    <string name="text_error">La aplicación ha fallado</string>
+    <string name="email_crash">jose.martinez@mail.com</string>
+    <string name="text_email_crash">Your App crashed! Fix it!</string>
  </resources>
