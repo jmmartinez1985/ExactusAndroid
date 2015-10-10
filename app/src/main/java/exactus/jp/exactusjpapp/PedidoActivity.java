@@ -24,6 +24,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
@@ -48,6 +49,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import exactus.jp.exactusjpapp.model.*;
+import exactus.jp.exactusjpapp.services.Connectivity;
 import exactus.jp.exactusjpapp.services.Exactus;
 import exactus.jp.exactusjpapp.services.ServiceCallBack;
 
@@ -59,12 +61,12 @@ public class PedidoActivity extends ActionBarActivity {
     /// The pager adapter, which provides the pages to the view pager widget.
     private PagerAdapter mPagerAdapter;
 
+    private static List<LineViewItem> lineList = new ArrayList<>();
+    private static int counter = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         try {
-
-
 
             super.onCreate(savedInstanceState);
             overridePendingTransition(R.anim.pull_in_from_left, R.anim.hold);
@@ -158,6 +160,17 @@ public class PedidoActivity extends ActionBarActivity {
             imgBuscarBodega.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+
+                    if (!Connectivity.getInstance(getBaseContext()).isOnline()) {
+                        String message = getString(R.string.connection_message);
+                        SpannableStringBuilder biggerText = new SpannableStringBuilder(message);
+                        biggerText.setSpan(new RelativeSizeSpan(1.50f), 0, message.length(), 0);
+                        Toast toast = Toast.makeText(getBaseContext(), biggerText, Toast.LENGTH_LONG);
+                        toast.setGravity(Gravity.CENTER, 0, 0);
+                        toast.show();
+                        return;
+                    }
+
                     Exactus.ObtenerBodega(
                             PedidoActivity.this,
                             app.getUsuario(), app.getPassword(),
@@ -193,6 +206,17 @@ public class PedidoActivity extends ActionBarActivity {
             btnCrearPedido.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    if (!Connectivity.getInstance(getBaseContext()).isOnline()) {
+
+                        String message = getString(R.string.connection_message);
+                        SpannableStringBuilder biggerText = new SpannableStringBuilder(message);
+                        biggerText.setSpan(new RelativeSizeSpan(1.50f), 0, message.length(), 0);
+                        Toast toast = Toast.makeText(getBaseContext(), biggerText, Toast.LENGTH_LONG);
+                        toast.setGravity(Gravity.CENTER, 0, 0);
+                        toast.show();
+                        return;
+                    }
+
                     DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
 
                         @Override
@@ -283,8 +307,32 @@ public class PedidoActivity extends ActionBarActivity {
                     dialog.setCancelable(true);
                     dialog.setTitle("LINEAS:: Detalle su pedido");
                     dialog.show();
+
+                    Button btnCrearLinea = (Button) dialog.findViewById(R.id.btnCrearLinea);
+                    btnCrearLinea.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+
+                            LineViewItem itemLine = null;
+                            TextView txtArticulo = (TextView) dialog.findViewById(R.id.txtArticuloLinea);
+                            TextView txtPrecio = (TextView) dialog.findViewById(R.id.txtPrecioLinea);
+                            TextView txtDescuento = (TextView) dialog.findViewById(R.id.txtDescuentoLinea);
+                            TextView txtCantidad = (TextView) dialog.findViewById(R.id.txtCantidadLinea);
+                            itemLine = new LineViewItem(txtArticulo.getText().toString(), txtPrecio.getText().toString(),
+                                    txtCantidad.getText().toString(), txtDescuento.getText().toString(), counter);
+                            lineList.add(itemLine);
+                            counter++;
+                            fillArrayAndListView(lineList);
+                            dialog.dismiss();
+                            //Oculto el teclado
+                            InputMethodManager inputManager = (InputMethodManager) getSystemService(getBaseContext().INPUT_METHOD_SERVICE);
+                            inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+                        }
+                    });
+
                 }
             });
+
 
             // Le cambia la fuente a todos los TextView de la pantalla.
             AssetManager assets = getAssets();
@@ -376,21 +424,11 @@ public class PedidoActivity extends ActionBarActivity {
         final Dialog dialog = new Dialog(PedidoActivity.this);
         dialog.setContentView(R.layout.popup_bodegas);
         dialog.setCancelable(true);
-
-
-
         dialog.setTitle("BODEGA:: Escoga la bodega para el pedido");
-
         Type bodegasType = new TypeToken<ArrayList<Bodega>>() {
         }.getType();
         ArrayList<Bodega> bodegas = new Gson().fromJson(obj.getString("bodegas"), bodegasType);
-
-
-
         ListView lv = (ListView) dialog.findViewById(R.id.lvBodegas);
-
-
-
         final ArrayList<ListViewItem> bodegasData = getBodegas(bodegas);
         if (bodegas.size() > 0) {
             lv.setVisibility(View.VISIBLE);
@@ -543,8 +581,7 @@ public class PedidoActivity extends ActionBarActivity {
                     return lst;
                 }
 
-
-                private ArrayList<ListViewItem> getClientes(ArrayList<Cliente> clientes) {
+    private ArrayList<ListViewItem> getClientes(ArrayList<Cliente> clientes) {
                     ArrayList<ListViewItem> lst = new ArrayList<ListViewItem>();
                     for (Cliente cliente : clientes) {
                         ListViewItem item = new ListViewItem();
@@ -555,4 +592,23 @@ public class PedidoActivity extends ActionBarActivity {
                     return lst;
                 }
 
+    private void fillArrayAndListView(List<LineViewItem> item){
+
+        ListView lv = (ListView) findViewById(R.id.lvLineas);
+        LineListViewAdapter adapter = new LineListViewAdapter(PedidoActivity.this,(ArrayList<LineViewItem>) item);
+        lv.setAdapter(adapter);
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                try {
+
+                } catch (Exception ex) {
+                    Log.d("Error", ex.getLocalizedMessage());
+                    Toast.makeText(getBaseContext(), ex.getLocalizedMessage(), Toast.LENGTH_LONG).show();
+                }
             }
+        });
+
+    }
+
+}

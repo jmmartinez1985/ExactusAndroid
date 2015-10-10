@@ -113,6 +113,11 @@ public class HttpAsyncTask extends AsyncTask<HttpAsyncTaskParameters, Void, Stri
 
             return response.toString();
         }
+        catch (java.net.SocketTimeoutException e){
+            _progress.dismiss();
+            String msg = "La comunicaci\u00f3n con el servidor esta demorando mucho, por favor verifique su conexi\u00f3n a internet.";
+            throw new Exception(msg);
+        }
         catch(Exception ex) {
             InputStream inputStream = connection.getErrorStream();
             String msg = Common.parseServiceException(inputStream);

@@ -18,7 +18,7 @@ import android.os.Looper;
 import android.os.StatFs;
 import android.util.Log;
 /**
- * Created by LogicStudio on 08/10/2015.
+ * Created by JM on 08/10/2015.
  */
 public class UnCaughtException implements UncaughtExceptionHandler {
 

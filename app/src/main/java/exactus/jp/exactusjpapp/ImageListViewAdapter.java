@@ -104,6 +104,10 @@ public class ImageListViewAdapter extends ArrayAdapter<String> {
 
                 imageLoader.displayImage(src, imageView);
             }
+            if(item.imgSrc == null){
+                if(item.image == 0)
+                    imageView.setVisibility(View.GONE);
+            }
 
             // Muestra u oculta la barra de rating.
             RatingBar ratingBar = (RatingBar) rowView.findViewById(R.id.ratingBar);
@@ -150,4 +154,6 @@ public class ImageListViewAdapter extends ArrayAdapter<String> {
         }
         return s;
     }
+
+
 }
