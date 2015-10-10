@@ -26,6 +26,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -58,9 +59,13 @@ public class PedidoActivity extends ActionBarActivity {
     /// The pager adapter, which provides the pages to the view pager widget.
     private PagerAdapter mPagerAdapter;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         try {
+
+
+
             super.onCreate(savedInstanceState);
             overridePendingTransition(R.anim.pull_in_from_left, R.anim.hold);
             setContentView(R.layout.activity_pedido);
@@ -171,6 +176,64 @@ public class PedidoActivity extends ActionBarActivity {
                             });
                 }
             });
+
+
+             Button imgBuscarcliente = (Button) findViewById(R.id.btnCliente);
+            imgBuscarcliente.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    EditText NombreClienteBusqueda = (EditText) findViewById(R.id.txtCliente);
+                    Exactus.ObtenerCliente(
+                            PedidoActivity.this,
+                            app.getUsuario(), app.getPassword(), NombreClienteBusqueda.getText().toString()  ,
+                            new ServiceCallBack<JSONObject>() {
+                                @Override
+                                public void onPostExecute(JSONObject obj) {
+                                    try {
+                                        showClientesDialog(obj);
+                                    } catch (Exception ex) {
+                                        ShowToastError(ex);
+                                    }
+                                }
+
+                                @Override
+                                public void onException(Exception ex) {
+                                    Log.d("Error", ex.getLocalizedMessage());
+                                    Toast.makeText(getBaseContext(), ex.getLocalizedMessage(), Toast.LENGTH_LONG).show();
+                                }
+                            });
+                }
+            });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             Button btnCrearPedido = (Button) findViewById(R.id.btnCrearPedido);
             btnCrearPedido.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -268,6 +331,8 @@ public class PedidoActivity extends ActionBarActivity {
         }
     }
 
+
+
     /// Obtiene la lista de items del menu contextual de la aplicación.
     private ArrayList<ListViewItem> getSideMenuListItems() {
         ArrayList<ListViewItem> lst = new ArrayList<ListViewItem>();
@@ -346,19 +411,31 @@ public class PedidoActivity extends ActionBarActivity {
         }.start();
     }
 
-    private void showBodegasDialog(JSONObject obj) throws JSONException {
 
+
+
+
+
+    private void showBodegasDialog(JSONObject obj) throws JSONException {
 
         final Dialog dialog = new Dialog(PedidoActivity.this);
         dialog.setContentView(R.layout.popup_bodegas);
-
         dialog.setCancelable(true);
+
+
+
         dialog.setTitle("BODEGA:: Escoga la bodega para el pedido");
 
         Type bodegasType = new TypeToken<ArrayList<Bodega>>() {
         }.getType();
         ArrayList<Bodega> bodegas = new Gson().fromJson(obj.getString("bodegas"), bodegasType);
+
+
+
         ListView lv = (ListView) dialog.findViewById(R.id.lvBodegas);
+
+
+
         final ArrayList<ListViewItem> bodegasData = getBodegas(bodegas);
         if (bodegas.size() > 0) {
             lv.setVisibility(View.VISIBLE);
@@ -409,6 +486,86 @@ public class PedidoActivity extends ActionBarActivity {
         dialog.show();
     }
 
+
+
+
+
+    private void showClientesDialog(JSONObject obj) throws JSONException {
+
+        final Dialog dialog = new Dialog(PedidoActivity.this);
+        dialog.setContentView(R.layout.popup_clientes);
+        dialog.setCancelable(true);
+
+
+
+        dialog.setTitle("CLIENTE:: Escoga la cliente para el pedido");
+
+        Type clientesType = new TypeToken<ArrayList<Cliente>>() {
+        }.getType();
+        ArrayList<Cliente> clientes = new Gson().fromJson(obj.getString("clientes"), clientesType);
+
+
+
+        ListView lv = (ListView) dialog.findViewById(R.id.lvCliente);
+
+
+
+        final ArrayList<ListViewItem> clientesData = getClientes(clientes);
+        if (clientes.size() > 0) {
+            lv.setVisibility(View.VISIBLE);
+        } else
+            lv.setVisibility(View.GONE);
+
+        ImageListViewAdapter adapter = new ImageListViewAdapter(PedidoActivity.this, clientesData, false);
+        lv.setAdapter(adapter);
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
+
+
+                DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+
+                    @Override
+                    public void onClick(DialogInterface dialogInner, int which) {
+
+                        switch (which) {
+
+                            case DialogInterface.BUTTON_POSITIVE:
+                                //Find control
+                                //final EditText txtCardNumber = (EditText) findViewById(R.id."CONTROL");
+                                //final EditText txtCedula = (EditText) findViewById(R.id.txtCedula);
+                                ListViewItem item = clientesData.get(position);
+                                //Set Item to Control
+                                dialog.dismiss();
+                                break;
+                            case DialogInterface.BUTTON_NEGATIVE:
+                                dialogInner.dismiss();
+                                String message = "El usuario canceló operación";
+                                SpannableStringBuilder biggerText = new SpannableStringBuilder(message);
+                                biggerText.setSpan(new RelativeSizeSpan(1.35f), 0, message.length(), 0);
+                                Toast toast = Toast.makeText(PedidoActivity.this, biggerText, Toast.LENGTH_LONG);
+                                toast.setGravity(Gravity.CENTER, 0, 0);
+                                toast.show();
+                                break;
+                        }
+                    }
+                };
+                AlertDialog.Builder builder = new AlertDialog.Builder(PedidoActivity.this);
+                builder.setMessage("Desea utilizar este Cliente?").setPositiveButton("S\u00ED", dialogClickListener).
+                        setNegativeButton("No", dialogClickListener).show();
+
+
+            }
+        });
+        dialog.show();
+    }
+
+
+
+
+
+
+
     private ArrayList<ListViewItem> getBodegas(ArrayList<Bodega> bodegas) {
         ArrayList<ListViewItem> lst = new ArrayList<ListViewItem>();
         for (Bodega bodega : bodegas) {
@@ -419,4 +576,17 @@ public class PedidoActivity extends ActionBarActivity {
         }
         return lst;
     }
+
+
+    private ArrayList<ListViewItem> getClientes(ArrayList<Cliente> clientes ) {
+        ArrayList<ListViewItem> lst = new ArrayList<ListViewItem>();
+        for (Cliente cliente : clientes) {
+            ListViewItem item = new ListViewItem();
+            item.text = cliente.NOMBRE;
+            item.subText = cliente.CLIENTE;
+            lst.add(item);
+        }
+        return lst;
+    }
+
 }

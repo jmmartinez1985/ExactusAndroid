@@ -34,6 +34,7 @@ public class DeviceAppApplication extends Application {
         return password;
     }
 
+
     public void setPassword(String password) {
         this.password = password;
     }
