@@ -78,7 +78,7 @@
                         android:gravity="left"
                         android:editable="false"
                         android:ellipsize="start"
-                        android:textStyle="bold"/>
+                        android:textStyle="bold" />
 
 
 
@@ -242,7 +242,8 @@
                         android:layout_height="fill_parent"
                         android:layout_marginTop="15dp"
                         android:background="@color/backgroundColor"
-                        android:dividerHeight="4px" />
+                        android:dividerHeight="4px"
+                        />
 
                 </LinearLayout>
 

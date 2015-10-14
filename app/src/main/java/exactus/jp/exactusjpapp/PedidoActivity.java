@@ -53,6 +53,9 @@ import exactus.jp.exactusjpapp.services.Connectivity;
 import exactus.jp.exactusjpapp.services.Exactus;
 import exactus.jp.exactusjpapp.services.ServiceCallBack;
 
+import static exactus.jp.exactusjpapp.R.layout.popup_busqueda_articulos;
+import static exactus.jp.exactusjpapp.R.layout.popup_linea;
+
 public class PedidoActivity extends ActionBarActivity {
 
     //Instancia del menu que hace slide a la izquierda.
@@ -156,7 +159,8 @@ public class PedidoActivity extends ActionBarActivity {
 
 
 
-            Button imgBuscarBodega = (Button) findViewById(R.id.btnBodega);
+
+                    Button imgBuscarBodega = (Button) findViewById(R.id.btnBodega);
             imgBuscarBodega.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -298,12 +302,32 @@ public class PedidoActivity extends ActionBarActivity {
                 }
             });
 
+
+
+            Button btnBuscarArticulo = (Button) findViewById(R.id.btnBuscarArticulo);
+            btnBuscarArticulo.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    final Dialog dialog = new Dialog(PedidoActivity.this);
+                    dialog.setContentView(popup_busqueda_articulos);
+                    dialog.setCancelable(true);
+                    dialog.setTitle("BUSQUEDA ARTICULOS:: Artículos para pedido");
+                    dialog.show();
+                }
+            });
+
+
+
+
+
+
+
             Button btnAgregarLinea = (Button) findViewById(R.id.btnAgregarLinea);
             btnAgregarLinea.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     final Dialog dialog = new Dialog(PedidoActivity.this);
-                    dialog.setContentView(R.layout.popup_linea);
+                    dialog.setContentView(popup_linea);
                     dialog.setCancelable(true);
                     dialog.setTitle("LINEAS:: Detalle su pedido");
                     dialog.show();
@@ -328,7 +352,10 @@ public class PedidoActivity extends ActionBarActivity {
                             InputMethodManager inputManager = (InputMethodManager) getSystemService(getBaseContext().INPUT_METHOD_SERVICE);
                             inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
                         }
-                    });
+                    }
+
+
+                    );
 
                 }
             });
@@ -344,6 +371,12 @@ public class PedidoActivity extends ActionBarActivity {
             ShowToastError(ex);
         }
     }
+
+
+
+
+
+
 
 
     /// Obtiene la lista de items del menu contextual de la aplicación.
@@ -524,8 +557,11 @@ public class PedidoActivity extends ActionBarActivity {
                                                         case DialogInterface.BUTTON_POSITIVE:
                                                             //Find control
                                                             final EditText txtCliente = (EditText) findViewById(R.id.txtCliente);
+                                                            final EditText txtNombreCuenta  = (EditText) findViewById(R.id.txtNombreCuenta);
                                                             ListViewItem item = clientesData.get(position);
                                                             txtCliente.setText(item.subText);
+                                                            txtNombreCuenta.setText(item.text);
+
                                                             //Set Item to Control
                                                             dialog.dismiss();
                                                             break;
@@ -591,6 +627,22 @@ public class PedidoActivity extends ActionBarActivity {
                     }
                     return lst;
                 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     private void fillArrayAndListView(List<LineViewItem> item){
 

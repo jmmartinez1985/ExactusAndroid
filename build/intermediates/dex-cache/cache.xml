@@ -2,83 +2,6 @@
 <items version="2" >
 
     <item
-        jar="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.0\jars\libs\internal_impl-22.2.0.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="57f2ab85c164ff1676ec64dee787981c046fab79">
-        <dex dex="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\build\intermediates\pre-dexed\debug\internal_impl-22.2.0-17e2e7b647e6f5a53f98b687e1666b394b1bf5f1.jar" />
-    </item>
-    <item
-        jar="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-wallet\7.5.0\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="6836d188602ec5382d1967c58b00960eb8ff8773">
-        <dex dex="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\build\intermediates\pre-dexed\debug\classes-c43a30e4cad06dc76607ef38e31cd42035f051d0.jar" />
-    </item>
-    <item
-        jar="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-wearable\7.5.0\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="69dd177337ead693c408c8dddc9546bb6f1244fa">
-        <dex dex="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\build\intermediates\pre-dexed\debug\classes-2e1230e9b584ec98d895ad60165f854cabb82fc8.jar" />
-    </item>
-    <item
-        jar="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-location\7.5.0\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="1e98ef3f124bb7a11f8575f9ff5dfea330b61b6f">
-        <dex dex="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\build\intermediates\pre-dexed\debug\classes-7a317c65c778dbcbe9e97a3c857537ecc2e04699.jar" />
-    </item>
-    <item
-        jar="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-fitness\7.5.0\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="a172852a35ff919e85b9b7f14bbc15c5bee25520">
-        <dex dex="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\build\intermediates\pre-dexed\debug\classes-6012bb9ac32fefc70c173485b30ab9c249221359.jar" />
-    </item>
-    <item
-        jar="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\build\intermediates\exploded-aar\ExactusAndroid.libs\SlideMenuLibrary\unspecified\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="7661c84c0bce997d366ef93ba80aa924cd6247fe">
-        <dex dex="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\build\intermediates\pre-dexed\debug\classes-7a2934a7cf87bed9e24c2c066ed2f8416ce51740.jar" />
-    </item>
-    <item
-        jar="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\22.2.0\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="73753982da6bde518f3a4c6b372749981d14d1a0">
-        <dex dex="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\build\intermediates\pre-dexed\debug\classes-817dac26a10e1f2069c3efd7fd3d703c78561bd4.jar" />
-    </item>
-    <item
-        jar="C:\Users\JAMES\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\22.2.0\support-annotations-22.2.0.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="66b42a1f3eb7676070b7ef7f14b603483aecbee1">
-        <dex dex="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\build\intermediates\pre-dexed\debug\support-annotations-22.2.0-d95bd0e12059f3643f6719fb385db015d827fe28.jar" />
-    </item>
-    <item
-        jar="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-plus\7.5.0\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="272bc5d7063f24bc3a33ea1d318cde8f31f5ec4c">
-        <dex dex="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\build\intermediates\pre-dexed\debug\classes-1aa692726f2451a7d3698bcb40a8599c52151717.jar" />
-    </item>
-    <item
-        jar="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-ads\7.5.0\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="29ebc7e04d877062317c8cc0e68b20f0c1fcda66">
-        <dex dex="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\build\intermediates\pre-dexed\debug\classes-78f41244e6fd2b83cb60e2c087f38f453418751c.jar" />
-    </item>
-    <item
-        jar="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-identity\7.5.0\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="d405025c600055237c171a0bbabaa49d69696573">
-        <dex dex="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\build\intermediates\pre-dexed\debug\classes-178e103e6d0d187851792aa15f63ad3ac9f86d6c.jar" />
-    </item>
-    <item
         jar="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-drive\7.5.0\jars\classes.jar"
         jumboMode="false"
         revision="22.0.1"
@@ -86,18 +9,32 @@
         <dex dex="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\build\intermediates\pre-dexed\debug\classes-aa9efe50a3fad596d15e2d64a802e3ed6116f549.jar" />
     </item>
     <item
-        jar="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appindexing\7.5.0\jars\classes.jar"
+        jar="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-nearby\7.5.0\jars\classes.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="f02127a85abd52a2cd526d4c2409f21969f80ee8">
-        <dex dex="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\build\intermediates\pre-dexed\debug\classes-9ad8ded7aaba9f92e6ddec2c74bc8c8d1b8d1aa4.jar" />
+        sha1="6440e5e5cfe368f9bff3c537fb8988048069cb33">
+        <dex dex="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\build\intermediates\pre-dexed\debug\classes-abcdaac9ad45ef711dc9c61c6f8dad5fed0e083a.jar" />
     </item>
     <item
-        jar="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-cast\7.5.0\jars\classes.jar"
+        jar="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\7.5.0\jars\classes.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="8e3a972f28b8bae817e382257ba177a31bcadbbc">
-        <dex dex="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\build\intermediates\pre-dexed\debug\classes-d214ffdb52f19db9360fb2219f94e0af72cd5522.jar" />
+        sha1="a78183f30e769a98ab4820794f597763088d3065">
+        <dex dex="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\build\intermediates\pre-dexed\debug\classes-8e152c984aa0384ac452992c7f2c8ad551308871.jar" />
+    </item>
+    <item
+        jar="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appstate\7.5.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="68c140702c7242d914655bcb3164d9e8c45b84cb">
+        <dex dex="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\build\intermediates\pre-dexed\debug\classes-10ded1bec3768653e82d91ca409ee9e9c5ec908a.jar" />
+    </item>
+    <item
+        jar="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-location\7.5.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="1e98ef3f124bb7a11f8575f9ff5dfea330b61b6f">
+        <dex dex="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\build\intermediates\pre-dexed\debug\classes-7a317c65c778dbcbe9e97a3c857537ecc2e04699.jar" />
     </item>
     <item
         jar="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appinvite\7.5.0\jars\classes.jar"
@@ -114,46 +51,11 @@
         <dex dex="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\build\intermediates\pre-dexed\debug\classes-f46692fd6525415cd7294bf3ee5dd7ee9c1a03a1.jar" />
     </item>
     <item
-        jar="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\build\intermediates\exploded-aar\com.android.support\mediarouter-v7\22.0.0\jars\libs\internal_impl-22.0.0.jar"
+        jar="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-plus\7.5.0\jars\classes.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="ba3df4eb0a630d7de294f0e48d3f9267d279b784">
-        <dex dex="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\build\intermediates\pre-dexed\debug\internal_impl-22.0.0-49aac09cb644f4d4dc0f9cabaa224a7f9833d489.jar" />
-    </item>
-    <item
-        jar="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.0\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="1ee588ff2c4daf7b97c1cbf922a6c7f027285c2f">
-        <dex dex="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\build\intermediates\pre-dexed\debug\classes-6842f8b65ad11015cf8046efdad34c8c70b4b01d.jar" />
-    </item>
-    <item
-        jar="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-panorama\7.5.0\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="ba207be21987c11b37d9f8faa08ed6e722569f30">
-        <dex dex="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\build\intermediates\pre-dexed\debug\classes-37af34351d72e6a8d61d7a8d67bb440b75a8e7b4.jar" />
-    </item>
-    <item
-        jar="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appstate\7.5.0\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="68c140702c7242d914655bcb3164d9e8c45b84cb">
-        <dex dex="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\build\intermediates\pre-dexed\debug\classes-10ded1bec3768653e82d91ca409ee9e9c5ec908a.jar" />
-    </item>
-    <item
-        jar="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics\7.5.0\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="e7b35244f50663b3f8d150714bca9ecd7a290da1">
-        <dex dex="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\build\intermediates\pre-dexed\debug\classes-86bf2710989b3e8ec4e4f081078445815d1d7de1.jar" />
-    </item>
-    <item
-        jar="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\7.5.0\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="a78183f30e769a98ab4820794f597763088d3065">
-        <dex dex="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\build\intermediates\pre-dexed\debug\classes-8e152c984aa0384ac452992c7f2c8ad551308871.jar" />
+        sha1="272bc5d7063f24bc3a33ea1d318cde8f31f5ec4c">
+        <dex dex="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\build\intermediates\pre-dexed\debug\classes-1aa692726f2451a7d3698bcb40a8599c52151717.jar" />
     </item>
     <item
         jar="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\libs\universal-image-loader-1.9.4.jar"
@@ -163,32 +65,25 @@
         <dex dex="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\build\intermediates\pre-dexed\debug\universal-image-loader-1.9.4-c7d901f4df51e451412004a08aaef5227d3ed43a.jar" />
     </item>
     <item
-        jar="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-nearby\7.5.0\jars\classes.jar"
+        jar="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appindexing\7.5.0\jars\classes.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="6440e5e5cfe368f9bff3c537fb8988048069cb33">
-        <dex dex="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\build\intermediates\pre-dexed\debug\classes-abcdaac9ad45ef711dc9c61c6f8dad5fed0e083a.jar" />
+        sha1="f02127a85abd52a2cd526d4c2409f21969f80ee8">
+        <dex dex="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\build\intermediates\pre-dexed\debug\classes-9ad8ded7aaba9f92e6ddec2c74bc8c8d1b8d1aa4.jar" />
     </item>
     <item
-        jar="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-safetynet\7.5.0\jars\classes.jar"
+        jar="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\libs\android-core-3.2.0.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="1a6411087ab88ce5542f593e63a2752b6b0d6f1a">
-        <dex dex="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\build\intermediates\pre-dexed\debug\classes-d0b89096e36d5ccf1ff1f25df4f06450856b98e8.jar" />
+        sha1="222b58541c79971b53cca8ed4a40cf251f1630df">
+        <dex dex="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\build\intermediates\pre-dexed\debug\android-core-3.2.0-84f366de9747700bcdd48fba5e093d2d5f4d1457.jar" />
     </item>
     <item
-        jar="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\7.5.0\jars\classes.jar"
+        jar="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-identity\7.5.0\jars\classes.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="06a42becc33232ec0ee125161da68c1829c9f8fd">
-        <dex dex="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\build\intermediates\pre-dexed\debug\classes-38bb4a374fa4f3289f49f69b3a4212159ef748cf.jar" />
-    </item>
-    <item
-        jar="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\libs\zxingorg-3.2.0-sources.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="4e74328d00131bd13e234e6fa840552446123a1b">
-        <dex dex="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\build\intermediates\pre-dexed\debug\zxingorg-3.2.0-sources-42ee70c9d8b67e1a34a645d7f136912ea427c2ae.jar" />
+        sha1="d405025c600055237c171a0bbabaa49d69696573">
+        <dex dex="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\build\intermediates\pre-dexed\debug\classes-178e103e6d0d187851792aa15f63ad3ac9f86d6c.jar" />
     </item>
     <item
         jar="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\libs\android-integration-3.2.0.jar"
@@ -198,18 +93,67 @@
         <dex dex="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\build\intermediates\pre-dexed\debug\android-integration-3.2.0-af2c9ec66675727be158f672506eabad2560a545.jar" />
     </item>
     <item
-        jar="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\build\intermediates\exploded-aar\com.android.support\mediarouter-v7\22.0.0\jars\classes.jar"
+        jar="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-ads\7.5.0\jars\classes.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="a1372c17fccacca753d3951d3ad820571cbce075">
-        <dex dex="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\build\intermediates\pre-dexed\debug\classes-280078e0e5afdf6ddb163fb92bbcb2ff5316f772.jar" />
+        sha1="29ebc7e04d877062317c8cc0e68b20f0c1fcda66">
+        <dex dex="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\build\intermediates\pre-dexed\debug\classes-78f41244e6fd2b83cb60e2c087f38f453418751c.jar" />
     </item>
     <item
-        jar="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-games\7.5.0\jars\classes.jar"
+        jar="C:\Users\JAMES\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\22.2.0\support-annotations-22.2.0.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="02bac2dc792d78241077861566f2c82da955e7fa">
-        <dex dex="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\build\intermediates\pre-dexed\debug\classes-b161ac8eac68d06389c20c219e278ebb2d044f4c.jar" />
+        sha1="66b42a1f3eb7676070b7ef7f14b603483aecbee1">
+        <dex dex="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\build\intermediates\pre-dexed\debug\support-annotations-22.2.0-d95bd0e12059f3643f6719fb385db015d827fe28.jar" />
+    </item>
+    <item
+        jar="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\libs\zxingorg-3.2.0-sources.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="4e74328d00131bd13e234e6fa840552446123a1b">
+        <dex dex="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\build\intermediates\pre-dexed\debug\zxingorg-3.2.0-sources-42ee70c9d8b67e1a34a645d7f136912ea427c2ae.jar" />
+    </item>
+    <item
+        jar="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\build\intermediates\exploded-aar\ExactusAndroid.libs\SlideMenuLibrary\unspecified\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="7661c84c0bce997d366ef93ba80aa924cd6247fe">
+        <dex dex="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\build\intermediates\pre-dexed\debug\classes-7a2934a7cf87bed9e24c2c066ed2f8416ce51740.jar" />
+    </item>
+    <item
+        jar="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-wallet\7.5.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="6836d188602ec5382d1967c58b00960eb8ff8773">
+        <dex dex="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\build\intermediates\pre-dexed\debug\classes-c43a30e4cad06dc76607ef38e31cd42035f051d0.jar" />
+    </item>
+    <item
+        jar="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\22.2.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="73753982da6bde518f3a4c6b372749981d14d1a0">
+        <dex dex="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\build\intermediates\pre-dexed\debug\classes-817dac26a10e1f2069c3efd7fd3d703c78561bd4.jar" />
+    </item>
+    <item
+        jar="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-wearable\7.5.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="69dd177337ead693c408c8dddc9546bb6f1244fa">
+        <dex dex="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\build\intermediates\pre-dexed\debug\classes-2e1230e9b584ec98d895ad60165f854cabb82fc8.jar" />
+    </item>
+    <item
+        jar="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.0\jars\libs\internal_impl-22.2.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="57f2ab85c164ff1676ec64dee787981c046fab79">
+        <dex dex="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\build\intermediates\pre-dexed\debug\internal_impl-22.2.0-17e2e7b647e6f5a53f98b687e1666b394b1bf5f1.jar" />
+    </item>
+    <item
+        jar="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-cast\7.5.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="8e3a972f28b8bae817e382257ba177a31bcadbbc">
+        <dex dex="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\build\intermediates\pre-dexed\debug\classes-d214ffdb52f19db9360fb2219f94e0af72cd5522.jar" />
     </item>
     <item
         jar="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\libs\gson-2.3.1.jar"
@@ -219,11 +163,67 @@
         <dex dex="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\build\intermediates\pre-dexed\debug\gson-2.3.1-68de9f5c49051eb689e9a6e00e29d8323429d88e.jar" />
     </item>
     <item
-        jar="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\libs\android-core-3.2.0.jar"
+        jar="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-panorama\7.5.0\jars\classes.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="222b58541c79971b53cca8ed4a40cf251f1630df">
-        <dex dex="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\build\intermediates\pre-dexed\debug\android-core-3.2.0-84f366de9747700bcdd48fba5e093d2d5f4d1457.jar" />
+        sha1="ba207be21987c11b37d9f8faa08ed6e722569f30">
+        <dex dex="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\build\intermediates\pre-dexed\debug\classes-37af34351d72e6a8d61d7a8d67bb440b75a8e7b4.jar" />
+    </item>
+    <item
+        jar="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics\7.5.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="e7b35244f50663b3f8d150714bca9ecd7a290da1">
+        <dex dex="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\build\intermediates\pre-dexed\debug\classes-86bf2710989b3e8ec4e4f081078445815d1d7de1.jar" />
+    </item>
+    <item
+        jar="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="1ee588ff2c4daf7b97c1cbf922a6c7f027285c2f">
+        <dex dex="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\build\intermediates\pre-dexed\debug\classes-6842f8b65ad11015cf8046efdad34c8c70b4b01d.jar" />
+    </item>
+    <item
+        jar="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\build\intermediates\exploded-aar\com.android.support\mediarouter-v7\22.0.0\jars\libs\internal_impl-22.0.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="ba3df4eb0a630d7de294f0e48d3f9267d279b784">
+        <dex dex="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\build\intermediates\pre-dexed\debug\internal_impl-22.0.0-49aac09cb644f4d4dc0f9cabaa224a7f9833d489.jar" />
+    </item>
+    <item
+        jar="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-fitness\7.5.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="a172852a35ff919e85b9b7f14bbc15c5bee25520">
+        <dex dex="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\build\intermediates\pre-dexed\debug\classes-6012bb9ac32fefc70c173485b30ab9c249221359.jar" />
+    </item>
+    <item
+        jar="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\7.5.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="06a42becc33232ec0ee125161da68c1829c9f8fd">
+        <dex dex="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\build\intermediates\pre-dexed\debug\classes-38bb4a374fa4f3289f49f69b3a4212159ef748cf.jar" />
+    </item>
+    <item
+        jar="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-safetynet\7.5.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="1a6411087ab88ce5542f593e63a2752b6b0d6f1a">
+        <dex dex="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\build\intermediates\pre-dexed\debug\classes-d0b89096e36d5ccf1ff1f25df4f06450856b98e8.jar" />
+    </item>
+    <item
+        jar="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-games\7.5.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="02bac2dc792d78241077861566f2c82da955e7fa">
+        <dex dex="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\build\intermediates\pre-dexed\debug\classes-b161ac8eac68d06389c20c219e278ebb2d044f4c.jar" />
+    </item>
+    <item
+        jar="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\build\intermediates\exploded-aar\com.android.support\mediarouter-v7\22.0.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="a1372c17fccacca753d3951d3ad820571cbce075">
+        <dex dex="C:\Users\JAMES\Documents\GitHub\ExactusAndroid\app\build\intermediates\pre-dexed\debug\classes-280078e0e5afdf6ddb163fb92bbcb2ff5316f772.jar" />
     </item>
 
 </items>
