@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Codigo"
+            android:id="@+id/rdcodigo"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Descripción"
+            android:id="@+id/rddescripcion"
+            android:checked="true"
+            android:layout_weight="1"
+            android:layout_gravity="center" />
+
+        />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+    <EditText
+        android:id="@+id/txtingresebusqueda"
+        android:textAlignment="center"
+        android:textColorHint="#a9a9a9"
+        android:hint="Ingrese Busqueda"
+        android:textSize="20sp"
+        android:inputType="text"
+        android:layout_weight="1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:textColor="@color/abc_primary_text_disable_only_material_light"
+        android:layout_gravity="center_horizontal"
+        android:singleLine="true"
+        android:focusable="true"
+        android:gravity="left"
+        android:editable="false"
+        android:ellipsize="start"
+        android:textStyle="bold"
+        />
+
+        <Button
+            android:id="@+id/btnBuscarbusqueda"
+            android:layout_height="40dp"
+            android:layout_width="wrap_content"
+            android:layout_margin="4dp"
+            android:padding="8dp"
+            android:background="@drawable/loginbuttonshape"
+            android:text="BUSCAR"
+            android:layout_gravity="center_horizontal"
+            android:textColor="#fff"
+            android:textStyle="bold"
+            android:textSize="15sp"/>
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+            <ListView
+                android:id="@+id/lvArticuloLista"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_marginTop="15dp"
+                android:background="@color/backgroundColor"
+                android:dividerHeight="4px"
+                />
+
+        </LinearLayout>
+    </ScrollView>
+
+
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/tvClasificacion1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Clasificacion1"
+            android:textSize="15sp"
+            android:layout_gravity="center"/>
+
+<Spinner
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/spinclasificacion1"
+    android:layout_weight="1"
+    android:layout_gravity="center"
+    android:textSize="15sp"
+    ></Spinner>
+
+        <CheckBox
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Todas"
+            android:layout_weight="1.75"
+            android:layout_gravity="center"
+            android:textSize="15dp"
+            android:checked="true"
+            android:id="@+id/chkclasificacion1"
+            />
+
+
+</LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/tvClasificacion2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Clasificacion2"
+            android:textSize="15sp"
+            android:layout_gravity="center"
+            />
+        <Spinner
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinclasificacion2"
+            android:layout_weight="1"
+            android:textSize="15sp"
+            ></Spinner>
+
+        <CheckBox
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Todas"
+            android:layout_weight="1.75"
+            android:layout_gravity="center"
+            android:textSize="15dp"
+            android:checked="true"
+            android:id="@+id/chkclasificacion2"
+            />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/tvClasificacion3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Clasificacion3"
+            android:layout_gravity="center"
+            android:textSize="15sp"/>
+        <Spinner
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinclasificacion3"
+            android:layout_weight="1"
+            android:textSize="15sp"
+            android:layout_gravity="center"
+            ></Spinner>
+
+        <CheckBox
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Todas"
+            android:layout_weight="1.75"
+            android:layout_gravity="center"
+            android:textSize="15dp"
+            android:checked="true"
+            android:id="@+id/chkclasificacion3"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/tvClasificacion4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Clasificacion4"
+            android:layout_gravity="center"
+            android:textSize="15sp"/>
+        <Spinner
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinclasificacion4"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:textSize="15sp"
+            ></Spinner>
+
+        <CheckBox
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+
+            android:text="Todas"
+            android:layout_weight="1.75"
+            android:layout_gravity="center"
+            android:textSize="15dp"
+            android:checked="true"
+            android:id="@+id/chkclasificacion4"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/tvClasificacion5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Clasificacion5"
+            android:textSize="15sp"/>
+        <Spinner
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinclasificacion5"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:textSize="15sp"
+            ></Spinner>
+
+        <CheckBox
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Todas"
+            android:layout_weight="1.75"
+
+            android:layout_gravity="center"
+            android:textSize="15dp"
+            android:checked="true"
+            android:id="@+id/chkclasificacion5"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/tvClasificacion6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Clasificacion6"
+            android:textSize="15sp"/>
+        <Spinner
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinclasificacion6"
+            android:layout_weight="1"
+            android:textSize="15sp"
+            android:layout_gravity="center"
+            ></Spinner>
+
+
+        <CheckBox
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Todas"
+            android:layout_weight="1.75"
+            android:layout_gravity="center"
+            android:textSize="15dp"
+            android:checked="true"
+            android:id="@+id/chkclasificacion6"
+            />
+
+    </LinearLayout>
+
+
+
+
+</LinearLayout>
