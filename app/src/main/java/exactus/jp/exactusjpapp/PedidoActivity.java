@@ -7,6 +7,7 @@ import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.AssetManager;
+import android.database.DataSetObserver;
 import android.graphics.drawable.ColorDrawable;
 import android.os.CountDownTimer;
 import android.support.v4.view.PagerAdapter;
@@ -25,12 +26,18 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Adapter;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.Spinner;
+import android.widget.SpinnerAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -55,6 +62,11 @@ import exactus.jp.exactusjpapp.services.ServiceCallBack;
 
 import static exactus.jp.exactusjpapp.R.layout.popup_busqueda_articulos;
 import static exactus.jp.exactusjpapp.R.layout.popup_linea;
+import android.view.inputmethod.InputMethodManager;
+import exactus.jp.exactusjpapp.model.*;
+import exactus.jp.exactusjpapp.services.Connectivity;
+import exactus.jp.exactusjpapp.services.Exactus;
+import exactus.jp.exactusjpapp.services.ServiceCallBack;
 
 public class PedidoActivity extends ActionBarActivity {
 
@@ -198,6 +210,13 @@ public class PedidoActivity extends ActionBarActivity {
             });
 
 
+
+
+
+
+
+
+
             Button imgBuscarcliente = (Button) findViewById(R.id.btnCliente);
             imgBuscarcliente.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -304,17 +323,11 @@ public class PedidoActivity extends ActionBarActivity {
 
 
 
-            Button btnBuscarArticulo = (Button) findViewById(R.id.btnBuscarArticulo);
-            btnBuscarArticulo.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    final Dialog dialog = new Dialog(PedidoActivity.this);
-                    dialog.setContentView(popup_busqueda_articulos);
-                    dialog.setCancelable(true);
-                    dialog.setTitle("BUSQUEDA ARTICULOS:: Artículos para pedido");
-                    dialog.show();
-                }
-            });
+
+
+
+
+
 
 
 
@@ -332,33 +345,99 @@ public class PedidoActivity extends ActionBarActivity {
                     dialog.setTitle("LINEAS:: Detalle su pedido");
                     dialog.show();
 
-                    Button btnCrearLinea = (Button) dialog.findViewById(R.id.btnCrearLinea);
-                    btnCrearLinea.setOnClickListener(new View.OnClickListener() {
+
+
+
+
+
+                    Button btnBuscarArticulo = (Button) dialog.findViewById(R.id.btnBuscarArticulo);
+                    btnBuscarArticulo.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
+                            final Dialog dialog1 = new Dialog(PedidoActivity.this);
+                            dialog1.setContentView(popup_busqueda_articulos);
+                            dialog1.setTitle("BUSQUEDA ARTICULOS:: Artículos para pedido");
+                            dialog1.show();
 
-                            LineViewItem itemLine = null;
-                            TextView txtArticulo = (TextView) dialog.findViewById(R.id.txtArticuloLinea);
-                            TextView txtPrecio = (TextView) dialog.findViewById(R.id.txtPrecioLinea);
-                            TextView txtDescuento = (TextView) dialog.findViewById(R.id.txtDescuentoLinea);
-                            TextView txtCantidad = (TextView) dialog.findViewById(R.id.txtCantidadLinea);
-                            itemLine = new LineViewItem(txtArticulo.getText().toString(), txtPrecio.getText().toString(),
-                                    txtCantidad.getText().toString(), txtDescuento.getText().toString(), counter);
-                            lineList.add(itemLine);
-                            counter++;
-                            fillArrayAndListView(lineList);
-                            dialog.dismiss();
-                            //Oculto el teclado
-                            InputMethodManager inputManager = (InputMethodManager) getSystemService(getBaseContext().INPUT_METHOD_SERVICE);
-                            inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+//--------------------------------------
+                            Exactus.ObtenerClasificacion(
+                                    PedidoActivity.this,
+                                    app.getUsuario(), app.getPassword(), "1",
+                                    new ServiceCallBack<JSONObject>() {
+                                        @Override
+                                        public void onPostExecute(JSONObject obj) {
+                                            try {
+
+                                                Type Clasificacion1Type = new TypeToken<ArrayList<Clasificacion>>(){}.getType();
+                                                ArrayList<Clasificacion> Clasificacion1 = new Gson().fromJson(obj.getString("Clasificacion"), Clasificacion1Type);
+                                                Spinner spinclasificacion1 = (Spinner) dialog1.findViewById(R.id.spinclasificacion1);
+                                                ArrayList<ListViewItem> clasificacionData = getClasificacion(Clasificacion1);
+                                                ImageListViewAdapter adapter = new ImageListViewAdapter(PedidoActivity.this, clasificacionData, false);
+                                                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                                                spinclasificacion1.setAdapter(adapter);
+
+                                            }
+
+                                            catch (Exception ex) {
+
+                                            }
+                                        }
+
+                                        @Override
+                                        public void onException(Exception ex) {
+                                            Log.d("Error", ex.getLocalizedMessage());
+                                            Toast.makeText(getBaseContext(), ex.getLocalizedMessage(), Toast.LENGTH_LONG).show();
+                                        }
+                                    });
+
+
+//--------------------------------------
+
+
+
+
                         }
-                    }
+                    });
 
+
+
+
+
+
+
+
+
+
+
+                    Button btnCrearLinea = (Button) dialog.findViewById(R.id.btnCrearLinea);
+                    btnCrearLinea.setOnClickListener(new View.OnClickListener() {
+                                                         @Override
+                                                         public void onClick(View view) {
+                                                             LineViewItem itemLine;
+                                                             TextView txtArticulo = (TextView) dialog.findViewById(R.id.txtArticuloLinea);
+                                                             TextView txtPrecio = (TextView) dialog.findViewById(R.id.txtPrecioLinea);
+                                                             TextView txtDescuento = (TextView) dialog.findViewById(R.id.txtDescuentoLinea);
+                                                             TextView txtCantidad = (TextView) dialog.findViewById(R.id.txtCantidadLinea);
+                                                             itemLine = new LineViewItem(txtArticulo.getText().toString(), txtPrecio.getText().toString(),
+                                                                     txtCantidad.getText().toString(), txtDescuento.getText().toString(), counter);
+                                                             lineList.add(itemLine);
+                                                             counter++;
+                                                             fillArrayAndListView(lineList);
+                                                             dialog.dismiss();
+                                                             //Oculto el teclado
+                                                             InputMethodManager inputManager = (InputMethodManager) getSystemService(getBaseContext().INPUT_METHOD_SERVICE);
+                                                             inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+                                                         }
+                                                     }
 
                     );
 
                 }
             });
+
+
+
+
 
 
             // Le cambia la fuente a todos los TextView de la pantalla.
@@ -557,7 +636,7 @@ public class PedidoActivity extends ActionBarActivity {
                                                         case DialogInterface.BUTTON_POSITIVE:
                                                             //Find control
                                                             final EditText txtCliente = (EditText) findViewById(R.id.txtCliente);
-                                                            final EditText txtNombreCuenta  = (EditText) findViewById(R.id.txtNombreCuenta);
+                                                            final EditText txtNombreCuenta = (EditText) findViewById(R.id.txtNombreCuenta);
                                                             ListViewItem item = clientesData.get(position);
                                                             txtCliente.setText(item.subText);
                                                             txtNombreCuenta.setText(item.text);
@@ -630,6 +709,19 @@ public class PedidoActivity extends ActionBarActivity {
 
 
 
+    private ArrayList<ListViewItem> getClasificacion(ArrayList<Clasificacion> clasificacions) {
+        ArrayList<ListViewItem> lst = new ArrayList<ListViewItem>();
+        for (Clasificacion clasificacion  : clasificacions) {
+            ListViewItem item = new ListViewItem();
+            item.text = clasificacion.DESCRIPCION;
+            item.subText = clasificacion.CLASIFICACION;
+            lst.add(item);
+        }
+        return lst;
+    }
+
+
+
 
 
 
@@ -662,5 +754,7 @@ public class PedidoActivity extends ActionBarActivity {
         });
 
     }
+
+
 
 }

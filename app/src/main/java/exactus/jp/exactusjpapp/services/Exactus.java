@@ -88,6 +88,53 @@ public class Exactus {
     }
 
 
+
+
+
+    public static void ObtenerClasificacion(
+            Context context,
+            String usuario,
+            String password,
+            String agrupacion,
+            final ServiceCallBack<JSONObject> callback) {
+
+        HttpAsyncTask task = new HttpAsyncTask(context, new CallBack() {
+
+            @Override
+            public void onPostExecute(String json) {
+                try {
+
+                    callback.onPostExecute(new JSONObject(json));
+                }
+                catch (Exception ex) {
+                    callback.onException(ex);
+                }
+            }
+
+            @Override
+            public void onException(Exception ex) {
+                callback.onException(ex);
+            }
+        });
+
+        HashMap<String, String> parameters = new HashMap<String, String>();
+        parameters.put("usuario", usuario);
+        parameters.put("password", password);
+        parameters.put("agrupacion", agrupacion);
+        String url = Common.RootServiceUrl + "/api/Exactus/ObtenerClasificacion";
+        task.execute(new HttpAsyncTaskParameters(url, "GET", parameters));
+    }
+
+
+
+
+
+
+
+
+
+
+
     public static void ObtenerCliente(
             Context context,
             String usuario,
