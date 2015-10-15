@@ -7,13 +7,11 @@ import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.AssetManager;
-import android.database.DataSetObserver;
 import android.graphics.drawable.ColorDrawable;
 import android.os.CountDownTimer;
 import android.support.v4.view.PagerAdapter;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.SpannableStringBuilder;
 import android.text.style.RelativeSizeSpan;
@@ -21,23 +19,15 @@ import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.Adapter;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Spinner;
-import android.widget.SpinnerAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -55,18 +45,19 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
+import exactus.jp.exactusjpapp.adapter.SpinnerListAdapter;
+import exactus.jp.exactusjpapp.viewItem.LineViewItem;
+import exactus.jp.exactusjpapp.viewItem.ListViewItem;
+import exactus.jp.exactusjpapp.adapter.ImageListViewAdapter;
+import exactus.jp.exactusjpapp.adapter.LineListViewAdapter;
 import exactus.jp.exactusjpapp.model.*;
 import exactus.jp.exactusjpapp.services.Connectivity;
 import exactus.jp.exactusjpapp.services.Exactus;
 import exactus.jp.exactusjpapp.services.ServiceCallBack;
+import exactus.jp.exactusjpapp.viewItem.SpinnerItem;
 
 import static exactus.jp.exactusjpapp.R.layout.popup_busqueda_articulos;
 import static exactus.jp.exactusjpapp.R.layout.popup_linea;
-import android.view.inputmethod.InputMethodManager;
-import exactus.jp.exactusjpapp.model.*;
-import exactus.jp.exactusjpapp.services.Connectivity;
-import exactus.jp.exactusjpapp.services.Exactus;
-import exactus.jp.exactusjpapp.services.ServiceCallBack;
 
 public class PedidoActivity extends ActionBarActivity {
 
@@ -368,12 +359,11 @@ public class PedidoActivity extends ActionBarActivity {
                                         public void onPostExecute(JSONObject obj) {
                                             try {
 
-                                                Type Clasificacion1Type = new TypeToken<ArrayList<Clasificacion>>(){}.getType();
-                                                ArrayList<Clasificacion> Clasificacion1 = new Gson().fromJson(obj.getString("Clasificacion"), Clasificacion1Type);
+                                                Type clasificacionType = new TypeToken<ArrayList<Clasificacion>>(){}.getType();
+                                                ArrayList<Clasificacion> Clasificacion1 = new Gson().fromJson(obj.getString("agrupacion"), clasificacionType);
                                                 Spinner spinclasificacion1 = (Spinner) dialog1.findViewById(R.id.spinclasificacion1);
-                                                ArrayList<ListViewItem> clasificacionData = getClasificacion(Clasificacion1);
-                                                ImageListViewAdapter adapter = new ImageListViewAdapter(PedidoActivity.this, clasificacionData, false);
-                                                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                                                ArrayList<SpinnerItem> clasificacionData = getClasificacion(Clasificacion1);
+                                                SpinnerListAdapter adapter = new SpinnerListAdapter(PedidoActivity.this, clasificacionData);
                                                 spinclasificacion1.setAdapter(adapter);
 
                                             }
@@ -709,12 +699,12 @@ public class PedidoActivity extends ActionBarActivity {
 
 
 
-    private ArrayList<ListViewItem> getClasificacion(ArrayList<Clasificacion> clasificacions) {
-        ArrayList<ListViewItem> lst = new ArrayList<ListViewItem>();
+    private ArrayList<SpinnerItem> getClasificacion(ArrayList<Clasificacion> clasificacions) {
+        ArrayList<SpinnerItem> lst = new ArrayList<SpinnerItem>();
         for (Clasificacion clasificacion  : clasificacions) {
-            ListViewItem item = new ListViewItem();
-            item.text = clasificacion.DESCRIPCION;
-            item.subText = clasificacion.CLASIFICACION;
+            SpinnerItem item = new SpinnerItem();
+            item.descripcion = clasificacion.DESCRIPCION;
+            item.clasificacion = clasificacion.CLASIFICACION;
             lst.add(item);
         }
         return lst;
