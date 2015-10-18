@@ -13,6 +13,8 @@ import android.support.v4.view.PagerAdapter;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.text.SpannableStringBuilder;
 import android.text.style.RelativeSizeSpan;
 import android.util.DisplayMetrics;
@@ -45,7 +47,9 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
+import exactus.jp.exactusjpapp.adapter.RVImageListAdapter;
 import exactus.jp.exactusjpapp.adapter.SpinnerListAdapter;
+import exactus.jp.exactusjpapp.logic.AlertDialogListView;
 import exactus.jp.exactusjpapp.viewItem.LineViewItem;
 import exactus.jp.exactusjpapp.viewItem.ListViewItem;
 import exactus.jp.exactusjpapp.adapter.ImageListViewAdapter;
@@ -67,7 +71,7 @@ public class PedidoActivity extends ActionBarActivity {
     /// The pager adapter, which provides the pages to the view pager widget.
     private PagerAdapter mPagerAdapter;
 
-    private static List<LineViewItem> lineList = new ArrayList<>();
+    private static List<LineViewItem> lineList;
     private static int counter = 1;
 
     @Override
@@ -78,6 +82,7 @@ public class PedidoActivity extends ActionBarActivity {
             overridePendingTransition(R.anim.pull_in_from_left, R.anim.hold);
             setContentView(R.layout.activity_pedido);
             Thread.setDefaultUncaughtExceptionHandler(new UnCaughtException(PedidoActivity.this));
+            lineList = new ArrayList<>();
 
             // Inicializa el image loader (debe hacerse antes de usarlo).
             // Esta clase sirve para descargar imagenes por http y cachearlas en disco.
@@ -116,7 +121,7 @@ public class PedidoActivity extends ActionBarActivity {
             Common.setFontOnAllControls(getAssets(), (ViewGroup) _menu.findViewById(R.id.rootView), "fonts/Lato/Lato-Regular.ttf");
             // Almacena el comercio en una variable global.
             final DeviceAppApplication app = (DeviceAppApplication) getApplication();
-            Devices device = app.getDevice();
+            final Devices device = app.getDevice();
 
             final ArrayList<ListViewItem> elementos = getSideMenuListItems();
 
@@ -241,29 +246,31 @@ public class PedidoActivity extends ActionBarActivity {
                                 case DialogInterface.BUTTON_POSITIVE:
 
                                     List<PedidoLineaParametros> lineas = new ArrayList<PedidoLineaParametros>();
-                                    PedidoLineaParametros linea = new PedidoLineaParametros();
-                                    linea.ARTICULO = "RIN 15 610D";
-                                    linea.CANTIDAD = 10;
-                                    linea.CREADOR_POR = "JPEREZ";
-                                    linea.DESCUENTO = 0;
-                                    linea.Linea = 1;
-                                    linea.PRECIO_UNITARIO = 10.50;
 
-
-                                    lineas.add(linea);
-                                    linea.ARTICULO = "RIN 15 610D";
-                                    linea.PRECIO_UNITARIO = 20.70;
-                                    lineas.add(linea);
-
+                                    int lineaVal = 1;
+                                    for(LineViewItem lineaLista: lineList){
+                                        PedidoLineaParametros linea = new PedidoLineaParametros();
+                                        linea.ARTICULO = lineaLista.articulo;
+                                        linea.CANTIDAD = Double.valueOf(lineaLista.cantidad);
+                                        linea.CREADOR_POR = app.getUsuario();
+                                        linea.DESCUENTO = Double.valueOf(lineaLista.descuento);
+                                        linea.Linea = lineaVal;
+                                        linea.PRECIO_UNITARIO = Double.valueOf(lineaLista.precio_unitario);
+                                        lineaVal++;
+                                        lineas.add(linea);
+                                    }
                                     PedidoParametros pedido = new PedidoParametros();
-                                    pedido.BODEGA = "B-03";
-                                    pedido.CLIENTE = "0000603";
+                                    TextView bodega = (TextView) findViewById(R.id.txtBodega);
+                                    TextView cliente = (TextView) findViewById(R.id.txtCliente);
+                                    TextView nombreCuenta = (TextView) findViewById(R.id.txtNombreCuenta);
+                                    pedido.BODEGA = bodega.getText().toString();
+                                    pedido.CLIENTE = cliente.getText().toString();
                                     pedido.CONDICION_PAGO = 1;
                                     pedido.CODIGO_CONSECUTIVO = "P03";
-                                    pedido.NOMBRE_CUENTA = "GOLD MILLS";
+                                    pedido.NOMBRE_CUENTA = nombreCuenta.getText().toString();
                                     pedido.TARJETA_CREDITO = "10-10-10";
                                     pedido.ORDEN_COMPRA = "10-10-10";
-                                    pedido.USUARIO_LOGIN = "JPEREZ";
+                                    pedido.USUARIO_LOGIN = app.getUsuario();
                                     pedido.PEDIDODETALLE = lineas;
                                     String data = "";
                                     Gson gson = new Gson();
@@ -441,13 +448,6 @@ public class PedidoActivity extends ActionBarActivity {
         }
     }
 
-
-
-
-
-
-
-
     /// Obtiene la lista de items del menu contextual de la aplicación.
     private ArrayList<ListViewItem> getSideMenuListItems() {
         ArrayList<ListViewItem> lst = new ArrayList<ListViewItem>();
@@ -530,53 +530,20 @@ public class PedidoActivity extends ActionBarActivity {
         Type bodegasType = new TypeToken<ArrayList<Bodega>>() {
         }.getType();
         ArrayList<Bodega> bodegas = new Gson().fromJson(obj.getString("bodegas"), bodegasType);
-        ListView lv = (ListView) dialog.findViewById(R.id.lvBodegas);
+
+
+        RecyclerView recycler = (RecyclerView) dialog.findViewById(R.id.rv);
         final ArrayList<ListViewItem> bodegasData = getBodegas(bodegas);
         if (bodegas.size() > 0) {
-            lv.setVisibility(View.VISIBLE);
+            recycler.setVisibility(View.VISIBLE);
         } else
-            lv.setVisibility(View.GONE);
-
-        ImageListViewAdapter adapter = new ImageListViewAdapter(PedidoActivity.this, bodegasData, false);
-        lv.setAdapter(adapter);
-        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
-
-
-                DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
-
-                    @Override
-                    public void onClick(DialogInterface dialogInner, int which) {
-
-                        switch (which) {
-
-                            case DialogInterface.BUTTON_POSITIVE:
-                                //Find control
-                                ListViewItem item = bodegasData.get(position);
-                                final EditText txtBodega = (EditText) findViewById(R.id.txtBodega);
-                                txtBodega.setText(item.subText);
-                                dialog.dismiss();
-                                break;
-                            case DialogInterface.BUTTON_NEGATIVE:
-                                dialogInner.dismiss();
-                                String message = "El usuario canceló operación";
-                                SpannableStringBuilder biggerText = new SpannableStringBuilder(message);
-                                biggerText.setSpan(new RelativeSizeSpan(1.35f), 0, message.length(), 0);
-                                Toast toast = Toast.makeText(PedidoActivity.this, biggerText, Toast.LENGTH_LONG);
-                                toast.setGravity(Gravity.CENTER, 0, 0);
-                                toast.show();
-                                break;
-                        }
-                    }
-                };
-                AlertDialog.Builder builder = new AlertDialog.Builder(PedidoActivity.this);
-                builder.setMessage("Desea utilizar esta bodega?").setPositiveButton("S\u00ED", dialogClickListener).
-                        setNegativeButton("No", dialogClickListener).show();
-
-
-            }
-        });
+            recycler.setVisibility(View.GONE);
+        recycler.setHasFixedSize(true);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(PedidoActivity.this);
+        recycler.setLayoutManager(layoutManager);
+        final EditText txtBodega = (EditText) findViewById(R.id.txtBodega);
+        RVImageListAdapter adapter = new RVImageListAdapter(bodegasData,PedidoActivity.this,false,txtBodega,dialog, AlertDialogListView.Bodega);
+        recycler.setAdapter(adapter);
         dialog.show();
     }
 
@@ -602,58 +569,20 @@ public class PedidoActivity extends ActionBarActivity {
                                     Type clientesType = new TypeToken<ArrayList<Cliente>>() {
                                     }.getType();
                                     ArrayList<Cliente> clientes = new Gson().fromJson(obj.getString("clientes"), clientesType);
-                                    ListView lv = (ListView) dialog.findViewById(R.id.lvCliente);
+
+                                    RecyclerView recycler = (RecyclerView) dialog.findViewById(R.id.rv);
                                     final ArrayList<ListViewItem> clientesData = getClientes(clientes);
-                                    if (clientes.size() > 0) {
-                                        lv.setVisibility(View.VISIBLE);
+                                    if (clientesData.size() > 0) {
+                                        recycler.setVisibility(View.VISIBLE);
                                     } else
-                                        lv.setVisibility(View.GONE);
-
-                                    ImageListViewAdapter adapter = new ImageListViewAdapter(PedidoActivity.this, clientesData, false);
-                                    lv.setAdapter(adapter);
-                                    lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                                        @Override
-                                        public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
-
-
-                                            DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
-
-                                                @Override
-                                                public void onClick(DialogInterface dialogInner, int which) {
-
-                                                    switch (which) {
-
-                                                        case DialogInterface.BUTTON_POSITIVE:
-                                                            //Find control
-                                                            final EditText txtCliente = (EditText) findViewById(R.id.txtCliente);
-                                                            final EditText txtNombreCuenta = (EditText) findViewById(R.id.txtNombreCuenta);
-                                                            ListViewItem item = clientesData.get(position);
-                                                            txtCliente.setText(item.subText);
-                                                            txtNombreCuenta.setText(item.text);
-
-                                                            //Set Item to Control
-                                                            dialog.dismiss();
-                                                            break;
-                                                        case DialogInterface.BUTTON_NEGATIVE:
-                                                            dialogInner.dismiss();
-                                                            String message = "El usuario canceló operación";
-                                                            SpannableStringBuilder biggerText = new SpannableStringBuilder(message);
-                                                            biggerText.setSpan(new RelativeSizeSpan(1.35f), 0, message.length(), 0);
-                                                            Toast toast = Toast.makeText(PedidoActivity.this, biggerText, Toast.LENGTH_LONG);
-                                                            toast.setGravity(Gravity.CENTER, 0, 0);
-                                                            toast.show();
-                                                            break;
-                                                    }
-                                                }
-                                            };
-                                            AlertDialog.Builder builder = new AlertDialog.Builder(PedidoActivity.this);
-                                            builder.setMessage("Desea utilizar este Cliente?").setPositiveButton("S\u00ED", dialogClickListener).
-                                                    setNegativeButton("No", dialogClickListener).show();
-
-
-                                        }
-                                    });
-
+                                        recycler.setVisibility(View.GONE);
+                                    recycler.setHasFixedSize(true);
+                                    LinearLayoutManager layoutManager = new LinearLayoutManager(PedidoActivity.this);
+                                    recycler.setLayoutManager(layoutManager);
+                                    final EditText txtCliente = (EditText) findViewById(R.id.txtCliente);
+                                    final EditText txtNombreCuenta = (EditText) findViewById(R.id.txtNombreCuenta);
+                                    RVImageListAdapter adapter = new RVImageListAdapter(clientesData,PedidoActivity.this,false,txtNombreCuenta,txtCliente,dialog, AlertDialogListView.Cliente);
+                                    recycler.setAdapter(adapter);
 
                                 } catch (Exception ex) {
                                     ShowToastError(ex);
@@ -709,22 +638,6 @@ public class PedidoActivity extends ActionBarActivity {
         }
         return lst;
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     private void fillArrayAndListView(List<LineViewItem> item){
 

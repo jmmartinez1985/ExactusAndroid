@@ -6,6 +6,7 @@
     android:orientation="vertical"
     android:paddingTop="15sp">
 
+<!--
     <ListView
         android:id="@+id/lvBodegas"
         android:layout_width="fill_parent"
@@ -13,5 +14,12 @@
         android:layout_marginTop="15dp"
         android:background="@color/backgroundColor"
         android:dividerHeight="4px" />
+-->
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/rv"
+        />
 
 </LinearLayout>
