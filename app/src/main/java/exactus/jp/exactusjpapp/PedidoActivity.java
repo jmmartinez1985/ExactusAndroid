@@ -48,6 +48,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import exactus.jp.exactusjpapp.adapter.RVImageListAdapter;
+import exactus.jp.exactusjpapp.adapter.RVLineListAdapter;
 import exactus.jp.exactusjpapp.adapter.SpinnerListAdapter;
 import exactus.jp.exactusjpapp.logic.AlertDialogListView;
 import exactus.jp.exactusjpapp.viewItem.LineViewItem;
@@ -248,6 +249,17 @@ public class PedidoActivity extends ActionBarActivity {
                                     List<PedidoLineaParametros> lineas = new ArrayList<PedidoLineaParametros>();
 
                                     int lineaVal = 1;
+
+                                    if(lineList.size() == 0){
+                                        String message = "Debe agregar los productos por línea en el pedido.";
+                                        SpannableStringBuilder biggerText = new SpannableStringBuilder(message);
+                                        biggerText.setSpan(new RelativeSizeSpan(1.35f), 0, message.length(), 0);
+                                        Toast toast = Toast.makeText(PedidoActivity.this, biggerText, Toast.LENGTH_LONG);
+                                        toast.setGravity(Gravity.CENTER, 0, 0);
+                                        toast.show();
+                                        return;
+                                    }
+
                                     for(LineViewItem lineaLista: lineList){
                                         PedidoLineaParametros linea = new PedidoLineaParametros();
                                         linea.ARTICULO = lineaLista.articulo;
@@ -640,8 +652,20 @@ public class PedidoActivity extends ActionBarActivity {
     }
 
     private void fillArrayAndListView(List<LineViewItem> item){
+        RecyclerView recycler = (RecyclerView) findViewById(R.id.rvLineas);
+        if (item.size() > 0) {
+            recycler.setVisibility(View.VISIBLE);
+        } else
+            recycler.setVisibility(View.GONE);
+        recycler.setHasFixedSize(true);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(PedidoActivity.this);
+        recycler.setLayoutManager(layoutManager);
+        RVLineListAdapter adapter = new RVLineListAdapter(item,PedidoActivity.this);
+        recycler.setAdapter(adapter);
 
-        ListView lv = (ListView) findViewById(R.id.lvLineas);
+
+
+      /*  ListView lv = (ListView) findViewById(R.id.lvLineas);
         LineListViewAdapter adapter = new LineListViewAdapter(PedidoActivity.this,(ArrayList<LineViewItem>) item);
         lv.setAdapter(adapter);
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -655,7 +679,7 @@ public class PedidoActivity extends ActionBarActivity {
                 }
             }
         });
-
+*/
     }
 
 

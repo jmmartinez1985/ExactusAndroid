@@ -1,115 +1,141 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="50dp"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp">
 
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="wrap_content"
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingLeft="5sp" >
+        android:id="@+id/cv"
+        >
 
-        <TextView android:id="@+id/lblArticulo"
+
+        <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:singleLine="true"
-            android:text="Artículo: "
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:layout_marginRight="5dp"/>
+            android:paddingLeft="5sp">
 
-        <TextView  android:id="@+id/txtArticulo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="0"
-            android:layout_toRightOf="@id/lblArticulo"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:layout_alignParentRight="true"/>
+            <ImageView
+                android:id="@+id/imgEdit"
+                android:layout_height="40dp"
+                android:layout_width="40dp"
+                style="@style/ListViewItemImage"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:src="@drawable/log_in"
+                android:layout_marginRight="5dp"
 
-    </LinearLayout>
+                />
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingLeft="5sp">
+            <ImageView
+                android:id="@+id/imgDelete"
+                android:layout_height="40dp"
+                android:layout_width="40dp"
+                style="@style/ListViewItemImage"
+                android:layout_toRightOf="@+id/imgEdit"
+                android:layout_alignParentTop="true"
+                android:src="@drawable/cross102"
+                android:layout_marginRight="5dp"
 
-        <TextView android:id="@+id/lblPrecio"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:singleLine="true"
-            android:text="Precio Unitario: "
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:layout_above="@id/lblArticulo"
-            android:layout_marginRight="5dp"/>
-
-        <TextView  android:id="@+id/txtPrecio"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="0"
-            android:layout_toRightOf="@id/lblPrecio"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:layout_alignParentRight="true"/>
-
-    </LinearLayout>
-
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingLeft="5sp">
-
-        <TextView android:id="@+id/lblCantidad"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:singleLine="true"
-            android:text="Cantidad: "
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:layout_marginRight="5dp"/>
-
-        <TextView  android:id="@+id/txtCantidad"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="0"
-            android:layout_toRightOf="@id/lblCantidad"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:layout_alignParentRight="true"/>
-
-    </LinearLayout>
+                />
 
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingLeft="5sp">
 
-        <TextView android:id="@+id/lblDescuento"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:singleLine="true"
-            android:text="Descuento: "
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:layout_marginRight="5dp"/>
+            <TextView android:id="@+id/lblArticulo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:text="Artículo: "
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:layout_toRightOf="@+id/imgDelete"
+                android:layout_alignParentTop="true"
+                android:layout_marginRight="5dp"/>
 
-        <TextView  android:id="@+id/txtDescuento"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="0"
-            android:layout_toRightOf="@id/lblDescuento"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:layout_alignParentRight="true"/>
+            <TextView  android:id="@+id/txtArticulo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:layout_toRightOf="@id/lblArticulo"
+                android:textSize="15sp"
+                android:layout_alignParentTop="true"
+                android:textStyle="bold"
+                android:layout_alignParentRight="true"/>
 
-    </LinearLayout>
+            <TextView android:id="@+id/lblPrecio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:layout_below="@id/lblArticulo"
+                android:text="Precio Unitario: "
+                android:layout_toRightOf="@+id/imgDelete"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:layout_marginRight="5dp"/>
+
+            <TextView  android:id="@+id/txtPrecio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:layout_toRightOf="@id/lblPrecio"
+                android:layout_below="@id/txtArticulo"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                />
 
 
+
+            <TextView android:id="@+id/lblCantidad"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:text="Cantidad: "
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:layout_below="@id/lblPrecio"
+                android:layout_toRightOf="@+id/imgDelete"
+
+                android:layout_marginRight="5dp"/>
+
+            <TextView  android:id="@+id/txtCantidad"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txtPrecio"
+                android:text="0"
+                android:layout_toRightOf="@id/lblCantidad"
+                android:textSize="15sp" />
+
+
+            <TextView android:id="@+id/lblDescuento"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:text="Descuento: "
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:layout_below="@id/lblCantidad"
+                android:layout_toRightOf="@+id/imgDelete"
+                android:layout_marginRight="5dp"/>
+
+            <TextView  android:id="@+id/txtDescuento"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txtCantidad"
+                android:text="0"
+                android:layout_toRightOf="@id/lblDescuento"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:layout_alignParentRight="true"/>
+
+
+
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
 </LinearLayout>

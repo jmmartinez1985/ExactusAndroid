@@ -8,9 +8,11 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -64,7 +66,7 @@ public class RVLineListAdapter  extends RecyclerView.Adapter<RVLineListAdapter.V
         return _listItems.size();
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder  {
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener  {
         public TextView lblArticulo;
         public TextView txtArticulo;
 
@@ -76,6 +78,11 @@ public class RVLineListAdapter  extends RecyclerView.Adapter<RVLineListAdapter.V
 
         public TextView lblDescuento;
         public TextView txtDescuento;
+
+        public ImageView imgEdit;
+        public ImageView imgDelete;
+
+        AdapterView.OnItemClickListener mItemClickListener;
 
         ViewHolder(View itemView) {
             super(itemView);
@@ -90,8 +97,40 @@ public class RVLineListAdapter  extends RecyclerView.Adapter<RVLineListAdapter.V
              txtDescuento = (TextView) itemView.findViewById(R.id.txtDescuento);
              txtCantidad = (TextView) itemView.findViewById(R.id.txtCantidad);
 
+            imgEdit = (ImageView) itemView.findViewById(R.id.imgEdit);
+            imgDelete = (ImageView) itemView.findViewById(R.id.imgDelete);
+
+            imgEdit.setOnClickListener(this);
+            imgDelete.setOnClickListener(this);
         }
 
+        public void setOnItemClickListener(final AdapterView.OnItemClickListener mItemClickListener) {
+            this.mItemClickListener = mItemClickListener;
+        }
+
+
+        @Override
+        public void onClick(View v) {
+            final int position = getAdapterPosition();
+            if(v.equals(imgEdit)){
+                Toast.makeText(_context,
+                        "Editar Presionado", Toast.LENGTH_SHORT).show();
+            }
+            else if(v.equals(imgDelete)){
+                Toast.makeText(_context,
+                        "Eliminar Presionado", Toast.LENGTH_SHORT).show();
+                if (position != RecyclerView.NO_POSITION) {
+                    removeAt(position);
+                }
+            }
+
+        }
+
+        public void removeAt(int position) {
+            _listItems.remove(position);
+            notifyItemRemoved(position);
+            notifyItemRangeChanged(getAdapterPosition(), _listItems.size());
+        }
     }
 
 }

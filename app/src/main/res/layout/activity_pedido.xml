@@ -226,21 +226,7 @@
 
                         />
 
-                    <Button
-                        android:id="@+id/btnPrueba"
-                        android:layout_height="40dp"
-                        android:layout_width="wrap_content"
-                        android:layout_margin="4dp"
-                        android:padding="8dp"
-                        android:text="Prueba"
-                        android:layout_gravity="center_horizontal"
-                        android:textColor="#fff"
-                        android:textSize="15sp"
-                        android:background="@drawable/loginbuttonshape"
-                        android:elegantTextHeight="false"
-                        android:textStyle="bold"
 
-                        />
 
 
 
@@ -248,24 +234,31 @@
 
                 </LinearLayout>
 
-                <LinearLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content">
 
-                    <ListView
-                        android:id="@+id/lvLineas"
-                        android:layout_width="fill_parent"
-                        android:layout_height="fill_parent"
-                        android:layout_marginTop="15dp"
-                        android:background="@color/backgroundColor"
-                        android:dividerHeight="4px"
-                        />
-
-                </LinearLayout>
 
             </LinearLayout>
         </ScrollView>
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_below="@id/scrollviewgeneral"
+            android:layout_height="wrap_content">
 
+            <!--<ListView
+                android:id="@+id/lvLineas"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_marginTop="15dp"
+                android:background="@color/backgroundColor"
+                android:dividerHeight="4px"
+                />-->
+            <android.support.v7.widget.RecyclerView
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:id="@+id/rvLineas"
+                />
+
+
+        </LinearLayout>
 
 
 

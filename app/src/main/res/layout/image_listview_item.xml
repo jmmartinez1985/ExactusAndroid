@@ -13,16 +13,24 @@
         android:layout_height="wrap_content"
         android:id="@+id/cv"
         >
-    <ImageView
-        android:id="@+id/img"
-        android:layout_height="70dp"
-        android:layout_width="70dp"
-        style="@style/ListViewItemImage" />
+
 
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingLeft="5sp">
+
+        <ImageView
+            android:id="@+id/img"
+            android:layout_height="70dp"
+            android:layout_width="70dp"
+            style="@style/ListViewItemImage"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="16dp"
+
+            />
+
 
         <TextView
             android:id="@+id/txt"
@@ -32,6 +40,9 @@
             android:textSize="20sp"
             android:focusable="false"
             android:clickable="false"
+            android:layout_toRightOf="@+id/img"
+            android:layout_alignParentTop="true"
+
             android:textColor="@color/labelTextColor" />
 
         <TextView
@@ -42,6 +53,7 @@
             android:textSize="15sp"
             android:focusable="false"
             android:clickable="false"
+            android:layout_toRightOf="@+id/img"
             android:textColor="@color/labelTextColor"/>
 
         <RatingBar
@@ -54,6 +66,7 @@
             style="@style/foodRatingBar"
             android:isIndicator="true"
             android:focusable="false"
+            android:layout_toRightOf="@+id/img"
             android:focusableInTouchMode="false" />
 
     </RelativeLayout>
