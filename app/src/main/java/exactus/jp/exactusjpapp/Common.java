@@ -118,25 +118,7 @@ public class Common {
         setFontOnAllControls(font, group);
     }
 
-    public void setDefaultCustomToolbar(ActionBarActivity root) {
 
-        LayoutInflater mInflater = LayoutInflater.from(root);
-        View mCustomView = mInflater.inflate(R.layout.default_action_toolbar, null);
-
-        ImageButton imageButton = (ImageButton) mCustomView.findViewById(R.id.imageButton);
-        imageButton.setOnClickListener(new CustomOnClickListener(root));
-
-        ActionBar mActionBar = root.getSupportActionBar();
-
-        if (mActionBar != null) {
-            mActionBar.setBackgroundDrawable(new ColorDrawable(root.getResources().getColor(R.color.action_bar_background)));
-            mActionBar.setDisplayShowHomeEnabled(false);
-            mActionBar.setDisplayShowTitleEnabled(false);
-            ActionBar.LayoutParams l = new ActionBar.LayoutParams(ActionBar.LayoutParams.FILL_PARENT, ActionBar.LayoutParams.MATCH_PARENT);
-            mActionBar.setCustomView(mCustomView, l);
-            mActionBar.setDisplayShowCustomEnabled(true);
-        }
-    }
 
     private static void setFontOnAllControls(Typeface font, ViewGroup group) {
         int count = group.getChildCount();

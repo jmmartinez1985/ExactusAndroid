@@ -13,6 +13,7 @@ import android.support.v4.view.PagerAdapter;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.SpannableStringBuilder;
@@ -35,7 +36,6 @@ import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
@@ -64,10 +64,8 @@ import exactus.jp.exactusjpapp.viewItem.SpinnerItem;
 import static exactus.jp.exactusjpapp.R.layout.popup_busqueda_articulos;
 import static exactus.jp.exactusjpapp.R.layout.popup_linea;
 
-public class PedidoActivity extends ActionBarActivity {
+public class PedidoActivity extends AppCompatActivity {
 
-    //Instancia del menu que hace slide a la izquierda.
-    private SlidingMenu _menu;
 
     /// The pager adapter, which provides the pages to the view pager widget.
     private PagerAdapter mPagerAdapter;
@@ -91,85 +89,14 @@ public class PedidoActivity extends ActionBarActivity {
             initImageLoader();
             ImageLoader imageLoader = ImageLoader.getInstance();
             imageLoader.init(ImageLoaderConfiguration.createDefault(this));
-            
-            // Configuracion del Action bar
-            LayoutInflater mInflater = LayoutInflater.from(this);
-            View mCustomView = mInflater.inflate(R.layout.custom_action_toolbar, null);
-            ImageButton imageButton = (ImageButton) mCustomView.findViewById(R.id.imageButton);
-            ActionBar mActionBar = getSupportActionBar();
 
-            if (mActionBar != null) {
-                mActionBar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.action_bar_background)));
-                mActionBar.setDisplayShowHomeEnabled(false);
-                mActionBar.setDisplayShowTitleEnabled(false);
-
-                ActionBar.LayoutParams l = new ActionBar.LayoutParams(ActionBar.LayoutParams.FILL_PARENT, ActionBar.LayoutParams.MATCH_PARENT);
-                mActionBar.setCustomView(mCustomView, l);
-                mActionBar.setDisplayShowCustomEnabled(true);
-            }
-
-            imageButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    _menu.toggle();
-                }
-            });
-
-            //Configuracion del menu lateral.
-            setMainMenu();
-
-            //Setea la fuente de todos los controles del menu.
-            Common.setFontOnAllControls(getAssets(), (ViewGroup) _menu.findViewById(R.id.rootView), "fonts/Lato/Lato-Regular.ttf");
-            // Almacena el comercio en una variable global.
             final DeviceAppApplication app = (DeviceAppApplication) getApplication();
             final Devices device = app.getDevice();
 
             final ArrayList<ListViewItem> elementos = getSideMenuListItems();
 
-            ((TextView) _menu.findViewById(R.id.txtUserName)).setText(device.empresaObject.NombreEmpresa);
-            ((TextView) _menu.findViewById(R.id.txtEmail)).setText(app.getUsuario());
 
-            ImageListViewAdapter adapter = new ImageListViewAdapter(PedidoActivity.this, elementos);
-            ListView list = (ListView) _menu.findViewById(R.id.lstMenu);
-            list.setAdapter(adapter);
-            list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                @Override
-                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    try {
-
-
-                        Intent intent;
-
-
-                        final ListViewItem item = elementos.get(position);
-                        switch (item.text) {
-
-                            case "Pedidos": //Mis pedidos
-                                //_menu.toggle();
-                                //intent = new Intent(PedidoActivity.this, PedidoActivity.class);
-                                //startActivity(intent);
-                                break;
-
-                            case "Cotizaciones": //Mis Cotizaciones
-                                // _menu.toggle();
-                                //intent = new Intent(MainActivity.this, PedidoActivity.class);
-                                // startActivity(intent);
-                                break;
-
-                            default: //Estadisticas de uso
-                                break;
-                        }
-                    } catch (Exception ex) {
-                        Log.d("Error", ex.getLocalizedMessage());
-                        Toast.makeText(getBaseContext(), ex.getLocalizedMessage(), Toast.LENGTH_LONG).show();
-                    }
-                }
-            });
-
-
-
-
-                    Button imgBuscarBodega = (Button) findViewById(R.id.btnBodega);
+            Button imgBuscarBodega = (Button) findViewById(R.id.btnBodega);
             imgBuscarBodega.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -452,7 +379,7 @@ public class PedidoActivity extends ActionBarActivity {
             // Le cambia la fuente a todos los TextView de la pantalla.
             AssetManager assets = getAssets();
             Common.setFontOnAllControls(assets, (ViewGroup) findViewById(R.id.rootView), "fonts/Lato/Lato-Regular.ttf");
-            Common.setFontOnAllControls(assets, (ViewGroup) _menu.findViewById(R.id.rootView), "fonts/Lato/Lato-Regular.ttf");
+
 
         } catch (Exception ex) {
             Log.d("Error", ex.getLocalizedMessage());
@@ -472,27 +399,6 @@ public class PedidoActivity extends ActionBarActivity {
             }
         }
         return lst;
-    }
-
-    /// Configura el menu principal de la aplicación.
-    private void setMainMenu() {
-        DisplayMetrics metrics = Common.getScreenSizeInPx(getApplicationContext());
-        _menu = new SlidingMenu(this);
-        _menu.setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
-        _menu.setSlidingEnabled(false);
-        _menu.setShadowWidth(50);
-        _menu.setShadowDrawable(R.drawable.sliding_menu_shadow);
-        _menu.setFadeDegree(0.0f);
-        _menu.attachToActivity(this, SlidingMenu.SLIDING_CONTENT);
-
-        //Indica que el menu lateral debe expandirse hasta el 80% de la actividad.
-        _menu.setBehindWidth(((Double) (metrics.widthPixels * 0.8)).intValue());
-        _menu.setMenu(R.layout.side_menu);
-
-        Account[] accounts = AccountManager.get(getBaseContext()).getAccountsByType("com.google");
-        for (Account account : accounts) {
-            int a = 0;
-        }
     }
 
     /// Muestra la pantalla usada para activar una tarjeta.
@@ -554,7 +460,7 @@ public class PedidoActivity extends ActionBarActivity {
         LinearLayoutManager layoutManager = new LinearLayoutManager(PedidoActivity.this);
         recycler.setLayoutManager(layoutManager);
         final EditText txtBodega = (EditText) findViewById(R.id.txtBodega);
-        RVImageListAdapter adapter = new RVImageListAdapter(bodegasData,PedidoActivity.this,false,txtBodega,dialog, AlertDialogListView.Bodega);
+        RVImageListAdapter adapter = new RVImageListAdapter(bodegasData,PedidoActivity.this,false);
         recycler.setAdapter(adapter);
         dialog.show();
     }
@@ -593,7 +499,7 @@ public class PedidoActivity extends ActionBarActivity {
                                     recycler.setLayoutManager(layoutManager);
                                     final EditText txtCliente = (EditText) findViewById(R.id.txtCliente);
                                     final EditText txtNombreCuenta = (EditText) findViewById(R.id.txtNombreCuenta);
-                                    RVImageListAdapter adapter = new RVImageListAdapter(clientesData,PedidoActivity.this,false,txtNombreCuenta,txtCliente,dialog, AlertDialogListView.Cliente);
+                                    RVImageListAdapter adapter = new RVImageListAdapter(clientesData,PedidoActivity.this,false);
                                     recycler.setAdapter(adapter);
 
                                 } catch (Exception ex) {

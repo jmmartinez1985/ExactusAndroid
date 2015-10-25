@@ -8,8 +8,11 @@ import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
@@ -32,7 +35,7 @@ import exactus.jp.exactusjpapp.services.ServiceCallBack;
 /**
  * Created by JM on 30/9/15.
  */
-public class LoginActivity extends Activity {
+public class LoginActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,12 +46,12 @@ public class LoginActivity extends Activity {
         Common.RootServiceUrl = getString(R.string.base_service_url_licence);
         Common.RootWebSiteUrl = getString(R.string.base_website_url);
 
+        setToolbar();
+
         // Busca el nombre de usuario que se ha logueado con anterioridad a la aplicacion.
         final SharedPreferences prefs = LoginActivity.this.getSharedPreferences("exactus.jp.exactusjpapp.app", Context.MODE_PRIVATE);
         String previousUserName = prefs.getString("userName", "");
         ((EditText)findViewById(R.id.txtUserName)).setText(previousUserName);
-
-        Common.setFontOnAllControls(getAssets(), (ViewGroup) findViewById(R.id.rootView), "fonts/Lato/Lato-Regular.ttf");
 
         EditText editText= (EditText) findViewById(R.id.txtPassword);
         editText.setOnEditorActionListener(new EditText.OnEditorActionListener() {
@@ -190,5 +193,20 @@ public class LoginActivity extends Activity {
                 toast.cancel();
             }
         }.start();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_about, menu);
+        return true;
+    }
+
+    private void setToolbar() {
+        // Añadir la Toolbar
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle("TRANSCT Mobile");
+        setSupportActionBar(toolbar);
+
     }
 }

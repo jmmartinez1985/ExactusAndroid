@@ -1,130 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/rootView"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
+<android.support.design.widget.CoordinatorLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/coordinator"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    <ImageView
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <!-- Toolbar -->
+        <android.support.v7.widget.Toolbar xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:layout_scrollFlags="scroll|enterAlways"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    </android.support.design.widget.AppBarLayout>
+
+    <ImageView android:src="@drawable/exactus_1"
+        android:layout_width="250dp"
+        android:layout_height="150dp"
+        android:layout_marginBottom="24dp"
+        android:layout_gravity="center_horizontal" />
+
+    <!-- Email Label -->
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp">
+
+        <EditText android:id="@+id/txtUserName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:textSize="25sp"
+            android:hint="Usuario" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp">
+
+        <EditText android:id="@+id/txtPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:textSize="25sp"
+            android:hint="Contraseña" />
+
+    </android.support.design.widget.TextInputLayout>
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/btnLogin"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:scaleType = "centerCrop"
-        android:src="@drawable/exactus_background_1"></ImageView>
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="24dp"
+        android:padding="12dp"
 
-    <RelativeLayout
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:padding="10dp"
-        android:layout_margin="0dp">
+        android:text="ENTRAR"/>
 
-        <!--<TextView
-            android:id="@+id/txtLogo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=""
-            android:textSize="75sp"
-            android:textColor="@color/white" />-->
+  <!--  <android.support.design.widget.FloatingActionButton
+        android:id="@+id/btnLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_done_white_48dp"
+        android:layout_gravity="bottom|end"
+        app:elevation="6dp"
+        app:pressedTranslationZ="12dp"/>-->
 
 
-        <ImageView
-            android:id="@+id/imgMiClub"
-            android:layout_width="150dp"
-            android:layout_height="70dp"
-            android:layout_gravity="left"
-            android:layout_marginTop="0dp"
-            android:src="@drawable/exactus_1"/>
+</LinearLayout>
 
-        <!--<TextView
-            android:id="@+id/Point"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="."
-            android:textSize="45sp"
-            android:textColor="@color/secondaryColor"
-            android:layout_toRightOf="@+id/txtLogo"/>-->
-
-        <TextView
-            android:id="@+id/txt1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Crea transacciones rápidamente."
-            android:layout_below="@+id/imgMiClub"
-            android:textSize="20sp"
-            android:textColor="@color/white" />
-
-        <TextView
-            android:id="@+id/txt2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Mantente conectado."
-            android:layout_below="@+id/txt1"
-            android:textSize="20sp"
-            android:textColor="@color/white" />
-
-        <TextView
-            android:id="@+id/txt3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="TRANSCT Mobile."
-            android:layout_below="@+id/txt2"
-            android:textSize="20sp"
-            android:textColor="@color/white" />
-
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Nombre de Usuario"
-                android:textSize="20sp"
-                android:textColor="@color/white" />
-            <EditText
-                android:id="@+id/txtUserName"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:background="#fff"
-                android:inputType="textEmailAddress"
-                android:padding="5dp"
-                android:layout_marginBottom="10dp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Contraseña"
-                android:textSize="20sp"
-                android:textColor="@color/white" />
-            <EditText
-                android:id="@+id/txtPassword"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:background="#fff"
-                android:padding="5dp"
-                android:inputType="textPassword"
-                android:layout_marginBottom="10dp"/>
-
-            <Button
-                android:id="@+id/btnLogin"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:background="@drawable/loginbuttonshape"
-                android:elegantTextHeight="false"
-                android:shadowColor="#A8A8A8"
-                android:shadowDx="0"
-                android:shadowDy="0"
-                android:shadowRadius="5"
-                android:text="Ingresar"
-                android:textColor="#FFFFFF"
-                android:textSize="20sp"
-                android:padding="5dp"
-                />
-
-        </LinearLayout>
-
-    </RelativeLayout>
-
-</FrameLayout>
+    </android.support.design.widget.CoordinatorLayout>

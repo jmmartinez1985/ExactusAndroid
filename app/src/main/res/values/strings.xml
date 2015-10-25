@@ -7,7 +7,7 @@
     <string name="progress_bar_title">Por favor espere</string>
     <string name="progress_bar_message">Procesando petición...</string>
 
-     <string name="connection_message">Ústed no esta conectado a Internet, Por favor verifique el dispositivo.</string>
+    <string name="connection_message">Ústed no esta conectado a Internet, Por favor verifique el dispositivo.</string>
 
     <string name="date_format">yyyy-MM-dd</string>
     <string name="title_activity_pedido">PedidoActivity</string>
@@ -18,4 +18,13 @@
     <string name="text_error">La aplicación ha fallado</string>
     <string name="email_crash">jose.martinez@mail.com</string>
     <string name="text_email_crash">Your App crashed! Fix it!</string>
- </resources>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="action_buscar">Buscar</string>
+    <string name="action_ayuda">Ayuda</string>
+    <string name="textDefault">Texto de Muestra</string>
+
+
+</resources>

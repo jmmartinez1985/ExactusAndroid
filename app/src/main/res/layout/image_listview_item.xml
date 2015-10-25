@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
-    android:minHeight="50dp"
-    android:paddingTop="10dp"
-    android:paddingBottom="10dp">
-
+    android:minHeight="10dp"
+    android:paddingTop="5dp"
+    android:paddingBottom="5dp">
 
     <android.support.v7.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/cv"
+        android:id="@+id/cvList"
+        card_view:cardCornerRadius="4dp"
+        android:orientation="vertical"
+        card_view:cardElevation="2dp"
+        card_view:cardUseCompatPadding="true"
         >
 
 
@@ -20,29 +23,23 @@
         android:layout_height="wrap_content"
         android:paddingLeft="5sp">
 
+
         <ImageView
             android:id="@+id/img"
             android:layout_height="70dp"
             android:layout_width="70dp"
-            style="@style/ListViewItemImage"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginRight="16dp"
-
-            />
-
+            style="@style/ListViewItemImage" />
 
         <TextView
             android:id="@+id/txt"
             style="@style/ListViewItemTitle"
             android:capitalize="characters"
             android:textStyle="bold"
-            android:textSize="20sp"
+            android:textSize="15sp"
+            android:layout_alignParentTop="true"
             android:focusable="false"
             android:clickable="false"
             android:layout_toRightOf="@+id/img"
-            android:layout_alignParentTop="true"
-
             android:textColor="@color/labelTextColor" />
 
         <TextView
@@ -50,11 +47,24 @@
             android:layout_below="@id/txt"
             style="@style/ListViewItemSubTitle"
             android:textStyle="bold"
-            android:textSize="15sp"
+            android:textSize="10sp"
             android:focusable="false"
             android:clickable="false"
             android:layout_toRightOf="@+id/img"
             android:textColor="@color/labelTextColor"/>
+
+        <TextView
+            android:id="@+id/txtSubTextInner"
+            android:layout_below="@id/txtSubText"
+            style="@style/ListViewItemSubTitle"
+            android:textStyle="bold"
+            android:textSize="10sp"
+            android:focusable="false"
+            android:clickable="false"
+            android:textColor="@color/labelTextColor"
+            android:layout_toRightOf="@+id/img"
+            />
+
 
         <RatingBar
             android:id="@+id/ratingBar"

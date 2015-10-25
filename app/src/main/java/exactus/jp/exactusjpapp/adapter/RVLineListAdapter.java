@@ -22,9 +22,6 @@ import exactus.jp.exactusjpapp.R;
 import exactus.jp.exactusjpapp.viewItem.LineViewItem;
 import exactus.jp.exactusjpapp.viewItem.ListViewItem;
 
-/**
- * Created by Logic on 10/18/2015.
- */
 public class RVLineListAdapter  extends RecyclerView.Adapter<RVLineListAdapter.ViewHolder> {
 
 

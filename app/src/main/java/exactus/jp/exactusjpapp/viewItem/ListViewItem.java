@@ -14,6 +14,7 @@ public class ListViewItem {
     public int starCount;
     public int ratingValue;
     public int identifier;
+    public String subTextInner;
 
     public ListViewItem() {
     }

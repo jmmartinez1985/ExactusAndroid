@@ -6,7 +6,11 @@ import android.content.Intent;
 import android.content.res.AssetManager;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
 import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.text.SpannableStringBuilder;
 import android.text.style.RelativeSizeSpan;
 import android.util.DisplayMetrics;
@@ -15,6 +19,7 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
+import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -24,12 +29,11 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.os.CountDownTimer;
-
-import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 
+import exactus.jp.exactusjpapp.adapter.MainFragmentPagerAdapter;
 import exactus.jp.exactusjpapp.viewItem.ListViewItem;
 import exactus.jp.exactusjpapp.adapter.ImageListViewAdapter;
 import exactus.jp.exactusjpapp.model.*;
@@ -38,10 +42,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends AppCompatActivity {
 
-    //Instancia del menu que hace slide a la izquierda.
-    private SlidingMenu _menu;
 
     /// The pager adapter, which provides the pages to the view pager widget.
     private PagerAdapter mPagerAdapter;
@@ -53,8 +55,6 @@ public class MainActivity extends ActionBarActivity {
             overridePendingTransition(R.anim.pull_in_from_left, R.anim.hold);
             setContentView(R.layout.activity_main);
 
-
-
             // Inicializa el image loader (debe hacerse antes de usarlo).
             // Esta clase sirve para descargar imagenes por http y cachearlas en disco.
             // https://github.com/nostra13/Android-Universal-Image-Loader
@@ -62,96 +62,20 @@ public class MainActivity extends ActionBarActivity {
             ImageLoader imageLoader = ImageLoader.getInstance();
             imageLoader.init(ImageLoaderConfiguration.createDefault(this));
 
-            // Configuracion del Action bar
-            LayoutInflater mInflater = LayoutInflater.from(this);
-            View mCustomView = mInflater.inflate(R.layout.custom_action_toolbar, null);
-            ImageButton imageButton = (ImageButton) mCustomView.findViewById(R.id.imageButton);
-            ActionBar mActionBar = getSupportActionBar();
+            setToolbar();
 
-            if (mActionBar != null) {
-                mActionBar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.action_bar_background)));
-                mActionBar.setDisplayShowHomeEnabled(false);
-                mActionBar.setDisplayShowTitleEnabled(false);
-
-                ActionBar.LayoutParams l = new ActionBar.LayoutParams(ActionBar.LayoutParams.FILL_PARENT, ActionBar.LayoutParams.MATCH_PARENT);
-                mActionBar.setCustomView(mCustomView, l);
-                mActionBar.setDisplayShowCustomEnabled(true);
-            }
-
-            imageButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    _menu.toggle();
-                }
-            });
-
-            //Configuracion del menu lateral.
-            setMainMenu();
-
-            //Setea la fuente de todos los controles del menu.
-            Common.setFontOnAllControls(getAssets(), (ViewGroup) _menu.findViewById(R.id.rootView), "fonts/Lato/Lato-Regular.ttf");
-            // Almacena el comercio en una variable global.
             final DeviceAppApplication app = (DeviceAppApplication) getApplication();
             Devices device = app.getDevice();
 
-            ((TextView) _menu.findViewById(R.id.txtUserName)).setText(device.empresaObject.NombreEmpresa);
-            ((TextView) _menu.findViewById(R.id.txtEmail)).setText(app.getUsuario());
+            //Tabs + ViewPager
 
-            final ArrayList<ListViewItem> elementos = getSideMenuListItems();
+            //Establecer el PageAdapter del componente ViewPager
+            ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
+            viewPager.setAdapter(new MainFragmentPagerAdapter(getSupportFragmentManager()));
 
-            ImageListViewAdapter adapter = new ImageListViewAdapter(MainActivity.this, elementos);
-            ListView list = (ListView) _menu.findViewById(R.id.lstMenu);
-            list.setAdapter(adapter);
-            list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                @Override
-                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    try {
-
-
-                        Intent intent;
-
-
-                        final ListViewItem item = elementos.get(position);
-                        switch (item.text) {
-
-                            case "Pedidos": //Mis pedidos
-                                _menu.toggle();
-                                intent = new Intent(MainActivity.this, PedidoActivity.class);
-                                startActivity(intent);
-                                break;
-
-                            case "Cotizaciones": //Mis Cotizaciones
-                                _menu.toggle();
-                                intent = new Intent(MainActivity.this, PedidoActivity.class);
-                                startActivity(intent);
-                                break;
-
-                            default: //Estadisticas de uso
-                                break;
-                        }
-                    } catch (Exception ex) {
-                        Log.d("Error", ex.getLocalizedMessage());
-                        Toast.makeText(getBaseContext(), ex.getLocalizedMessage(), Toast.LENGTH_LONG).show();
-                    }
-                }
-            });
-
-
-
-            ImageView imgBanner = (ImageView) findViewById(R.id.imgBanner);
-            ImageView imgLogo = (ImageView) findViewById(R.id.imgLogo);
-            ImageView imgLogoMenu = (ImageView) _menu.findViewById(R.id.imgLogo);
-
-            TextView txtComercio =(TextView) findViewById(R.id.txtNombreComercio);
-            TextView txtEmailComercio =(TextView) findViewById(R.id.txtEmailComercio);
-
-            txtComercio.setText(device.empresaObject.NombreEmpresa);
-            txtEmailComercio.setText(app.getUsuario());
-
-            // Le cambia la fuente a todos los TextView de la pantalla.
-            AssetManager assets = getAssets();
-            Common.setFontOnAllControls(assets, (ViewGroup) findViewById(R.id.rootView), "fonts/Lato/Lato-Regular.ttf");
-            Common.setFontOnAllControls(assets, (ViewGroup) _menu.findViewById(R.id.rootView), "fonts/Lato/Lato-Regular.ttf");
+            TabLayout tabLayout = (TabLayout) findViewById(R.id.appbartabs);
+            tabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
+            tabLayout.setupWithViewPager(viewPager);
 
         } catch (Exception ex) {
             Log.d("Error", ex.getLocalizedMessage());
@@ -159,45 +83,7 @@ public class MainActivity extends ActionBarActivity {
         }
     }
 
-    /// Obtiene la lista de items del menu contextual de la aplicación.
-    private ArrayList<ListViewItem> getSideMenuListItems() {
-        ArrayList<ListViewItem> lst = new ArrayList<ListViewItem>();
 
-        final DeviceAppApplication app = (DeviceAppApplication) getApplication();
-        List<Opciones> opciones = app.getDevice().opcionesList;
-        if(opciones.size() > 0){
-            for(Opciones opci : opciones){
-                lst.add(new ListViewItem(R.drawable.ic_folder_shared_blue_48dp, opci.Opcion, "",0, opci.Id));
-            }
-        }
-
-        //lst.add(new ListViewItem(R.drawable.ic_stars_blue_48, "Notificaciones", ""));
-
-        //lst.add(new ListViewItem(R.drawable.ic_trending_up_black_48dp, "Estadisticas de Uso", ""));
-
-        return lst;
-    }
-
-    /// Configura el menu principal de la aplicación.
-    private void setMainMenu() {
-        DisplayMetrics metrics = Common.getScreenSizeInPx(getApplicationContext());
-        _menu = new SlidingMenu(this);
-        _menu.setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
-        _menu.setSlidingEnabled(false);
-        _menu.setShadowWidth(50);
-        _menu.setShadowDrawable(R.drawable.sliding_menu_shadow);
-        _menu.setFadeDegree(0.0f);
-        _menu.attachToActivity(this, SlidingMenu.SLIDING_CONTENT);
-
-        //Indica que el menu lateral debe expandirse hasta el 80% de la actividad.
-        _menu.setBehindWidth(((Double) (metrics.widthPixels * 0.8)).intValue());
-        _menu.setMenu(R.layout.side_menu);
-
-        Account[] accounts = AccountManager.get(getBaseContext()).getAccountsByType("com.google");
-        for (Account account : accounts) {
-            int a = 0;
-        }
-    }
 
     /// Muestra la pantalla usada para activar una tarjeta.
 
@@ -239,6 +125,19 @@ public class MainActivity extends ActionBarActivity {
         }.start();
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_about, menu);
+        return true;
+    }
 
+    private void setToolbar() {
+        // Añadir la Toolbar
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle("TRANSCT Mobile");
+        setSupportActionBar(toolbar);
+
+    }
 
 }

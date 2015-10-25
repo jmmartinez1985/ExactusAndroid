@@ -10,7 +10,7 @@
     <color name="list_header">#e2e2e2</color>
     <color name="list_header_border">#a0a0a0</color>
 
-    <color name="action_bar_background">#FFDD4B39</color>
+    <color name="action_bar_background">#90D7EB</color>
     <color name="action_bar_text_color">#fff</color>
 
     <color name="primaryColor">#90D7EB</color>
@@ -18,5 +18,21 @@
 
     <color name="backgroundColor">#FFF</color>
     <color name="labelTextColor">#3E3F3A</color>
+
+    //Material
+    <color name="color_primary">#BF360C</color>
+    <color name="color_primary_dark">#303F9F</color>
+    <color name="color_accent">#FF9100</color>
+    <color name="primary_darker">#E64A19</color>
+
+
+    <color name="black">#000000</color>
+    <color name="jet">#222222</color>
+    <color name="oil">#333333</color>
+    <color name="monsoon">#777777</color>
+    <color name="jumbo">#888888</color>
+    <color name="aluminum">#999999</color>
+    <color name="base">#AAAAAA</color>
+    <color name="iron">#CCCCCC</color>
 
 </resources>
