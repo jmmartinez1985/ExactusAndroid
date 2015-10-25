@@ -34,6 +34,7 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 
 import exactus.jp.exactusjpapp.adapter.MainFragmentPagerAdapter;
+import exactus.jp.exactusjpapp.adapter.PedidoFragmentPagerAdapter;
 import exactus.jp.exactusjpapp.viewItem.ListViewItem;
 import exactus.jp.exactusjpapp.adapter.ImageListViewAdapter;
 import exactus.jp.exactusjpapp.model.*;
@@ -71,7 +72,8 @@ public class MainActivity extends AppCompatActivity {
 
             //Establecer el PageAdapter del componente ViewPager
             ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
-            viewPager.setAdapter(new MainFragmentPagerAdapter(getSupportFragmentManager()));
+            //viewPager.setAdapter(new MainFragmentPagerAdapter(getSupportFragmentManager()));
+            viewPager.setAdapter(new PedidoFragmentPagerAdapter(getSupportFragmentManager()));
 
             TabLayout tabLayout = (TabLayout) findViewById(R.id.appbartabs);
             tabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);

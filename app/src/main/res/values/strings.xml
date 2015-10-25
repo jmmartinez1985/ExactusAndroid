@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">TRANSCT Mobile</string>
     <string name="title_activity_maps">Map</string>
-    <string name="base_service_url_licence">http://192.168.1.102/JP.Exactus.Licence.Service</string>
-    <string name="base_service_url_core">http://192.168.1.102/JP.Exactus.Core.Service</string>
+    <string name="base_service_url_licence">http://192.168.1.103/JP.Exactus.Licence.Service</string>
+    <string name="base_service_url_core">http://192.168.1.103/JP.Exactus.Core.Service</string>
     <string name="base_website_url">webURL</string>
     <string name="progress_bar_title">Por favor espere</string>
     <string name="progress_bar_message">Procesando petición...</string>
@@ -25,6 +25,18 @@
     <string name="action_buscar">Buscar</string>
     <string name="action_ayuda">Ayuda</string>
     <string name="textDefault">Texto de Muestra</string>
+
+    <!--Navigation Drawer Option-->
+    <string name="home_item">Home</string>
+    <string name="productos_item">Productos</string>
+    <string name="compras_item">Carrito</string>
+    <string name="ordenes_item">Ordenes</string>
+    <string name="facturas_item">Facturas</string>
+    <string name="log_out_item">Cerrar Sesión</string>
+    <string name="configuracion_item">Configuración</string>
+
+    <!--Mensajes para la pantalla de pedido-->
+    <string name="cliente_error">Debe ingresar el código del cliente</string>
 
 
 </resources>

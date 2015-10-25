@@ -14,5 +14,10 @@
     <dimen name="size_fab">56dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="avatar_size">40dp</dimen>
+
+    <dimen name="header_left_padding">16dp</dimen>
+    <dimen name="header_height">192dp</dimen>
+
+    <dimen name="perfil_image_size">64dp</dimen>
 </resources>
 
