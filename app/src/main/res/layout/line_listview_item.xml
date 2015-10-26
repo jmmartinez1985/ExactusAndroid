@@ -27,7 +27,7 @@
                 style="@style/ListViewItemImage"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
-                android:src="@drawable/log_in"
+                android:src="@drawable/ic_create_black_24dp"
                 android:layout_marginRight="5dp"
 
                 />
@@ -39,7 +39,7 @@
                 style="@style/ListViewItemImage"
                 android:layout_toRightOf="@+id/imgEdit"
                 android:layout_alignParentTop="true"
-                android:src="@drawable/cross102"
+                android:src="@drawable/ic_clear_black_24dp"
                 android:layout_marginRight="5dp"
 
                 />

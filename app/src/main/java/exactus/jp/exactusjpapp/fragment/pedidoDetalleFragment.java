@@ -1,13 +1,12 @@
 package exactus.jp.exactusjpapp.fragment;
 
-import android.app.Activity;
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
+import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
@@ -17,7 +16,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,6 +25,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import exactus.jp.exactusjpapp.R;
 import exactus.jp.exactusjpapp.adapter.RVLineListAdapter;
+import exactus.jp.exactusjpapp.adapter.WrappingLinearLayoutManager;
 import exactus.jp.exactusjpapp.viewItem.LineViewItem;
 
 
@@ -35,7 +34,6 @@ public class pedidoDetalleFragment extends Fragment {
 
     private static List<LineViewItem> lineList;
     private static int counter = 1;
-
 
 
     @Bind(R.id.txtArticuloLinea)
@@ -97,8 +95,6 @@ public class pedidoDetalleFragment extends Fragment {
         txtCantidad.addTextChangedListener(new MyTextWatcher(txtCantidad));
         txtPrecioLinea.addTextChangedListener(new MyTextWatcher(txtPrecioLinea));
         txtDescuentoLinea.addTextChangedListener(new MyTextWatcher(txtDescuentoLinea));
-
-
         return  view;
 
     }
@@ -108,12 +104,37 @@ public class pedidoDetalleFragment extends Fragment {
         if (!validateTextField(txtArticulo, inputLayoutArticulo, getString(R.string.articulo))) {
             return;
         }
+        if (!validateTextField(txtArticuloDescripcion, inputLayoutArticuloDescripcion, getString(R.string.detalle_articulo))) {
+            return;
+        }
+        if (!validateTextField(txtPrecioLinea, inputLayoutPrecio, getString(R.string.articulo_precio))) {
+            return;
+        }
+        if (!validateTextField(txtCantidad, inputLayoutCantidad, getString(R.string.articulo_cantidad))) {
+            return;
+        }
+        if (!validateTextField(txtDescuentoLinea, inputLayoutDescuento, getString(R.string.articulo_descuento))) {
+            return;
+        }
         LineViewItem itemLine;
         itemLine = new LineViewItem(txtArticulo.getText().toString(), txtPrecioLinea.getText().toString(),
                 txtCantidad.getText().toString(), txtDescuentoLinea.getText().toString(), counter);
         lineList.add(itemLine);
         counter++;
         llenarObjetoLineas(lineList);
+        txtArticulo.setText("");
+        txtArticuloDescripcion.setText("");
+        txtCantidad.setText("");
+        txtPrecioLinea.setText("");
+        txtDescuentoLinea.setText("");
+
+        inputLayoutArticulo.setErrorEnabled(false);
+        inputLayoutArticuloDescripcion.setErrorEnabled(false);
+        inputLayoutCantidad.setErrorEnabled(false);
+        inputLayoutPrecio.setErrorEnabled(false);
+        inputLayoutDescuento.setErrorEnabled(false);
+        Snackbar.make(rvLineas,"Linea de artículo agregada satisfactoriamente.",Snackbar.LENGTH_LONG).show();
+        txtArticulo.requestFocus();
     }
 
     private void llenarObjetoLineas(List<LineViewItem> item) {
@@ -122,11 +143,14 @@ public class pedidoDetalleFragment extends Fragment {
             rvLineas.setVisibility(View.VISIBLE);
         } else
             rvLineas.setVisibility(View.GONE);
-        rvLineas.setHasFixedSize(true);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(c);
-        rvLineas.setLayoutManager(layoutManager);
+        rvLineas.setNestedScrollingEnabled(false);
+        rvLineas.setHasFixedSize(false);
+        rvLineas.setLayoutManager(new WrappingLinearLayoutManager(getContext()));
+        //LinearLayoutManager layoutManager = new LinearLayoutManager(c);
+        //rvLineas.setLayoutManager(layoutManager);
         RVLineListAdapter adapter = new RVLineListAdapter(item, c);
         rvLineas.setAdapter(adapter);
+        rvLineas.setItemAnimator(new DefaultItemAnimator());
     }
 
     private boolean validateTextField(EditText input, TextInputLayout layout, String errorMessage ) {

@@ -50,7 +50,6 @@ import java.util.List;
 import exactus.jp.exactusjpapp.adapter.RVImageListAdapter;
 import exactus.jp.exactusjpapp.adapter.RVLineListAdapter;
 import exactus.jp.exactusjpapp.adapter.SpinnerListAdapter;
-import exactus.jp.exactusjpapp.logic.AlertDialogListView;
 import exactus.jp.exactusjpapp.viewItem.LineViewItem;
 import exactus.jp.exactusjpapp.viewItem.ListViewItem;
 import exactus.jp.exactusjpapp.adapter.ImageListViewAdapter;
