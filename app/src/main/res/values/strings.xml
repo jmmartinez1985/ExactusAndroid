@@ -39,4 +39,12 @@
     <string name="cliente_error">Debe ingresar el código del cliente</string>
 
 
+    <!--Mensajes para la pantalla de pedido detalle-->
+    <string name="articulo">Debe ingresar código del artículo</string>
+    <string name="detalle_articulo">Debe ingresar la descripción del artículo</string>
+    <string name="articulo_precio">Debe ingresar el precio a proporcionar por el artículo</string>
+    <string name="articulo_cantidad">Debe ingresar la cantidad de artículos</string>
+    <string name="articulo_descuento">Debe ingresar la cantidad de descuento</string>
+
+
 </resources>

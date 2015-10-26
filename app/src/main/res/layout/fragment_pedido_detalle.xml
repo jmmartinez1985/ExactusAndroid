@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="fill_parent"
+    android:fillViewport="true"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior">
     <android.support.design.widget.CoordinatorLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -67,7 +74,7 @@
                     android:id="@+id/txtCantidadLinea"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="text"
+                    android:inputType="number"
                     android:hint="Cantidad" />
             </android.support.design.widget.TextInputLayout>
 
@@ -86,7 +93,7 @@
 
 
             <android.support.design.widget.FloatingActionButton
-                android:id="@+id/fabCamera"
+                android:id="@+id/fabAddLinea"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_add_white_48dp"
@@ -94,6 +101,15 @@
                 app:elevation="6dp"
                 app:pressedTranslationZ="12dp"/>
 
+
+            <android.support.v7.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/rvLineas"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                />
+
         </LinearLayout>
 
     </android.support.design.widget.CoordinatorLayout>
+</android.support.v4.widget.NestedScrollView>
