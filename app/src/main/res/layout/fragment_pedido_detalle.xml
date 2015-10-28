@@ -83,16 +83,17 @@
                     android:inputType="text"
                     android:hint="Descuento" />
             </android.support.design.widget.TextInputLayout>
-
-
-             <android.support.design.widget.FloatingActionButton
+            
+            <com.melnykov.fab.FloatingActionButton
                 android:id="@+id/fabAddLinea"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="bottom|right"
+                android:layout_margin="16dp"
                 android:src="@drawable/ic_add_white_48dp"
-                android:layout_gravity="bottom|right|end"
-                app:elevation="6dp"
-                app:pressedTranslationZ="12dp"/>
+                app:fab_colorNormal="@color/color_primary"
+                app:fab_colorPressed="@color/primary_pressed"
+                app:fab_colorRipple="@color/ripple" />
 
             <android.support.v7.widget.RecyclerView
                 android:layout_width="match_parent"

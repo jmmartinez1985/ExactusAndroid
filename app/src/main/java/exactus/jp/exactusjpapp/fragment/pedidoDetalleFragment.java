@@ -67,7 +67,7 @@ public class pedidoDetalleFragment extends Fragment {
     RecyclerView rvLineas;
 
     @Bind(R.id.fabAddLinea)
-    FloatingActionButton fabAgregarLinea;
+    com.melnykov.fab.FloatingActionButton fabAgregarLinea;
 
     public static pedidoDetalleFragment newInstance() {
         pedidoDetalleFragment fragment = new pedidoDetalleFragment();
