@@ -1,10 +1,5 @@
 package exactus.jp.exactusjpapp;
 
-import android.accounts.Account;
-import android.accounts.AccountManager;
-import android.content.Intent;
-import android.content.res.AssetManager;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.PagerAdapter;
@@ -13,34 +8,17 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.SpannableStringBuilder;
 import android.text.style.RelativeSizeSpan;
-import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Gravity;
-import android.view.LayoutInflater;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 import android.os.CountDownTimer;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 
-import exactus.jp.exactusjpapp.adapter.MainFragmentPagerAdapter;
 import exactus.jp.exactusjpapp.adapter.PedidoFragmentPagerAdapter;
-import exactus.jp.exactusjpapp.viewItem.ListViewItem;
-import exactus.jp.exactusjpapp.adapter.ImageListViewAdapter;
 import exactus.jp.exactusjpapp.model.*;
-
-import java.util.ArrayList;
-import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity {

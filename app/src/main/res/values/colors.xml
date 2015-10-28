@@ -24,6 +24,8 @@
     <color name="color_primary_dark">#303F9F</color>
     <color name="color_accent">#FF9100</color>
     <color name="primary_darker">#E64A19</color>
+    <color name="ripple">#FF6E40</color>
+    <color name="primary_pressed">#FF9E80</color>
 
 
     <color name="black">#000000</color>

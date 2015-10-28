@@ -12,14 +12,16 @@
 
     <!-- Imagen de perfil -->
     <de.hdodenhof.circleimageview.CircleImageView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/circle_image"
-        android:layout_width="@dimen/perfil_image_size"
-        android:layout_height="@dimen/perfil_image_size"
-        android:layout_marginBottom="16dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/ic_account_circle_black_48dp"
-        app:border_color="@android:color/white"
-        app:border_width="1dp" />
+        android:layout_width="250dp"
+        android:layout_height="150dp"
+        app:civ_border_width="2dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="5dp"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/ic_person_black_48dp"
+        app:civ_border_color="#E64A19"/>
 
     <!-- Nombre de Usuario -->
     <TextView
