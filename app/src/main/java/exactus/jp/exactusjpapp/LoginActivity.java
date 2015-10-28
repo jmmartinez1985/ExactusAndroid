@@ -8,6 +8,7 @@ import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -60,15 +61,13 @@ public class LoginActivity extends AppCompatActivity {
                                           KeyEvent event) {
                 if ((event != null && (event.getKeyCode() == KeyEvent.KEYCODE_ENTER))
                         || (actionId == EditorInfo.IME_ACTION_DONE)) {
-                    ((Button) findViewById(R.id.btnLogin)).performClick();
+                    ((com.melnykov.fab.FloatingActionButton) findViewById(R.id.btnLogin)).performClick();
                 }
                 return false;
             }
         });
 
-        com.melnykov.fab.FloatingActionButton btnLogin = ((com.melnykov.fab.FloatingActionButton) findViewById(R.id.btnLogin));
-
-        btnLogin.setOnClickListener(new View.OnClickListener() {
+        ((com.melnykov.fab.FloatingActionButton) findViewById(R.id.btnLogin)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 try {

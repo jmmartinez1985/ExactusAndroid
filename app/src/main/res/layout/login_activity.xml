@@ -78,7 +78,15 @@
                 android:hint="Contraseña" />
 
         </android.support.design.widget.TextInputLayout>
+       <!-- <android.support.v7.widget.AppCompatButton
+            android:id="@+id/btnLogin"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="24dp"
+            android:padding="12dp"
 
+            android:text="ENTRAR"/>-->
         <com.melnykov.fab.FloatingActionButton
             android:id="@+id/btnLogin"
             android:layout_width="wrap_content"
