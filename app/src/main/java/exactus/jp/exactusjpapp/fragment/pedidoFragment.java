@@ -24,7 +24,7 @@ public class pedidoFragment extends Fragment {
 
     private EditText txtCliente,txtNombreCuenta, txtBodega;
     private TextInputLayout inputLayoutCliente,inputLayoutNombreCuenta, inputLayoutBodega;
-    private FloatingActionButton fabGuardarPedido;
+    private com.melnykov.fab.FloatingActionButton fabGuardarPedido;
 
 
     public static pedidoFragment newInstance() {
@@ -56,7 +56,7 @@ public class pedidoFragment extends Fragment {
         txtNombreCuenta = (EditText) view.findViewById(R.id.txtNombreCuenta);
         txtNombreCuenta.addTextChangedListener(new MyTextWatcher(txtNombreCuenta));
 
-        fabGuardarPedido = (FloatingActionButton) view.findViewById(R.id.fabGuardarPedido);
+        fabGuardarPedido = (com.melnykov.fab.FloatingActionButton) view.findViewById(R.id.fabGuardarPedido);
         fabGuardarPedido.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

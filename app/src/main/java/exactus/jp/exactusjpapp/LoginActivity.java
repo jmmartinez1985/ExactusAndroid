@@ -66,7 +66,9 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        ((Button) findViewById(R.id.btnLogin)).setOnClickListener(new View.OnClickListener() {
+        com.melnykov.fab.FloatingActionButton btnLogin = ((com.melnykov.fab.FloatingActionButton) findViewById(R.id.btnLogin));
+
+        btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 try {
@@ -125,7 +127,7 @@ public class LoginActivity extends AppCompatActivity {
                                        /* Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                                         startActivity(intent);
                                         finish();*/
-                                        ValidaUsuario(usuario,password);
+                                        ValidaUsuario(usuario, password);
 
                                     }
                                 }

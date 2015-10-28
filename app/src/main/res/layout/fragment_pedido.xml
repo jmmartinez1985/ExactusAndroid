@@ -87,14 +87,18 @@
                     android:hint="Orden de Compra" />
             </android.support.design.widget.TextInputLayout>
 
-            <android.support.design.widget.FloatingActionButton
-                android:id="@+id/fabGuardarPedido"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_add_white_48dp"
-                android:layout_gravity="end|bottom"
-                app:elevation="6dp"
-                app:pressedTranslationZ="12dp"/>
+
+
+     <com.melnykov.fab.FloatingActionButton
+        android:id="@+id/fabGuardarPedido"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right"
+        android:layout_margin="16dp"
+        android:src="@drawable/ic_save_white_24dp"
+        app:fab_colorNormal="@color/color_primary"
+        app:fab_colorPressed="@color/primary_pressed"
+        app:fab_colorRipple="@color/ripple" />
 
         </LinearLayout>
 
