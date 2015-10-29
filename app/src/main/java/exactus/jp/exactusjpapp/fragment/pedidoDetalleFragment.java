@@ -23,6 +23,7 @@ import java.util.List;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import exactus.jp.exactusjpapp.DeviceAppApplication;
 import exactus.jp.exactusjpapp.R;
 import exactus.jp.exactusjpapp.adapter.RVLineListAdapter;
 import exactus.jp.exactusjpapp.adapter.WrappingLinearLayoutManager;
@@ -69,6 +70,13 @@ public class pedidoDetalleFragment extends Fragment {
     @Bind(R.id.fabAddLinea)
     com.melnykov.fab.FloatingActionButton fabAgregarLinea;
 
+    @Bind(R.id.fabArticulo)
+    com.melnykov.fab.FloatingActionButton fabArticulo;
+
+    @Bind(R.id.fabPrecio)
+    com.melnykov.fab.FloatingActionButton fabPrecioArticulo;
+
+
     public static pedidoDetalleFragment newInstance() {
         pedidoDetalleFragment fragment = new pedidoDetalleFragment();
         return fragment;
@@ -95,6 +103,8 @@ public class pedidoDetalleFragment extends Fragment {
         txtCantidad.addTextChangedListener(new MyTextWatcher(txtCantidad));
         txtPrecioLinea.addTextChangedListener(new MyTextWatcher(txtPrecioLinea));
         txtDescuentoLinea.addTextChangedListener(new MyTextWatcher(txtDescuentoLinea));
+        fabArticulo.setType(com.melnykov.fab.FloatingActionButton.TYPE_MINI);
+        fabPrecioArticulo.setType(com.melnykov.fab.FloatingActionButton.TYPE_MINI);
         return  view;
 
     }
@@ -137,6 +147,17 @@ public class pedidoDetalleFragment extends Fragment {
         txtArticulo.requestFocus();
     }
 
+
+    @OnClick(R.id.fabArticulo)
+     void buscarArticulo(){
+
+    }
+
+    @OnClick(R.id.fabPrecio)
+    void buscarPrecio(){
+
+    }
+
     private void llenarObjetoLineas(List<LineViewItem> item) {
 
         if (item.size() > 0) {
@@ -151,6 +172,8 @@ public class pedidoDetalleFragment extends Fragment {
         RVLineListAdapter adapter = new RVLineListAdapter(item, c);
         rvLineas.setAdapter(adapter);
         rvLineas.setItemAnimator(new DefaultItemAnimator());
+        final DeviceAppApplication app =(DeviceAppApplication) getActivity().getApplicationContext();
+        app.setLineasShared(lineList);
     }
 
     private boolean validateTextField(EditText input, TextInputLayout layout, String errorMessage ) {

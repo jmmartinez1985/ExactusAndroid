@@ -115,7 +115,7 @@ public class RVLineListAdapter  extends RecyclerView.Adapter<RVLineListAdapter.V
             }
             else if(v.equals(imgDelete)){
                 Toast.makeText(_context,
-                        "Eliminar Presionado", Toast.LENGTH_SHORT).show();
+                        "Linea de artículo eliminada", Toast.LENGTH_SHORT).show();
                 if (position != RecyclerView.NO_POSITION) {
                     removeAt(position);
                 }
