@@ -37,6 +37,7 @@
 
     <!--Mensajes para la pantalla de pedido-->
     <string name="cliente_error">Debe ingresar el código del cliente</string>
+    <string name="bodega_error">Debe ingresar el código del bodega</string>
 
 
     <!--Mensajes para la pantalla de pedido detalle-->
