@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
-    android:layout_width="fill_parent"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_marginTop="?attr/actionBarSize"
@@ -8,6 +8,7 @@
     android:paddingLeft="20dp"
     android:paddingRight="20dp"
     android:paddingTop="5dp"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
 
@@ -24,21 +25,9 @@
                     android:singleLine="true"
                     android:hint="Cliente" />
 
-<<<<<<< HEAD
 
 
 
-=======
-                <android.support.design.widget.FloatingActionButton
-                    android:id="@+id/fabCliente"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_add_white_48dp"
-                    android:layout_gravity="right"
-                    app:elevation="6dp"
-                    app:fabSize="mini"
-                    app:pressedTranslationZ="0dp"/>
->>>>>>> a5abf1e202e82eab64472af34e070d08b132b5e1
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
@@ -65,10 +54,7 @@
                     android:layout_height="wrap_content"
                     android:inputType="text"
                     android:hint="Bodega" />
-<<<<<<< HEAD
 
-=======
->>>>>>> a5abf1e202e82eab64472af34e070d08b132b5e1
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
@@ -128,16 +114,11 @@
         android:id="@+id/fabGuardarPedido"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|right"
+        android:layout_gravity="bottom|right|end"
         android:layout_margin="16dp"
         android:src="@drawable/ic_save_white_24dp"
         app:fab_colorNormal="@color/color_primary"
         app:fab_colorPressed="@color/primary_pressed"
         app:fab_colorRipple="@color/ripple" />
 
-<<<<<<< HEAD
 </LinearLayout>
-=======
-        </LinearLayout>
-
->>>>>>> a5abf1e202e82eab64472af34e070d08b132b5e1
