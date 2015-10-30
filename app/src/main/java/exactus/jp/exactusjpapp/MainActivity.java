@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.SpannableStringBuilder;
@@ -47,7 +48,6 @@ public class MainActivity extends AppCompatActivity {
             Devices device = app.getDevice();
 
             //Tabs + ViewPager
-
             //Establecer el PageAdapter del componente ViewPager
             ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
             //viewPager.setAdapter(new MainFragmentPagerAdapter(getSupportFragmentManager()));

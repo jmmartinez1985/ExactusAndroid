@@ -25,17 +25,7 @@
                     android:singleLine="true"
                     android:hint="Cliente" />
 
-                <com.melnykov.fab.FloatingActionButton
-                    android:id="@+id/fabCliente"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="right"
-                    android:layout_margin="16dp"
-                    app:fabSize="mini"
-                    android:src="@drawable/ic_search_white_24dp"
-                    app:fab_colorNormal="@color/color_accent"
-                    app:fab_colorPressed="@color/primary_pressed"
-                    app:fab_colorRipple="@color/ripple" />
+
 
 
             </android.support.design.widget.TextInputLayout>
@@ -64,18 +54,6 @@
                     android:layout_height="wrap_content"
                     android:inputType="text"
                     android:hint="Bodega" />
-
-                <com.melnykov.fab.FloatingActionButton
-                    android:id="@+id/fabBodega"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="right"
-                    android:layout_margin="16dp"
-                    app:fabSize="mini"
-                    android:src="@drawable/ic_search_white_24dp"
-                    app:fab_colorNormal="@color/color_accent"
-                    app:fab_colorPressed="@color/primary_pressed"
-                    app:fab_colorRipple="@color/ripple" />
 
             </android.support.design.widget.TextInputLayout>
 
@@ -106,8 +84,33 @@
             </android.support.design.widget.TextInputLayout>
 
 
+    <com.melnykov.fab.FloatingActionButton
+        android:id="@+id/fabCliente"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:layout_margin="16dp"
+        app:fabSize="mini"
+        android:src="@drawable/ic_search_white_24dp"
+        app:fab_colorNormal="@color/color_accent"
+        app:fab_colorPressed="@color/primary_pressed"
+        app:fab_colorRipple="@color/ripple" />
 
-     <com.melnykov.fab.FloatingActionButton
+    <com.melnykov.fab.FloatingActionButton
+        android:id="@+id/fabBodega"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:layout_margin="16dp"
+        app:fabSize="mini"
+        android:src="@drawable/ic_search_white_24dp"
+        app:fab_colorNormal="@color/color_accent"
+        app:fab_colorPressed="@color/primary_pressed"
+        app:fab_colorRipple="@color/ripple" />
+
+
+
+    <com.melnykov.fab.FloatingActionButton
         android:id="@+id/fabGuardarPedido"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
