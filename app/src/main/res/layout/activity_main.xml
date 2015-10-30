@@ -3,8 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+<<<<<<< HEAD
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     android:id="@+id/coordinator">
+=======
+    android:id="@+id/coordinator"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    >
+>>>>>>> a5abf1e202e82eab64472af34e070d08b132b5e1
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
@@ -55,4 +61,4 @@
         </FrameLayout>
 
 </LinearLayout>
-</android.support.design.widget.CoordinatorLayout>
+    </android.support.design.widget.CoordinatorLayout>

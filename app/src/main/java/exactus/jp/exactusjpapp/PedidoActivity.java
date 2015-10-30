@@ -530,6 +530,8 @@ public class PedidoActivity extends AppCompatActivity {
                     return lst;
                 }
 
+
+
     private ArrayList<SpinnerItem> getClasificacion(ArrayList<Clasificacion> clasificacions) {
         ArrayList<SpinnerItem> lst = new ArrayList<SpinnerItem>();
         for (Clasificacion clasificacion  : clasificacions) {
