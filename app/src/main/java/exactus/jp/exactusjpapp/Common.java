@@ -47,7 +47,7 @@ import java.util.Date;
  * Created by Josemi on 30/9/15.
  */
 
-
+//Cambios James
 public class Common {
 
     /// Almacena la url base de los servicios, terminando antes de /api/.
