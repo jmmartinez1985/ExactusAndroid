@@ -44,8 +44,10 @@ import java.util.Date;
  * Expone metodos auxiliares.
  */
 /**
- * Created by JM on 30/9/15.
+ * Created by Josemi on 30/9/15.
  */
+
+
 public class Common {
 
     /// Almacena la url base de los servicios, terminando antes de /api/.
