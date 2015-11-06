@@ -172,20 +172,40 @@ public class Exactus {
 
 
 
+    public static void ObtenerClientePorRuc(
+            Context context,
+            String usuario,
+            String password,
+            String NombreCliente,
+            final ServiceCallBack<JSONObject> callback) {
 
+        HttpAsyncTask task = new HttpAsyncTask(context, new CallBack() {
 
+            @Override
+            public void onPostExecute(String json) {
+                try {
 
+                    callback.onPostExecute(new JSONObject(json));
+                }
+                catch (Exception ex) {
+                    callback.onException(ex);
+                }
+            }
 
+            @Override
+            public void onException(Exception ex) {
+                callback.onException(ex);
+            }
+        });
 
+        HashMap<String, String> parameters = new HashMap<String, String>();
+        parameters.put("usuario", usuario);
+        parameters.put("password", password);
+        parameters.put("RucCedula",NombreCliente);
 
-
-
-
-
-
-
-
-
+        String url = Common.RootServiceUrl + "/api/Exactus/ObtenerClientePorRuc";
+        task.execute(new HttpAsyncTaskParameters(url, "GET", parameters));
+    }
 
 
 

@@ -14,7 +14,7 @@
         android:layout_alignParentLeft="true">
 
         <RadioButton
-            android:id="@+id/radio1"
+            android:id="@+id/radioNombre"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
@@ -22,7 +22,7 @@
             android:text="Por Nombre" />
 
         <RadioButton
-            android:id="@+id/radio2"
+            android:id="@+id/radioRuc"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"

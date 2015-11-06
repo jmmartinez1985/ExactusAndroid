@@ -28,6 +28,7 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -378,50 +379,114 @@ public class pedidoFragment extends Fragment {
             public void onClick(View view) {
 
                 EditText NombreClienteBusqueda = (EditText) dialog.findViewById(R.id.txtBusquedaCliente);
-                Exactus.ObtenerCliente(fragment,
-                        app.getUsuario(), app.getPassword(), NombreClienteBusqueda.getText().toString(),
-                        new ServiceCallBack<JSONObject>() {
-                            @Override
-                            public void onPostExecute(JSONObject obj) {
-                                try {
-                                    Type clientesType = new TypeToken<ArrayList<Cliente>>() {
-                                    }.getType();
-                                    final ArrayList<Cliente> clientes = new Gson().fromJson(obj.getString("clientes"), clientesType);
+                RadioButton radioNombre = (RadioButton) dialog.findViewById(R.id.radioNombre);
 
-                                    RecyclerView recycler = (RecyclerView) dialog.findViewById(R.id.rv);
-                                    final ArrayList<ListViewItem> clientesData = getClientes(clientes);
-                                    if (clientesData.size() > 0) {
-                                        recycler.setVisibility(View.VISIBLE);
-                                    } else
-                                        recycler.setVisibility(View.GONE);
-                                    recycler.setHasFixedSize(true);
-                                    LinearLayoutManager layoutManager = new LinearLayoutManager(fragment);
-                                    recycler.setLayoutManager(layoutManager);
-                                    RVImageListAdapter adapter = new RVImageListAdapter(clientesData, fragment, false);
-                                    recycler.setAdapter(adapter);
-                                    ItemClickSupport.addTo(recycler).setOnItemClickListener(new ItemClickSupport.OnItemClickListener() {
-                                        @Override
-                                        public void onItemClicked(RecyclerView recyclerView, int position, View v) {
-                                            Cliente c = clientes.get(position);
-                                            txtCliente.setText(c.CLIENTE);
-                                            txtNombreCuenta.setText(c.NOMBRE);
-                                            dialog.dismiss();
-                                        }
-                                    });
 
-                                } catch (Exception ex) {
-                                    Snackbar.make(coordinator, ex.getLocalizedMessage(), Snackbar.LENGTH_LONG).show();
+                if (radioNombre.isChecked() == true)
+                {
+                    Exactus.ObtenerCliente(fragment,
+                            app.getUsuario(), app.getPassword(), NombreClienteBusqueda.getText().toString(),
+                            new ServiceCallBack<JSONObject>() {
+                                @Override
+                                public void onPostExecute(JSONObject obj) {
+                                    try {
+                                        Type clientesType = new TypeToken<ArrayList<Cliente>>() {
+                                        }.getType();
+                                        final ArrayList<Cliente> clientes = new Gson().fromJson(obj.getString("clientes"), clientesType);
+
+                                        RecyclerView recycler = (RecyclerView) dialog.findViewById(R.id.rv);
+                                        final ArrayList<ListViewItem> clientesData = getClientes(clientes);
+                                        if (clientesData.size() > 0) {
+                                            recycler.setVisibility(View.VISIBLE);
+                                        } else
+                                            recycler.setVisibility(View.GONE);
+                                        recycler.setHasFixedSize(true);
+                                        LinearLayoutManager layoutManager = new LinearLayoutManager(fragment);
+                                        recycler.setLayoutManager(layoutManager);
+                                        RVImageListAdapter adapter = new RVImageListAdapter(clientesData, fragment, false);
+                                        recycler.setAdapter(adapter);
+                                        ItemClickSupport.addTo(recycler).setOnItemClickListener(new ItemClickSupport.OnItemClickListener() {
+                                            @Override
+                                            public void onItemClicked(RecyclerView recyclerView, int position, View v) {
+                                                Cliente c = clientes.get(position);
+                                                txtCliente.setText(c.CLIENTE);
+                                                txtNombreCuenta.setText(c.NOMBRE);
+                                                dialog.dismiss();
+                                            }
+                                        });
+
+                                    } catch (Exception ex) {
+                                        Snackbar.make(coordinator, ex.getLocalizedMessage(), Snackbar.LENGTH_LONG).show();
+                                    }
                                 }
-                            }
 
-                            @Override
-                            public void onException(Exception ex) {
-                                Log.d("Error", ex.getLocalizedMessage());
-                                Toast.makeText(getActivity(), ex.getLocalizedMessage(), Toast.LENGTH_LONG).show();
-                            }
-                        });
+                                @Override
+                                public void onException(Exception ex) {
+                                    Log.d("Error", ex.getLocalizedMessage());
+                                    Toast.makeText(getActivity(), ex.getLocalizedMessage(), Toast.LENGTH_LONG).show();
+                                }
+                            });
+
+                }
+                else
+                {
+                    Exactus.ObtenerClientePorRuc(fragment,
+                            app.getUsuario(), app.getPassword(), NombreClienteBusqueda.getText().toString(),
+                            new ServiceCallBack<JSONObject>() {
+                                @Override
+                                public void onPostExecute(JSONObject obj) {
+                                    try {
+                                        Type clientesType = new TypeToken<ArrayList<Cliente>>() {
+                                        }.getType();
+                                        final ArrayList<Cliente> clientes = new Gson().fromJson(obj.getString("clientes"), clientesType);
+
+                                        RecyclerView recycler = (RecyclerView) dialog.findViewById(R.id.rv);
+                                        final ArrayList<ListViewItem> clientesData = getClientes(clientes);
+                                        if (clientesData.size() > 0) {
+                                            recycler.setVisibility(View.VISIBLE);
+                                        } else
+                                            recycler.setVisibility(View.GONE);
+                                        recycler.setHasFixedSize(true);
+                                        LinearLayoutManager layoutManager = new LinearLayoutManager(fragment);
+                                        recycler.setLayoutManager(layoutManager);
+                                        RVImageListAdapter adapter = new RVImageListAdapter(clientesData, fragment, false);
+                                        recycler.setAdapter(adapter);
+                                        ItemClickSupport.addTo(recycler).setOnItemClickListener(new ItemClickSupport.OnItemClickListener() {
+                                            @Override
+                                            public void onItemClicked(RecyclerView recyclerView, int position, View v) {
+                                                Cliente c = clientes.get(position);
+                                                txtCliente.setText(c.CLIENTE);
+                                                txtNombreCuenta.setText(c.NOMBRE);
+                                                dialog.dismiss();
+                                            }
+                                        });
+
+                                    } catch (Exception ex) {
+                                        Snackbar.make(coordinator, ex.getLocalizedMessage(), Snackbar.LENGTH_LONG).show();
+                                    }
+                                }
+
+                                @Override
+                                public void onException(Exception ex) {
+                                    Log.d("Error", ex.getLocalizedMessage());
+                                    Toast.makeText(getActivity(), ex.getLocalizedMessage(), Toast.LENGTH_LONG).show();
+                                }
+                            });
+
+                }
+
 
             }
+
+
+
+
+
+
+
+
+
+
         });
 
 

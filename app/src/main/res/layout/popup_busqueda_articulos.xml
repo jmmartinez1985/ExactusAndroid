@@ -110,19 +110,8 @@
     android:textSize="15sp"
     ></Spinner>
 
-        <CheckBox
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="Todas"
-            android:layout_weight="1"
-            android:layout_gravity="center"
-            android:textSize="15dp"
-            android:checked="true"
-            android:id="@+id/chkclasificacion1"
-            />
 
-
-</LinearLayout>
+    </LinearLayout>
 
 
 
@@ -144,17 +133,6 @@
             android:layout_weight="1.50"
             android:textSize="15sp"
             ></Spinner>
-
-        <CheckBox
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="Todas"
-            android:layout_weight="1.50"
-            android:layout_gravity="center"
-            android:textSize="15dp"
-            android:checked="true"
-            android:id="@+id/chkclasificacion2"
-            />
 
     </LinearLayout>
 
@@ -178,17 +156,6 @@
             android:layout_gravity="center"
             ></Spinner>
 
-        <CheckBox
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="Todas"
-            android:layout_weight="1.50"
-            android:layout_gravity="center"
-            android:textSize="15dp"
-            android:checked="true"
-            android:id="@+id/chkclasificacion3"
-            />
-
     </LinearLayout>
 
     <LinearLayout
@@ -209,18 +176,6 @@
             android:layout_gravity="center"
             android:textSize="15sp"
             ></Spinner>
-
-        <CheckBox
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-
-            android:text="Todas"
-            android:layout_weight="1.50"
-            android:layout_gravity="center"
-            android:textSize="15dp"
-            android:checked="true"
-            android:id="@+id/chkclasificacion4"
-            />
 
     </LinearLayout>
 
@@ -243,18 +198,6 @@
             android:textSize="15sp"
             ></Spinner>
 
-        <CheckBox
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="Todas"
-            android:layout_weight="1.50"
-
-            android:layout_gravity="center"
-            android:textSize="15dp"
-            android:checked="true"
-            android:id="@+id/chkclasificacion5"
-            />
-
     </LinearLayout>
 
     <LinearLayout
@@ -276,17 +219,6 @@
             android:layout_gravity="center"
             ></Spinner>
 
-
-        <CheckBox
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="Todas"
-            android:layout_weight="1.50"
-            android:layout_gravity="center"
-            android:textSize="15dp"
-            android:checked="true"
-            android:id="@+id/chkclasificacion6"
-            />
 
     </LinearLayout>
 
