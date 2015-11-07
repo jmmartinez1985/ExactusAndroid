@@ -1,6 +1,9 @@
 package exactus.jp.exactusjpapp.fragment;
 
+import android.app.Dialog;
 import android.os.Bundle;
+import android.os.CountDownTimer;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputLayout;
@@ -10,13 +13,26 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
+import android.text.SpannableStringBuilder;
 import android.text.TextWatcher;
+import android.text.style.RelativeSizeSpan;
+import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.Toast;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import org.json.JSONObject;
+
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,16 +41,25 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import exactus.jp.exactusjpapp.DeviceAppApplication;
 import exactus.jp.exactusjpapp.R;
+import exactus.jp.exactusjpapp.adapter.ItemClickSupport;
+import exactus.jp.exactusjpapp.adapter.RVImageListAdapter;
 import exactus.jp.exactusjpapp.adapter.RVLineListAdapter;
 import exactus.jp.exactusjpapp.adapter.WrappingLinearLayoutManager;
+import exactus.jp.exactusjpapp.model.Articulo;
+import exactus.jp.exactusjpapp.model.Cliente;
+import exactus.jp.exactusjpapp.services.Exactus;
+import exactus.jp.exactusjpapp.services.ServiceCallBack;
 import exactus.jp.exactusjpapp.viewItem.LineViewItem;
-
+import exactus.jp.exactusjpapp.viewItem.ListViewItem;
 
 
 public class pedidoDetalleFragment extends Fragment {
 
     private static List<LineViewItem> lineList;
     private static int counter = 1;
+    private CoordinatorLayout coordinator;
+    FragmentActivity fragment= null;
+
 
 
     @Bind(R.id.txtArticuloLinea)
@@ -106,8 +131,7 @@ public class pedidoDetalleFragment extends Fragment {
         fabArticulo.setType(com.melnykov.fab.FloatingActionButton.TYPE_MINI);
         fabPrecioArticulo.setType(com.melnykov.fab.FloatingActionButton.TYPE_MINI);
         return  view;
-
-    }
+   }
 
     @OnClick(R.id.fabAddLinea)
     void agregarLinea(){
@@ -147,14 +171,173 @@ public class pedidoDetalleFragment extends Fragment {
         txtArticulo.requestFocus();
     }
 
-
     @OnClick(R.id.fabArticulo)
-     void buscarArticulo(){
+     void buscarArticulo()
+    {
+
+        final Dialog dialog = new Dialog(fragment);
+        dialog.setContentView(R.layout.popup_busqueda_articulos);
+        dialog.setCancelable(true);
+        final DeviceAppApplication app =(DeviceAppApplication) getActivity().getApplicationContext();
+        EditText ArticuloBusqueda = (EditText) dialog.findViewById(R.id.txtingresebusqueda);
+        RadioButton radioCodigo = (RadioButton) dialog.findViewById(R.id.radioCodigo);
+
+
+        if (radioCodigo.isChecked() == true)
+        {
+            Exactus.ObtenerArticulos(fragment,
+                    app.getUsuario(),
+                    app.getPassword(),
+                    "B-01",
+                    ArticuloBusqueda.getText().toString(),
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    "00008022",
+                    new ServiceCallBack<JSONObject>() {
+                        @Override
+                        public void onPostExecute(JSONObject obj) {
+                            try {
+                                Type articuloType = new TypeToken<ArrayList<Articulo>>() {
+                                }.getType();
+                                final ArrayList<Articulo> articulos = new Gson().fromJson(obj.getString("articulos"), articuloType);
+
+                                RecyclerView recycler = (RecyclerView) dialog.findViewById(R.id.rvarticulos);
+                                final ArrayList<ListViewItem> clientesData = getClientes(articulos);
+                                if (clientesData.size() > 0) {
+                                    recycler.setVisibility(View.VISIBLE);
+                                } else
+                                    recycler.setVisibility(View.GONE);
+                                recycler.setHasFixedSize(true);
+                                LinearLayoutManager layoutManager = new LinearLayoutManager(fragment);
+                                recycler.setLayoutManager(layoutManager);
+                                RVImageListAdapter adapter = new RVImageListAdapter(clientesData, fragment, false);
+                                recycler.setAdapter(adapter);
+                                ItemClickSupport.addTo(recycler).setOnItemClickListener(new ItemClickSupport.OnItemClickListener() {
+                                    @Override
+                                    public void onItemClicked(RecyclerView recyclerView, int position, View v) {
+                                        Articulo c = articulos.get(position);
+                                        txtArticulo.setText(c.Codigo);
+                                        txtArticuloDescripcion.setText(c.Descripcion);
+                                        dialog.dismiss();
+                                    }
+                                });
+
+                            } catch (Exception ex) {
+                                Snackbar.make(coordinator, ex.getLocalizedMessage(), Snackbar.LENGTH_LONG).show();
+                            }
+                        }
+
+                        @Override
+                        public void onException(Exception ex) {
+                            Log.d("Error", ex.getLocalizedMessage());
+                            Toast.makeText(getActivity(), ex.getLocalizedMessage(), Toast.LENGTH_LONG).show();
+                        }
+                    });
+
+        }
+        else
+        {
+            Exactus.ObtenerArticulos(fragment,
+                    app.getUsuario(),
+                    app.getPassword(),
+                    "B-01",
+                    null,
+                    ArticuloBusqueda.getText().toString(),
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    "00008022",
+                    new ServiceCallBack<JSONObject>() {
+                        @Override
+                        public void onPostExecute(JSONObject obj) {
+                            try {
+                                Type clientesType = new TypeToken<ArrayList<Articulo>>() {
+                                }.getType();
+                                final ArrayList<Articulo> articulos = new Gson().fromJson(obj.getString("articulos"), clientesType);
+
+                                RecyclerView recycler = (RecyclerView) dialog.findViewById(R.id.rvarticulos);
+                                final ArrayList<ListViewItem> clientesData = getClientes(articulos);
+                                if (clientesData.size() > 0) {
+                                    recycler.setVisibility(View.VISIBLE);
+                                } else
+                                    recycler.setVisibility(View.GONE);
+                                recycler.setHasFixedSize(true);
+                                LinearLayoutManager layoutManager = new LinearLayoutManager(fragment);
+                                recycler.setLayoutManager(layoutManager);
+                                RVImageListAdapter adapter = new RVImageListAdapter(clientesData, fragment, false);
+                                recycler.setAdapter(adapter);
+                                ItemClickSupport.addTo(recycler).setOnItemClickListener(new ItemClickSupport.OnItemClickListener() {
+                                    @Override
+                                    public void onItemClicked(RecyclerView recyclerView, int position, View v) {
+                                        Articulo c = articulos.get(position);
+                                        txtArticulo.setText(c.Codigo);
+                                        txtArticuloDescripcion.setText(c.Descripcion);
+                                        dialog.dismiss();
+                                    }
+                                });
+
+                            } catch (Exception ex) {
+                                Snackbar.make(coordinator, ex.getLocalizedMessage(), Snackbar.LENGTH_LONG).show();
+                            }
+                        }
+
+                        @Override
+                        public void onException(Exception ex) {
+                            Log.d("Error", ex.getLocalizedMessage());
+                            Toast.makeText(getActivity(), ex.getLocalizedMessage(), Toast.LENGTH_LONG).show();
+                        }
+                    });
+        }
 
     }
 
+
+
+    private ArrayList<ListViewItem> getClientes(ArrayList<Articulo> articulos) {
+        ArrayList<ListViewItem> lst = new ArrayList<ListViewItem>();
+        for (Articulo articulo : articulos) {
+            ListViewItem item = new ListViewItem();
+            item.text = articulo.Codigo;
+            item.subText = articulo.Descripcion;
+            lst.add(item);
+        }
+        return lst;
+    }
+
+
+    private void ShowToastError(Exception ex) {
+        String message = ex.getLocalizedMessage();
+        SpannableStringBuilder biggerText = new SpannableStringBuilder(message);
+        biggerText.setSpan(new RelativeSizeSpan(1.35f), 0, message.length(), 0);
+        final Toast toast = Toast.makeText(fragment, biggerText, Toast.LENGTH_LONG);
+        toast.setGravity(Gravity.CENTER, 0, 0);
+        toast.show();
+        CountDownTimer timer = new CountDownTimer(3000, 100) {
+            public void onTick(long millisUntilFinished) {
+                toast.show();
+            }
+
+            public void onFinish() {
+                toast.cancel();
+            }
+        }.start();
+    }
+
+
+
+
+
     @OnClick(R.id.fabPrecio)
-    void buscarPrecio(){
+    void buscarPrecio()
+    {
 
     }
 

@@ -246,18 +246,6 @@ public class PedidoActivity extends AppCompatActivity {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
             Button btnAgregarLinea = (Button) findViewById(R.id.btnAgregarLinea);
             btnAgregarLinea.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -283,34 +271,7 @@ public class PedidoActivity extends AppCompatActivity {
                             dialog1.show();
 
 //--------------------------------------
-                            Exactus.ObtenerClasificacion(
-                                    PedidoActivity.this,
-                                    app.getUsuario(), app.getPassword(), "1",
-                                    new ServiceCallBack<JSONObject>() {
-                                        @Override
-                                        public void onPostExecute(JSONObject obj) {
-                                            try {
 
-                                                Type clasificacionType = new TypeToken<ArrayList<Clasificacion>>(){}.getType();
-                                                ArrayList<Clasificacion> Clasificacion1 = new Gson().fromJson(obj.getString("agrupacion"), clasificacionType);
-                                                Spinner spinclasificacion1 = (Spinner) dialog1.findViewById(R.id.spinclasificacion1);
-                                                ArrayList<SpinnerItem> clasificacionData = getClasificacion(Clasificacion1);
-                                                SpinnerListAdapter adapter = new SpinnerListAdapter(PedidoActivity.this, clasificacionData);
-                                                spinclasificacion1.setAdapter(adapter);
-
-                                            }
-
-                                            catch (Exception ex) {
-
-                                            }
-                                        }
-
-                                        @Override
-                                        public void onException(Exception ex) {
-                                            Log.d("Error", ex.getLocalizedMessage());
-                                            Toast.makeText(getBaseContext(), ex.getLocalizedMessage(), Toast.LENGTH_LONG).show();
-                                        }
-                                    });
 
 
 //--------------------------------------

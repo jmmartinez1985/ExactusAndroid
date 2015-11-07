@@ -126,14 +126,57 @@ public class Exactus {
     }
 
 
+    public static void ObtenerArticulos(
+            Context context,
+            String usuario,
+            String password,
+            String bodega,
+            String articulo,
+            String descripcion,
+            String clasificacion1,
+            String clasificacion2,
+            String clasificacion3,
+            String clasificacion4,
+            String clasificacion5,
+            String clasificacion6,
+            String cliente,
+            final ServiceCallBack<JSONObject> callback) {
 
+        HttpAsyncTask task = new HttpAsyncTask(context, new CallBack() {
 
+            @Override
+            public void onPostExecute(String json) {
+                try {
 
+                    callback.onPostExecute(new JSONObject(json));
+                }
+                catch (Exception ex) {
+                    callback.onException(ex);
+                }
+            }
 
+            @Override
+            public void onException(Exception ex) {
+                callback.onException(ex);
+            }
+        });
 
-
-
-
+        HashMap<String, String> parameters = new HashMap<String, String>();
+        parameters.put("usuario", usuario);
+        parameters.put("password", password);
+        parameters.put("bodega",bodega);
+        parameters.put("articulo",articulo);
+        parameters.put("descripcion",descripcion);
+        parameters.put("clasificacion1",clasificacion1);
+        parameters.put("clasificacion2",clasificacion2);
+        parameters.put("clasificacion3",clasificacion3);
+        parameters.put("clasificacion4",clasificacion4);
+        parameters.put("clasificacion5",clasificacion5);
+        parameters.put("clasificacion6",clasificacion6);
+        parameters.put("cliente",cliente);
+        String url = Common.RootServiceUrl + "/api/Exactus/ObtenerArticulo";
+        task.execute(new HttpAsyncTaskParameters(url, "GET", parameters));
+    }
 
     public static void ObtenerCliente(
             Context context,
