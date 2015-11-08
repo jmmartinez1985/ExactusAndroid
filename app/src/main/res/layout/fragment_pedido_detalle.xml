@@ -24,17 +24,19 @@
                     android:layout_height="wrap_content"
                     android:singleLine="true"
                     android:hint="Artículo" />
-                <com.melnykov.fab.FloatingActionButton
+
+                <com.rey.material.widget.Button
                     android:id="@+id/fabArticulo"
+                    style="@style/Material.Drawable.Ripple.Touch.MatchView.Light"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_margin="4dp"
+                    android:padding="8dp"
+                    android:text="BUSCAR"
                     android:layout_gravity="right"
-                    android:layout_margin="16dp"
-                    app:fabSize="mini"
-                    android:src="@drawable/ic_search_white_24dp"
-                    app:fab_colorNormal="@color/color_accent"
-                    app:fab_colorPressed="@color/primary_pressed"
-                    app:fab_colorRipple="@color/ripple" />
+                    android:textStyle="bold"
+                    app:rd_enable="true"/>
+
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
@@ -61,17 +63,19 @@
                     android:layout_height="wrap_content"
                     android:inputType="text"
                     android:hint="Precio" />
-                <com.melnykov.fab.FloatingActionButton
+
+                <com.rey.material.widget.Button
                     android:id="@+id/fabPrecio"
+                    style="@style/Material.Drawable.Ripple.Touch.MatchView.Light"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_margin="4dp"
+                    android:padding="8dp"
+                    android:text="BUSCAR"
                     android:layout_gravity="right"
-                    android:layout_margin="16dp"
-                    app:fabSize="mini"
-                    android:src="@drawable/ic_search_white_24dp"
-                    app:fab_colorNormal="@color/color_accent"
-                    app:fab_colorPressed="@color/primary_pressed"
-                    app:fab_colorRipple="@color/ripple" />
+                    android:textStyle="bold"
+                    app:rd_enable="true"/>
+
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
@@ -100,18 +104,20 @@
                     android:hint="Descuento" />
             </android.support.design.widget.TextInputLayout>
 
-            <com.melnykov.fab.FloatingActionButton
-                android:id="@+id/fabAddLinea"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom|right|end"
-                android:layout_margin="16dp"
-                android:src="@drawable/ic_add_white_48dp"
-                app:fab_colorNormal="@color/color_primary"
-                app:fab_colorPressed="@color/primary_pressed"
-                app:fab_colorRipple="@color/ripple" />
+    <com.rey.material.widget.Button
+        android:id="@+id/fabAddLinea"
+        style="@style/Material.Drawable.Ripple.Touch.MatchView.Light"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        android:padding="8dp"
+        android:text="AGREGAR LÍNEA"
+        android:layout_gravity="center_horizontal"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        app:rd_enable="true"/>
 
-            <android.support.v7.widget.RecyclerView
+    <android.support.v7.widget.RecyclerView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:id="@+id/rvLineas"

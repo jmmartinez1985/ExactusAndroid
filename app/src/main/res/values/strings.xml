@@ -1,8 +1,13 @@
 <resources>
     <string name="app_name">TRANSCT Mobile</string>
     <string name="title_activity_maps">Map</string>
-    <string name="base_service_url_licence">http://192.168.3.55/JP.Exactus.Licence.Service</string>
-    <string name="base_service_url_core">http://192.168.3.55/JP.Exactus.Core.Service</string>
+
+    <string name="base_service_url_licence">http://192.168.0.104/JP.Exactus.Licence.Service</string>
+    <string name="base_service_url_core">http://192.168.0.104/JP.Exactus.Core.Service</string>
+<!--    <string name="base_service_url_licence">http://servicemarket-001-site1.btempurl.com</string>
+    <string name="base_service_url_core">http://servicemarket-001-site3.btempurl.com</string>
+    -->
+
     <string name="base_website_url">webURL</string>
     <string name="progress_bar_title">Por favor espere</string>
     <string name="progress_bar_message">Procesando petición...</string>
@@ -46,6 +51,8 @@
     <string name="articulo_precio">Debe ingresar el precio a proporcionar por el artículo</string>
     <string name="articulo_cantidad">Debe ingresar la cantidad de artículos</string>
     <string name="articulo_descuento">Debe ingresar la cantidad de descuento</string>
+    <string name="title_activity_about">AboutActivity</string>
+    <string name="title_activity_landing">LandingActivity</string>
 
 
 </resources>

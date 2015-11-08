@@ -86,7 +86,11 @@
             android:layout_marginBottom="24dp"
             android:padding="12dp"
 
+
             android:text="ENTRAR"/>-->
+
+
+
         <com.melnykov.fab.FloatingActionButton
             android:id="@+id/btnLogin"
             android:layout_width="wrap_content"

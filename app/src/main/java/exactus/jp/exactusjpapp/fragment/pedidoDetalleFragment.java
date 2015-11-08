@@ -93,13 +93,13 @@ public class pedidoDetalleFragment extends Fragment {
     RecyclerView rvLineas;
 
     @Bind(R.id.fabAddLinea)
-    com.melnykov.fab.FloatingActionButton fabAgregarLinea;
+    Button fabAgregarLinea;
 
     @Bind(R.id.fabArticulo)
-    com.melnykov.fab.FloatingActionButton fabArticulo;
+    Button fabArticulo;
 
     @Bind(R.id.fabPrecio)
-    com.melnykov.fab.FloatingActionButton fabPrecioArticulo;
+    Button fabPrecioArticulo;
 
 
     public static pedidoDetalleFragment newInstance() {
@@ -123,13 +123,12 @@ public class pedidoDetalleFragment extends Fragment {
         final View view = inflater.inflate(R.layout.fragment_pedido_detalle, container, false);
         ButterKnife.bind(this, view);
         c = getActivity();
+        fragment = getActivity();
         txtArticulo.addTextChangedListener(new MyTextWatcher(txtArticulo));
         txtArticuloDescripcion.addTextChangedListener(new MyTextWatcher(txtArticuloDescripcion));
         txtCantidad.addTextChangedListener(new MyTextWatcher(txtCantidad));
         txtPrecioLinea.addTextChangedListener(new MyTextWatcher(txtPrecioLinea));
         txtDescuentoLinea.addTextChangedListener(new MyTextWatcher(txtDescuentoLinea));
-        fabArticulo.setType(com.melnykov.fab.FloatingActionButton.TYPE_MINI);
-        fabPrecioArticulo.setType(com.melnykov.fab.FloatingActionButton.TYPE_MINI);
         return  view;
    }
 
@@ -171,18 +170,35 @@ public class pedidoDetalleFragment extends Fragment {
         txtArticulo.requestFocus();
     }
 
+
+
+
     @OnClick(R.id.fabArticulo)
-     void buscarArticulo()
+     void desplegarBusquedaArticulo()
     {
 
         final Dialog dialog = new Dialog(fragment);
         dialog.setContentView(R.layout.popup_busqueda_articulos);
         dialog.setCancelable(true);
+
+        Button btnBuscarArticulospopup = (Button) dialog.findViewById(R.id.btnBuscarArticulospopup);
+        btnBuscarArticulospopup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                buscarArticulo(dialog);
+            }
+        });
+
+        dialog.show();
+
+
+    }
+
+    void buscarArticulo(final Dialog dialog){
+
         final DeviceAppApplication app =(DeviceAppApplication) getActivity().getApplicationContext();
         EditText ArticuloBusqueda = (EditText) dialog.findViewById(R.id.txtingresebusqueda);
         RadioButton radioCodigo = (RadioButton) dialog.findViewById(R.id.radioCodigo);
-
-
         if (radioCodigo.isChecked() == true)
         {
             Exactus.ObtenerArticulos(fragment,
@@ -298,7 +314,6 @@ public class pedidoDetalleFragment extends Fragment {
         }
 
     }
-
 
 
     private ArrayList<ListViewItem> getClientes(ArrayList<Articulo> articulos) {

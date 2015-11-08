@@ -115,8 +115,8 @@ public class LoginActivity extends AppCompatActivity {
                                         app.setPassword(password);
 
                                         //Inicializa la cadena de conexión de los servicios.
-                                        Common.RootServiceUrl = device.empresaObject.UrlApi;
-                                        //Common.RootServiceUrl = getString(R.string.base_service_url_core);
+                                        //Common.RootServiceUrl = device.empresaObject.UrlApi;
+                                        Common.RootServiceUrl = getString(R.string.base_service_url_core);
 
                                         // Guarda el nombre del usuario para usarlo como usuario por defecto cuando el usuario vuelva a abrir el app.
                                         SharedPreferences.Editor editor = prefs.edit();

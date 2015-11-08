@@ -21,7 +21,7 @@
 
     //Material
     <color name="color_primary">#BF360C</color>
-    <color name="color_primary_dark">#303F9F</color>
+    <color name="color_primary_dark">#E64A19</color>
     <color name="color_accent">#FF9100</color>
     <color name="primary_darker">#E64A19</color>
     <color name="ripple">#FF6E40</color>

@@ -65,7 +65,8 @@ public class pedidoFragment extends Fragment {
     private CoordinatorLayout coordinator;
 
     private TextInputLayout inputLayoutCliente,inputLayoutNombreCuenta, inputLayoutBodega;
-    private com.melnykov.fab.FloatingActionButton fabGuardarPedido, fabBuscarCliente, fabBuscarBodega;
+    private Button fabBuscarCliente, fabBuscarBodega;
+    private com.melnykov.fab.FloatingActionButton fabGuardarPedido;
     FragmentActivity fragment= null;
 
     private static int counter = 1;
@@ -121,8 +122,7 @@ public class pedidoFragment extends Fragment {
             }
         });
 
-        fabBuscarCliente = (com.melnykov.fab.FloatingActionButton) view.findViewById(R.id.fabCliente);
-        fabBuscarCliente.setType(com.melnykov.fab.FloatingActionButton.TYPE_MINI);
+        fabBuscarCliente = (Button) view.findViewById(R.id.fabCliente);
         fabBuscarCliente.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -130,8 +130,7 @@ public class pedidoFragment extends Fragment {
             }
         });
 
-        fabBuscarBodega = (com.melnykov.fab.FloatingActionButton) view.findViewById(R.id.fabBodega);
-        fabBuscarBodega.setType(com.melnykov.fab.FloatingActionButton.TYPE_MINI);
+        fabBuscarBodega = (Button) view.findViewById(R.id.fabBodega);
         fabBuscarBodega.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
