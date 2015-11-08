@@ -206,13 +206,13 @@ public class pedidoDetalleFragment extends Fragment {
                     app.getPassword(),
                     "B-01",
                     ArticuloBusqueda.getText().toString(),
-                    null,
-                    null,
-                    null,
-                    null,
-                    null,
-                    null,
-                    null,
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
                     "00008022",
                     new ServiceCallBack<JSONObject>() {
                         @Override
@@ -237,8 +237,8 @@ public class pedidoDetalleFragment extends Fragment {
                                     @Override
                                     public void onItemClicked(RecyclerView recyclerView, int position, View v) {
                                         Articulo c = articulos.get(position);
-                                        txtArticulo.setText(c.Codigo);
-                                        txtArticuloDescripcion.setText(c.Descripcion);
+                                        txtArticulo.setText(c.ARTICULO);
+                                        txtArticuloDescripcion.setText(c.DESCRIPCION);
                                         dialog.dismiss();
                                     }
                                 });
@@ -262,14 +262,14 @@ public class pedidoDetalleFragment extends Fragment {
                     app.getUsuario(),
                     app.getPassword(),
                     "B-01",
-                    null,
+                    "",
                     ArticuloBusqueda.getText().toString(),
-                    null,
-                    null,
-                    null,
-                    null,
-                    null,
-                    null,
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
                     "00008022",
                     new ServiceCallBack<JSONObject>() {
                         @Override
@@ -294,8 +294,8 @@ public class pedidoDetalleFragment extends Fragment {
                                     @Override
                                     public void onItemClicked(RecyclerView recyclerView, int position, View v) {
                                         Articulo c = articulos.get(position);
-                                        txtArticulo.setText(c.Codigo);
-                                        txtArticuloDescripcion.setText(c.Descripcion);
+                                        txtArticulo.setText(c.ARTICULO);
+                                        txtArticuloDescripcion.setText(c.DESCRIPCION);
                                         dialog.dismiss();
                                     }
                                 });
@@ -320,8 +320,9 @@ public class pedidoDetalleFragment extends Fragment {
         ArrayList<ListViewItem> lst = new ArrayList<ListViewItem>();
         for (Articulo articulo : articulos) {
             ListViewItem item = new ListViewItem();
-            item.text = articulo.Codigo;
-            item.subText = articulo.Descripcion;
+            item.text = articulo.ARTICULO;
+            item.subText = articulo.DESCRIPCION;
+            item.subTextInner = "PRECIO: " + articulo.PRECIO + " DISPONIBLE: " + articulo.DISPONIBLE;
             lst.add(item);
         }
         return lst;

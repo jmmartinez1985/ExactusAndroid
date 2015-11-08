@@ -207,6 +207,7 @@ public class pedidoFragment extends Fragment {
                         pedido.ORDEN_COMPRA = "10-10-10";
                         pedido.USUARIO_LOGIN = app.getUsuario();
                         pedido.PEDIDODETALLE = lineas;
+                        pedido.OBSERVACIONES=txtObservacion.getText().toString();
                         String data = "";
                         Gson gson = new Gson();
                         data = gson.toJson(pedido);
