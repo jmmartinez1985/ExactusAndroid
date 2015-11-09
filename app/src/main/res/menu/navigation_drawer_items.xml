@@ -4,24 +4,14 @@
     tools:context="com.hmkcode.mongoz.MainActivity" >
 
     <group android:checkableBehavior="all">
-	    <item
-	        android:id="@+id/navigation_item_1"
-	        android:icon="@drawable/ic_chrome_reader_mode_black_24dp"
-	        android:title="Pedidos"/>
-	    <item
-	        android:id="@+id/navigation_item_2"
-	        android:icon="@drawable/ic_open_in_browser_black_24dp"
-	        android:title="Cotizaciones"/>
-	    
-	    <item
-	        android:id="@+id/navigation_item_3"
-	        android:icon="@drawable/ic_receipt_black_24dp"
-	        android:title="Facturación"/>
+		<item android:id="@+id/inicio" android:checked="false" android:icon="@drawable/ic_home_black_24dp"
+			android:title="@string/iniciodraw" />
 
-		<item
-			android:id="@+id/navigation_item_4"
-			android:icon="@drawable/ic_help_outline_black_24dp"
-			android:title="Acerca de"/>
+		<item android:id="@+id/pedido" android:checked="false" android:icon="@drawable/ic_chrome_reader_mode_black_24dp"
+			android:title="@string/pedidodraw" />
+
+		<item android:id="@+id/info" android:checked="false" android:icon="@drawable/ic_help_outline_black_24dp"
+			android:title="@string/aboutdraw" />
 	</group>
 
 </menu>
