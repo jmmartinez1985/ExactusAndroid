@@ -58,5 +58,7 @@
     <string name="pedidodraw">Pedidos</string>
     <string name="aboutdraw">Acerca de</string>
 
+   <string name="pronto_disponible">Pronto disponible... Estamos trabajando.</string>
+
 
 </resources>

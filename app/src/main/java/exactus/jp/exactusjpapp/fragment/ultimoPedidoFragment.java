@@ -46,52 +46,6 @@ public class ultimoPedidoFragment extends Fragment {
     FragmentActivity fragment= null;
 
 
-    void buscarArticulo()
-    {
-
-        final Dialog dialog = new Dialog(fragment);
-        dialog.setContentView(R.layout.fragment_ultimo_pedido);
-        dialog.setCancelable(true);
-        fragment = getActivity();
-
-        final DeviceAppApplication app =(DeviceAppApplication) getActivity().getApplicationContext();
-        {
-            Exactus.ObtenerUltimosPedidos(
-                    fragment,
-                    app.getUsuario(),
-                    app.getPassword(),
-                    new ServiceCallBack<JSONObject>() {
-                        @Override
-                        public void onPostExecute(JSONObject obj) {
-                            try
-                            {Type articuloType = new TypeToken<ArrayList<TopPedido>>() {}.getType();
-                                final ArrayList<TopPedido> articulos = new Gson().fromJson(obj.getString("TopPedido"), articuloType);
-                                RecyclerView recycler = (RecyclerView) dialog.findViewById(R.id.rvarticulos);
-                                final ArrayList<ListViewItem> clientesData = getClientes(articulos);
-                                if (clientesData.size() > 0) {
-                                    recycler.setVisibility(View.VISIBLE);
-                                } else
-                                    recycler.setVisibility(View.GONE);
-                                recycler.setHasFixedSize(true);
-                                LinearLayoutManager layoutManager = new LinearLayoutManager(fragment);
-                                recycler.setLayoutManager(layoutManager);
-                                RVImageListAdapter adapter = new RVImageListAdapter(clientesData, fragment, false);
-                                recycler.setAdapter(adapter);
-                            } catch (Exception ex) {
-                                Snackbar.make(coordinator, ex.getLocalizedMessage(), Snackbar.LENGTH_LONG).show();
-                            }
-                        }
-
-                        @Override
-                        public void onException(Exception ex) {
-                            Log.d("Error", ex.getLocalizedMessage());
-                            Toast.makeText(getActivity(), ex.getLocalizedMessage(), Toast.LENGTH_LONG).show();
-                        }
-                    });
-        }
-
-    }
-
     private ArrayList<ListViewItem> getClientes(ArrayList<TopPedido> articulos) {
         ArrayList<ListViewItem> lst = new ArrayList<ListViewItem>();
         for (TopPedido articulo : articulos) {
@@ -103,10 +57,6 @@ public class ultimoPedidoFragment extends Fragment {
         }
         return lst;
     }
-
-
-
-
 
     public static ultimoPedidoFragment newInstance() {
         ultimoPedidoFragment fragment = new ultimoPedidoFragment();
@@ -128,6 +78,43 @@ public class ultimoPedidoFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         final View view = inflater.inflate(R.layout.fragment_ultimo_pedido, container, false);
+        final DeviceAppApplication app =(DeviceAppApplication) getActivity().getApplicationContext();
+        fragment = getActivity();
+        Exactus.ObtenerUltimosPedidos(
+                fragment,
+                app.getUsuario(),
+                app.getPassword(),
+                new ServiceCallBack<JSONObject>() {
+                    @Override
+                    public void onPostExecute(JSONObject obj) {
+                        try
+                        {
+                            Type articuloType = new TypeToken<ArrayList<TopPedido>>() {}.getType();
+                            final ArrayList<TopPedido> articulos = new Gson().fromJson(obj.getString("pedidosLineas"), articuloType);
+                            RecyclerView recycler = (RecyclerView) view.findViewById(R.id.rvArticulos);
+                            final ArrayList<ListViewItem> clientesData = getClientes(articulos);
+                            if (clientesData.size() > 0) {
+                                recycler.setVisibility(View.VISIBLE);
+                            } else
+                                recycler.setVisibility(View.GONE);
+                            recycler.setHasFixedSize(true);
+                            LinearLayoutManager layoutManager = new LinearLayoutManager(fragment);
+                            recycler.setLayoutManager(layoutManager);
+                            RVImageListAdapter adapter = new RVImageListAdapter(clientesData, fragment, false);
+                            recycler.setAdapter(adapter);
+                        } catch (Exception ex) {
+                            Snackbar.make(coordinator, ex.getLocalizedMessage(), Snackbar.LENGTH_LONG).show();
+                        }
+                    }
+
+                    @Override
+                    public void onException(Exception ex) {
+                        Log.d("Error", ex.getLocalizedMessage());
+                        Toast.makeText(getActivity(), ex.getLocalizedMessage(), Toast.LENGTH_LONG).show();
+                    }
+                });
+
+
         return  view;
 
     }
