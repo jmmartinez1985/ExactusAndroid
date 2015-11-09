@@ -4,7 +4,9 @@ import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v4.widget.NestedScrollView;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.SpannableStringBuilder;
@@ -25,8 +27,7 @@ import exactus.jp.exactusjpapp.model.*;
 public class MainActivity extends AppCompatActivity {
 
 
-    /// The pager adapter, which provides the pages to the view pager widget.
-    private PagerAdapter mPagerAdapter;
+    DrawerLayout drawerLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,15 +35,9 @@ public class MainActivity extends AppCompatActivity {
             super.onCreate(savedInstanceState);
             overridePendingTransition(R.anim.pull_in_from_left, R.anim.hold);
             setContentView(R.layout.activity_main);
+            setupNavigationView();
+            setupToolbar();
 
-            // Inicializa el image loader (debe hacerse antes de usarlo).
-            // Esta clase sirve para descargar imagenes por http y cachearlas en disco.
-            // https://github.com/nostra13/Android-Universal-Image-Loader
-            initImageLoader();
-            ImageLoader imageLoader = ImageLoader.getInstance();
-            imageLoader.init(ImageLoaderConfiguration.createDefault(this));
-
-            setToolbar();
 
             final DeviceAppApplication app = (DeviceAppApplication) getApplication();
             Devices device = app.getDevice();
@@ -64,25 +59,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
-    /// Muestra la pantalla usada para activar una tarjeta.
-
-    /// Inicializa el componente ImageLoader.
-    /// https://github.com/nostra13/Android-Universal-Image-Loader/wiki/Useful-Info
-    private void initImageLoader() {
-
-        // Indica que se quiere cachear las imagenes en memoria y en disco.
-        DisplayImageOptions defaultOptions = new DisplayImageOptions.Builder()
-                .cacheInMemory(true)
-                .cacheOnDisk(true)
-                .build();
-
-        ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(getApplicationContext())
-                .defaultDisplayImageOptions(defaultOptions)
-                .build();
-
-        ImageLoader.getInstance().init(config);
-    }
 
     //Muestra errores centrados en el toast
     private void ShowToastError(Exception ex) {
@@ -112,12 +88,24 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
-    private void setToolbar() {
-        // Añadir la Toolbar
+    private void setupNavigationView(){
+
+        drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+    }
+
+    private void setupToolbar(){
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle("TRANSCT Mobile");
         setSupportActionBar(toolbar);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        if(toolbar != null)
+            setSupportActionBar(toolbar);
 
+        // Show menu icon
+        final ActionBar ab = getSupportActionBar();
+        ab.setHomeAsUpIndicator(R.drawable.ic_view_list_white_24dp);
+        ab.setDisplayHomeAsUpEnabled(true);
     }
+
 
 }

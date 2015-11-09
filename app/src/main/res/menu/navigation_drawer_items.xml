@@ -1,0 +1,27 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.hmkcode.mongoz.MainActivity" >
+
+    <group android:checkableBehavior="all">
+	    <item
+	        android:id="@+id/navigation_item_1"
+	        android:icon="@drawable/ic_chrome_reader_mode_black_24dp"
+	        android:title="Pedidos"/>
+	    <item
+	        android:id="@+id/navigation_item_2"
+	        android:icon="@drawable/ic_open_in_browser_black_24dp"
+	        android:title="Cotizaciones"/>
+	    
+	    <item
+	        android:id="@+id/navigation_item_3"
+	        android:icon="@drawable/ic_receipt_black_24dp"
+	        android:title="Facturación"/>
+
+		<item
+			android:id="@+id/navigation_item_4"
+			android:icon="@drawable/ic_help_outline_black_24dp"
+			android:title="Acerca de"/>
+	</group>
+
+</menu>

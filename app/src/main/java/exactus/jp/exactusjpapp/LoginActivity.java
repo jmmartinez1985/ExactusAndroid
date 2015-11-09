@@ -156,7 +156,7 @@ public class LoginActivity extends AppCompatActivity {
                     public void onPostExecute(JSONObject obj) {
                         try {
                             if (obj.getString("existe").equals("true")) {
-                                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                                Intent intent = new Intent(LoginActivity.this, LandingActivity.class);
                                 startActivity(intent);
                                 finish();
                             } else {
