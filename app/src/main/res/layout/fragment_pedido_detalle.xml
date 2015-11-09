@@ -33,7 +33,7 @@ xmlns:android="http://schemas.android.com/apk/res/android">
                 android:singleLine="true"
                 android:hint="Artículo" />
 
-            <com.rey.material.widget.Button
+            <!--<com.rey.material.widget.Button
                 android:id="@+id/fabArticulo"
                 style="@style/Material.Drawable.Ripple.Touch.MatchView.Light"
                 android:layout_width="wrap_content"
@@ -43,7 +43,15 @@ xmlns:android="http://schemas.android.com/apk/res/android">
                 android:text="BUSCAR"
                 android:layout_gravity="right"
                 android:textStyle="bold"
-                app:rd_enable="true"/>
+                app:rd_enable="true"/>-->
+            <com.rey.material.widget.Button
+                android:id="@+id/fabArticulo"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="right"
+                android:layout_marginLeft="7dp"
+                android:background="@drawable/circleshapebutton_search"
+                app:rd_style="@style/FlatWaveColorButtonRippleStyle" />
 
         </android.support.design.widget.TextInputLayout>
 
@@ -72,7 +80,7 @@ xmlns:android="http://schemas.android.com/apk/res/android">
                 android:inputType="text"
                 android:hint="Precio" />
 
-            <com.rey.material.widget.Button
+            <!--<com.rey.material.widget.Button
                 android:id="@+id/fabPrecio"
                 style="@style/Material.Drawable.Ripple.Touch.MatchView.Light"
                 android:layout_width="wrap_content"
@@ -82,7 +90,15 @@ xmlns:android="http://schemas.android.com/apk/res/android">
                 android:text="BUSCAR"
                 android:layout_gravity="right"
                 android:textStyle="bold"
-                app:rd_enable="true"/>
+                app:rd_enable="true"/>-->
+            <com.rey.material.widget.Button
+                android:id="@+id/fabPrecio"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="right"
+                android:layout_marginLeft="7dp"
+                android:background="@drawable/circleshapebutton_search"
+                app:rd_style="@style/FlatWaveColorButtonRippleStyle" />
 
         </android.support.design.widget.TextInputLayout>
 

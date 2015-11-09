@@ -57,7 +57,7 @@
         android:textStyle="bold"
         />
 
-        <Button
+        <!--<Button
             android:id="@+id/btnBuscarArticulospopup"
             android:layout_height="40dp"
             android:layout_width="wrap_content"
@@ -68,7 +68,15 @@
             android:layout_gravity="center_horizontal"
             android:textColor="#fff"
             android:textStyle="bold"
-            android:textSize="15sp"/>
+            android:textSize="15sp"/>-->
+        <com.rey.material.widget.Button
+            android:id="@+id/btnBuscarArticulospopup"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="right"
+            android:layout_marginLeft="7dp"
+            android:background="@drawable/circleshapebutton_search"
+            app:rd_style="@style/FlatWaveColorButtonRippleStyle" />
     </LinearLayout>
 
     <android.support.v7.widget.RecyclerView
