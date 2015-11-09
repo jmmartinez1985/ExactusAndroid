@@ -31,6 +31,7 @@ import exactus.jp.exactusjpapp.DeviceAppApplication;
 import exactus.jp.exactusjpapp.R;
 import exactus.jp.exactusjpapp.adapter.ItemClickSupport;
 import exactus.jp.exactusjpapp.adapter.RVImageListAdapter;
+import exactus.jp.exactusjpapp.adapter.WrappingLinearLayoutManager;
 import exactus.jp.exactusjpapp.model.Articulo;
 import exactus.jp.exactusjpapp.model.TopPedido;
 import exactus.jp.exactusjpapp.services.Exactus;
@@ -98,6 +99,7 @@ public class ultimoPedidoFragment extends Fragment {
                             } else
                                 recycler.setVisibility(View.GONE);
                             recycler.setHasFixedSize(true);
+                            //recycler.setLayoutManager(new WrappingLinearLayoutManager(getContext()));
                             LinearLayoutManager layoutManager = new LinearLayoutManager(fragment);
                             recycler.setLayoutManager(layoutManager);
                             RVImageListAdapter adapter = new RVImageListAdapter(clientesData, fragment, false);
