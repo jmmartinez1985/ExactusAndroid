@@ -3,12 +3,14 @@ package exactus.jp.exactusjpapp.adapter;
 import android.app.Activity;
 import android.content.Context;
 import android.content.res.AssetManager;
+import android.support.v4.widget.NestedScrollView;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
@@ -27,10 +29,12 @@ public class RVLineListAdapter  extends RecyclerView.Adapter<RVLineListAdapter.V
 
     static Context _context;
     List<LineViewItem> _listItems;
+    static View _viewContainer;
 
-    public  RVLineListAdapter (List<LineViewItem> items, Context context){
+    public  RVLineListAdapter (List<LineViewItem> items, Context context, View viewContainer){
         this._listItems = items;
         _context = context;
+        _viewContainer = viewContainer;
     }
 
 
@@ -116,8 +120,12 @@ public class RVLineListAdapter  extends RecyclerView.Adapter<RVLineListAdapter.V
         public void onClick(View v) {
             final int position = getAdapterPosition();
             if(v.equals(imgEdit)){
-                Toast.makeText(_context,
-                        "Editar Presionado", Toast.LENGTH_SHORT).show();
+                LineViewItem item = _listItems.get(position);
+                SetContainer(_viewContainer, item);
+                if (position != RecyclerView.NO_POSITION) {
+                    removeAt(position);
+                }
+                updateList(_listItems);
             }
             else if(v.equals(imgDelete)){
                 Toast.makeText(_context,
@@ -133,6 +141,34 @@ public class RVLineListAdapter  extends RecyclerView.Adapter<RVLineListAdapter.V
             _listItems.remove(position);
             notifyItemRemoved(position);
             notifyItemRangeChanged(getAdapterPosition(), _listItems.size());
+        }
+
+
+        private void SetContainer(View container, LineViewItem item){
+
+            EditText txtArticuloLinea = (EditText) _viewContainer.findViewById(R.id.txtArticuloLinea);
+            txtArticuloLinea.setText(item.articulo);
+
+
+            EditText txtArticuloDescripcion = (EditText) _viewContainer.findViewById(R.id.txtArticuloDescripcion);
+            txtArticuloDescripcion.setText(item.descripcion);
+
+            EditText txtPrecioLinea = (EditText) _viewContainer.findViewById(R.id.txtPrecioLinea);
+            txtPrecioLinea.setText(item.precio_unitario);
+
+            EditText txtCantidadLinea = (EditText) _viewContainer.findViewById(R.id.txtCantidadLinea);
+            txtCantidadLinea.setText(item.cantidad);
+
+            EditText txtDescuentoLinea = (EditText) _viewContainer.findViewById(R.id.txtDescuentoLinea);
+            txtDescuentoLinea.setText(item.descuento);
+
+
+
+        }
+
+        public void updateList(List<LineViewItem> data) {
+            _listItems = data;
+            notifyDataSetChanged();
         }
     }
 

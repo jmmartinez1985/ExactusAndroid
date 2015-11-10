@@ -102,6 +102,8 @@ public class pedidoDetalleFragment extends Fragment {
     Button fabPrecioArticulo;
 
 
+    View _viewContainer;
+
     public static pedidoDetalleFragment newInstance() {
         pedidoDetalleFragment fragment = new pedidoDetalleFragment();
         return fragment;
@@ -124,6 +126,7 @@ public class pedidoDetalleFragment extends Fragment {
         ButterKnife.bind(this, view);
         c = getActivity();
         fragment = getActivity();
+        _viewContainer = view;
         txtArticulo.addTextChangedListener(new MyTextWatcher(txtArticulo));
         txtArticuloDescripcion.addTextChangedListener(new MyTextWatcher(txtArticuloDescripcion));
         txtCantidad.addTextChangedListener(new MyTextWatcher(txtCantidad));
@@ -368,7 +371,7 @@ public class pedidoDetalleFragment extends Fragment {
         rvLineas.setLayoutManager(new WrappingLinearLayoutManager(getContext()));
         //LinearLayoutManager layoutManager = new LinearLayoutManager(c);
         //rvLineas.setLayoutManager(layoutManager);
-        RVLineListAdapter adapter = new RVLineListAdapter(item, c);
+        RVLineListAdapter adapter = new RVLineListAdapter(item, c, _viewContainer);
         rvLineas.setAdapter(adapter);
         rvLineas.setItemAnimator(new DefaultItemAnimator());
         final DeviceAppApplication app =(DeviceAppApplication) getActivity().getApplicationContext();
