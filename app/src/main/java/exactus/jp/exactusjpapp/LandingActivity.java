@@ -17,6 +17,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
 import exactus.jp.exactusjpapp.adapter.MainFragmentPagerAdapter;
 import exactus.jp.exactusjpapp.adapter.PedidoFragmentPagerAdapter;
@@ -54,6 +55,13 @@ public class LandingActivity extends AppCompatActivity {
         TabLayout tabLayout = (TabLayout) findViewById(R.id.appbartabs);
         tabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
         tabLayout.setupWithViewPager(viewPager);
+
+        final DeviceAppApplication app =(DeviceAppApplication) getApplication();
+        TextView name = (TextView) findViewById(R.id.empresa);
+        name.setText(app.getDevice().empresaObject.NombreEmpresa);
+
+        TextView mail = (TextView) findViewById(R.id.email);
+        mail.setText(app.getDevice().NombreDispositivo);
 
     }
 

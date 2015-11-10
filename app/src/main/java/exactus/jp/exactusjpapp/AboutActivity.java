@@ -12,6 +12,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
 public class AboutActivity extends AppCompatActivity {
 
@@ -28,14 +29,24 @@ public class AboutActivity extends AppCompatActivity {
         //setupNavigationView();
         setupToolbar();
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        com.melnykov.fab.FloatingActionButton fab = (com.melnykov.fab.FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                Snackbar.make(view, "Pronto te podrás poner en contacto...", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
         });
+
+
+        final DeviceAppApplication app =(DeviceAppApplication) getApplication();
+        TextView name = (TextView) findViewById(R.id.empresa);
+        name.setText(app.getDevice().empresaObject.NombreEmpresa);
+
+        TextView mail = (TextView) findViewById(R.id.email);
+        mail.setText(app.getDevice().NombreDispositivo);
+
+
     }
 
 

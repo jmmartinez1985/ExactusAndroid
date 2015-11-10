@@ -20,6 +20,7 @@ import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.os.CountDownTimer;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
@@ -48,8 +49,12 @@ public class MainActivity extends AppCompatActivity {
             setupToolbar();
 
 
-            final DeviceAppApplication app = (DeviceAppApplication) getApplication();
-            Devices device = app.getDevice();
+            final DeviceAppApplication app =(DeviceAppApplication) getApplication();
+            TextView name = (TextView) findViewById(R.id.empresa);
+            name.setText(app.getDevice().empresaObject.NombreEmpresa);
+
+            TextView mail = (TextView) findViewById(R.id.email);
+            mail.setText(app.getDevice().NombreDispositivo);
 
             //Tabs + ViewPager
             //Establecer el PageAdapter del componente ViewPager

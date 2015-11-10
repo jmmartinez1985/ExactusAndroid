@@ -28,10 +28,17 @@
 
     <include layout="@layout/content_about" />
 
-    <android.support.design.widget.FloatingActionButton android:id="@+id/fab"
-        android:layout_width="wrap_content" android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end" android:layout_margin="@dimen/fab_margin"
-        android:src="@android:drawable/ic_dialog_email" />
+
+    <com.melnykov.fab.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="16dp"
+        android:src="@drawable/ic_email_white_24dp"
+        app:fab_colorNormal="@color/color_primary"
+        app:fab_colorPressed="@color/primary_pressed"
+        app:fab_colorRipple="@color/ripple" />
 
 </android.support.design.widget.CoordinatorLayout>
 <android.support.design.widget.NavigationView

@@ -218,8 +218,9 @@ public class pedidoFragment extends Fragment {
                                 data,
                                 new ServiceCallBack<JSONObject>() {
                                     @Override
-                                    public void onPostExecute(JSONObject data) {
-                                        String message = "Pedido creado satisfactoriamente";
+                                    public void onPostExecute(JSONObject data) throws JSONException {
+                                        String pedido = (String) data.getString("pedido").toString();
+                                        String message = "Pedido creado satisfactoriamente con número:" + pedido;
                                         SpannableStringBuilder biggerText = new SpannableStringBuilder(message);
                                         biggerText.setSpan(new RelativeSizeSpan(1.35f), 0, message.length(), 0);
                                         Toast toast = Toast.makeText(fragment, biggerText, Toast.LENGTH_LONG);
