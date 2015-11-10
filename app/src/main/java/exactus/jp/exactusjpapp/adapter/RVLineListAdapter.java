@@ -50,6 +50,7 @@ public class RVLineListAdapter  extends RecyclerView.Adapter<RVLineListAdapter.V
         viewHolder.txtPrecio.setText(item.precio_unitario);
         viewHolder.txtCantidad.setText(item.cantidad);
         viewHolder.txtDescuento.setText(item.descuento);
+        viewHolder.txtArticuloDesc.setText(item.descripcion);
 
         Common.setFontOnView(assets, viewHolder.txtArticulo, "fonts/Arial/arial.ttf");
         Common.setFontOnView(assets, viewHolder.txtPrecio, "fonts/Arial/arial.ttf");
@@ -66,6 +67,9 @@ public class RVLineListAdapter  extends RecyclerView.Adapter<RVLineListAdapter.V
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener  {
         public TextView lblArticulo;
         public TextView txtArticulo;
+
+        //public TextView lblArticuloDesc;
+        public TextView txtArticuloDesc;
 
         public TextView lblPrecio;
         public TextView txtPrecio;
@@ -88,11 +92,13 @@ public class RVLineListAdapter  extends RecyclerView.Adapter<RVLineListAdapter.V
             lblPrecio = (TextView) itemView.findViewById(R.id.lblPrecio);
             lblDescuento = (TextView) itemView.findViewById(R.id.lblDescuento);
             lblCantidad = (TextView) itemView.findViewById(R.id.lblCantidad);
+            //lblArticuloDesc = (TextView) itemView.findViewById(R.id.lblArticuloDesc);
 
              txtArticulo = (TextView) itemView.findViewById(R.id.txtArticulo);
              txtPrecio = (TextView) itemView.findViewById(R.id.txtPrecio);
              txtDescuento = (TextView) itemView.findViewById(R.id.txtDescuento);
              txtCantidad = (TextView) itemView.findViewById(R.id.txtCantidad);
+            txtArticuloDesc = (TextView) itemView.findViewById(R.id.txtArticuloDesc);
 
             imgEdit = (ImageView) itemView.findViewById(R.id.imgEdit);
             imgDelete = (ImageView) itemView.findViewById(R.id.imgDelete);

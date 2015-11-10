@@ -151,7 +151,7 @@ public class pedidoDetalleFragment extends Fragment {
         }
         LineViewItem itemLine;
         itemLine = new LineViewItem(txtArticulo.getText().toString(), txtPrecioLinea.getText().toString(),
-                txtCantidad.getText().toString(), txtDescuentoLinea.getText().toString(), counter);
+                txtCantidad.getText().toString(), txtDescuentoLinea.getText().toString(),txtArticuloDescripcion.getText().toString(), counter);
         lineList.add(itemLine);
         counter++;
         llenarObjetoLineas(lineList);
