@@ -171,6 +171,7 @@ public class pedidoDetalleFragment extends Fragment {
         inputLayoutDescuento.setErrorEnabled(false);
         Snackbar.make(rvLineas,"Linea de artículo agregada satisfactoriamente.",Snackbar.LENGTH_LONG).show();
         txtArticulo.requestFocus();
+
     }
 
 
@@ -191,7 +192,7 @@ public class pedidoDetalleFragment extends Fragment {
                 buscarArticulo(dialog);
             }
         });
-
+        dialog.setTitle("Artículos:: Escoga el Artículo");
         dialog.show();
 
 
@@ -360,7 +361,7 @@ public class pedidoDetalleFragment extends Fragment {
 
     }
 
-    private void llenarObjetoLineas(List<LineViewItem> item) {
+    public void llenarObjetoLineas(List<LineViewItem> item) {
 
         if (item.size() > 0) {
             rvLineas.setVisibility(View.VISIBLE);

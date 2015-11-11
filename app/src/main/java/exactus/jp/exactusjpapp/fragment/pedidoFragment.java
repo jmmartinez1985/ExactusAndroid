@@ -61,6 +61,9 @@ import exactus.jp.exactusjpapp.viewItem.ListViewItem;
 public class pedidoFragment extends Fragment {
 
 
+
+
+
     EditText txtCliente = null,txtNombreCuenta= null, txtBodega = null, txtObservacion=null, txtOdc=null;
     private CoordinatorLayout coordinator;
 
@@ -91,6 +94,7 @@ public class pedidoFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         final View view = inflater.inflate(R.layout.fragment_pedido, container, false);
+
         fragment = getActivity();
         coordinator = (CoordinatorLayout)view.findViewById(R.id.coordinator);
 
@@ -110,6 +114,7 @@ public class pedidoFragment extends Fragment {
 
         //Observacion
         txtObservacion =(EditText) view.findViewById(R.id.txtObservacion);
+
 
         //ODC
         txtOdc =(EditText) view.findViewById(R.id.txtOrdenDeCompras);
@@ -145,6 +150,8 @@ public class pedidoFragment extends Fragment {
     private void EnviaPedido(){
 
         final DeviceAppApplication app =(DeviceAppApplication) getActivity().getApplicationContext();
+
+
         if (!validateTextField(txtCliente, inputLayoutCliente, getString(R.string.cliente_error))) {
             return;
         }
@@ -172,7 +179,7 @@ public class pedidoFragment extends Fragment {
 
                     case DialogInterface.BUTTON_POSITIVE:
 
-                        List<PedidoLineaParametros> lineas = new ArrayList<PedidoLineaParametros>();
+                        final List<PedidoLineaParametros> lineas = new ArrayList<PedidoLineaParametros>();
 
                         int lineaVal = 1;
 
@@ -203,8 +210,8 @@ public class pedidoFragment extends Fragment {
                         pedido.CONDICION_PAGO = 1;
                         pedido.CODIGO_CONSECUTIVO = "P03";
                         pedido.NOMBRE_CUENTA = txtNombreCuenta.getText().toString();
-                        pedido.TARJETA_CREDITO = "10-10-10";
-                        pedido.ORDEN_COMPRA = "10-10-10";
+                        pedido.TARJETA_CREDITO = "";
+                        pedido.ORDEN_COMPRA = "";
                         pedido.USUARIO_LOGIN = app.getUsuario();
                         pedido.PEDIDODETALLE = lineas;
                         pedido.OBSERVACIONES=txtObservacion.getText().toString();
@@ -219,14 +226,24 @@ public class pedidoFragment extends Fragment {
                                 new ServiceCallBack<JSONObject>() {
                                     @Override
                                     public void onPostExecute(JSONObject data) throws JSONException {
+                                        //pedidoDetalleFragment prueba = new pedidoDetalleFragment();
                                         String pedido = (String) data.getString("pedido").toString();
                                         String message = "Pedido creado satisfactoriamente con número:" + pedido;
+                                        txtBodega.setText("");
+                                        txtCliente.setText("");
+                                        txtNombreCuenta.setText("");
+                                        txtObservacion.setText("");
+                                        txtOdc.setText("");
+                                        app.setLineasShared(null);
+
                                         SpannableStringBuilder biggerText = new SpannableStringBuilder(message);
                                         biggerText.setSpan(new RelativeSizeSpan(1.35f), 0, message.length(), 0);
                                         Toast toast = Toast.makeText(fragment, biggerText, Toast.LENGTH_LONG);
                                         toast.setGravity(Gravity.CENTER, 0, 0);
                                         toast.show();
-                                        app.setLineasShared(null);
+
+
+
                                     }
 
                                     @Override
