@@ -282,7 +282,7 @@ public class pedidoDetalleFragment extends Fragment {
             Exactus.ObtenerArticulos(fragment,
                     app.getUsuario(),
                     app.getPassword(),
-                    "B-01",
+                    numeroBodega,
                     "",
                     ArticuloBusqueda.getText().toString(),
                     "",
@@ -291,7 +291,7 @@ public class pedidoDetalleFragment extends Fragment {
                     "",
                     "",
                     "",
-                    "00008022",
+                    numeroCliente,
                     new ServiceCallBack<JSONObject>() {
                         @Override
                         public void onPostExecute(JSONObject obj) {
