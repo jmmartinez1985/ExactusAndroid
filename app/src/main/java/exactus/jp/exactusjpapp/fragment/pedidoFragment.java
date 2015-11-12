@@ -62,9 +62,11 @@ public class pedidoFragment extends Fragment {
 
 
 
-
-
-    EditText txtCliente = null,txtNombreCuenta= null, txtBodega = null, txtObservacion=null, txtOdc=null;
+    public static EditText txtCliente = null;
+    EditText txtNombreCuenta= null;
+    public static EditText txtBodega = null;
+    EditText txtObservacion=null;
+    EditText txtOdc=null;
     private CoordinatorLayout coordinator;
 
     private TextInputLayout inputLayoutCliente,inputLayoutNombreCuenta, inputLayoutBodega;

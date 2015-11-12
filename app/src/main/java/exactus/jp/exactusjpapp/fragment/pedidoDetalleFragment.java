@@ -203,12 +203,29 @@ public class pedidoDetalleFragment extends Fragment {
         final DeviceAppApplication app =(DeviceAppApplication) getActivity().getApplicationContext();
         EditText ArticuloBusqueda = (EditText) dialog.findViewById(R.id.txtingresebusqueda);
         RadioButton radioCodigo = (RadioButton) dialog.findViewById(R.id.radioCodigo);
+
+        //Mejorar esto. JMMB
+        EditText txtCliente = pedidoFragment.txtCliente;
+        EditText txtBodega = pedidoFragment.txtBodega;
+
+        String numeroCliente = txtCliente.getText().toString();
+        String numeroBodega = txtBodega.getText().toString();
+
+        if(numeroCliente.equals("")){
+            Toast.makeText(getActivity(), "Debe seleccionar un cliente para proceder con la busqueda de artículos", Toast.LENGTH_LONG).show();
+            return;
+        }
+        if(numeroBodega.equals("")){
+            Toast.makeText(getActivity(), "Debe seleccionar una bodega para proceder con la busqueda de artículos", Toast.LENGTH_LONG).show();
+            return;
+        }
+
         if (radioCodigo.isChecked() == true)
         {
             Exactus.ObtenerArticulos(fragment,
                     app.getUsuario(),
                     app.getPassword(),
-                    "B-01",
+                    numeroBodega,
                     ArticuloBusqueda.getText().toString(),
                     "",
                     "",
@@ -217,7 +234,7 @@ public class pedidoDetalleFragment extends Fragment {
                     "",
                     "",
                     "",
-                    "00008022",
+                    numeroCliente,
                     new ServiceCallBack<JSONObject>() {
                         @Override
                         public void onPostExecute(JSONObject obj) {
