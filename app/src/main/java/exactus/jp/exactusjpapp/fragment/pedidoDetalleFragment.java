@@ -103,6 +103,7 @@ public class pedidoDetalleFragment extends Fragment {
 
 
     View _viewContainer;
+    public static RecyclerView rvLineasReview;
 
     public static pedidoDetalleFragment newInstance() {
         pedidoDetalleFragment fragment = new pedidoDetalleFragment();
@@ -132,6 +133,9 @@ public class pedidoDetalleFragment extends Fragment {
         txtCantidad.addTextChangedListener(new MyTextWatcher(txtCantidad));
         txtPrecioLinea.addTextChangedListener(new MyTextWatcher(txtPrecioLinea));
         txtDescuentoLinea.addTextChangedListener(new MyTextWatcher(txtDescuentoLinea));
+
+        rvLineasReview = (RecyclerView) view.findViewById(R.id.rvLineas);
+
         return  view;
    }
 

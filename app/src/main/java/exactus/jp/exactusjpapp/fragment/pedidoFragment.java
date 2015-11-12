@@ -237,6 +237,7 @@ public class pedidoFragment extends Fragment {
                                         txtObservacion.setText("");
                                         txtOdc.setText("");
                                         app.setLineasShared(null);
+                                        pedidoDetalleFragment.rvLineasReview.setAdapter(null);
 
                                         SpannableStringBuilder biggerText = new SpannableStringBuilder(message);
                                         biggerText.setSpan(new RelativeSizeSpan(1.35f), 0, message.length(), 0);
